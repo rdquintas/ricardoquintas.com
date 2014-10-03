@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>zrq testing</title>
+    <style type="text/css" scr="css/normalize.css"></style>
+    <style>
+    body {
+        margin: 50%;
+        background-color: black;
+        padding: 0;
+        margin: 0
+    }
+    img {
+        /*align: center;*/
+        
+        width: 100%
+    }
+    .float-box {
+        margin-left: 18%;
+        padding: 20px;
+        top: 28%;
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0.06);
+    }
+    .name {
+        color: white;
+        margin: 0;
+        font-size: 89px
+    }
+    </style>
+</head>
+
+<body>
+    <picture>
+        <source media="(max-width: 480px)" srcset="img/ricardo_small.png">
+            <source media="(max-width: 640px)" srcset="img/ricardo_medium.png">
+                <source media="(max-width: 1024px)" srcset="img/ricardo_large.png">
+                    <img src="img/ricardo_large.png" alt="Ricardo Quintas">
+    </picture>
+
+    <section class="float-box">
+        <h1 class="name">Ricardo Quintas</h1>
+    </section>
+
+    <script type="text/javascript" src="js/picturefill.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script>
+    $(window).resize(function() {
+        // $('.float-box').css('margin-left', $(window).width() / 6);
+    });
+  
+    </script>
+</body>
+
+</html>

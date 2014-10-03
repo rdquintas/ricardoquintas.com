@@ -1,0 +1,2454 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#" class="js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths browser-desktop viewport-large viewport-not-small viewport-not-medium logged-in wf-calluna1-n4-active wf-active biobox-ready has-below fileupload">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style>
+    .mqacopyright {
+        font-family: sans-serif;
+        font-size: 9px;
+        white-space: nowrap;
+    }
+    .mqacopyrightlight {
+        color: white;
+        font-weight: bold;
+    }
+    .mqacopyrightdark {
+        color: black;
+        font-weight: bold;
+    }
+    .mqacopyright .mqacopyswitch {
+        display: none;
+    }
+    .mqacopyrightlight .mqacopyswitchlight {
+        display: inline;
+    }
+    .mqacopyrightdark .mqacopyswitchdark {
+        display: inline;
+    }
+    </style>
+    <style>
+    .scale_bar {
+        background-color: #fff;
+        border: 1px solid #000;
+        position: absolute;
+        overflow: hidden;
+        height: 10px;
+        opacity: 0.75;
+        -moz-border-radius: 2px;
+        -webkit-border-radius: 2px;
+    }
+    .scale_text {
+        position: relative;
+        left: 3px;
+        top: -1px;
+        overflow: hidden;
+        color: #000;
+        font-family: Arial, sans-serif;
+        font-size: 10px;
+    }
+    </style>
+    <link rel="shortcut icon" href="http://d2ed0w4q03gsmw.cloudfront.net/64d7526/images/icons/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="css/aboutme.core.css">
+    <link rel="stylesheet" type="text/css" href="css/aboutme.min.css">
+    <!--     <meta name="apple-itunes-app" content="app-id=500230347, app-argument=aboutMeOpenProfile-ricardo.quintas">
+    <script type="text/javascript" async="" src="js/02c12958c27452f207e74e259da5adcd66b80beb.1.js"></script>
+    <script type="text/javascript" async="" src="js/i.js"></script>
+    <script type="text/javascript" async="" src="js/ga.js"></script>
+    <script type="text/javascript" src="js/modernizr-custom.js"></script>
+    <script type="text/javascript">
+    (function() {
+        var d = document,
+            s = d.createElement('script');
+        s.type = 'text/javascript';
+        s.src = 'http://d2ed0w4q03gsmw.cloudfront.net/64d7526/js/mobile/respond.min.js';
+        Modernizr.mq('(min-width:0)') || d.getElementsByTagName('head')[0].appendChild(s);
+    })();
+    </script>
+    <script src="js/require.js"></script>
+    <script src="js/raven.min.js"></script>
+    <script type="text/javascript">
+    //<![CDATA[
+    if (window.Raven) {
+        Raven.config("http://85b9f4c0acbc4c749ea43615ea3b577d@sentry2.aboutme-cloud.net/5", {}).install();
+    }
+    //]]>
+    </script> -->
+    <!--   <script>
+    // String.trim courtesy of http://javascript.crockford.com/remedial.html
+    if (!String.prototype.trim) {
+        String.prototype.trim = function() {
+            return this.replace(/^\s*(\S*(?:\s+\S+)*)\s*$/, "$1");
+        };
+    }
+    </script>
+    <script type="text/javascript" id="globals">
+    //<![CDATA[
+    /* About.me Require Config */
+    (function(requirejs) {
+        /* Configure Raven to handle require() failures a bit more gracefully. */
+        if (window.Raven) {
+            requirejs.onError = function(err) {
+                /* This captures errors that happen trying to load a module. This
+                 * can be a "timeout", a "scripterror" (i.e. 404), or a "nodefine".
+                 * This does NOT include thrown errors and syntax errors.
+                 * http://requirejs.org/docs/api.html#errbacks
+                 */
+                /* We delete err.originalError because it contains a circular
+                 * reference that can't be serialized by Raven. We might want to
+                 * pick out some individual values to include in the extra data we
+                 * send. */
+                delete err.originalError;
+                Raven.captureMessage("Require failed", {
+                    extra: err
+                });
+            };
+        }
+        var config = {
+            baseUrl: 'http://d2ed0w4q03gsmw.cloudfront.net/64d7526/js/amd-compiled/',
+            paths: {
+                'easyxdm': 'http://d2ed0w4q03gsmw.cloudfront.net/core/easyxdm/easyxdm2.4.15',
+                'carousel': 'http://d2ed0w4q03gsmw.cloudfront.net/core/plugins/carousel3.3',
+                'text': 'require/text',
+                'log': 'lib/log',
+                'viewer': 'controller/viewer',
+                'editmode': 'controller/editmode',
+                'markdown': 'jquery/Markdown.Sanitizer',
+                'markdown_converter': 'jquery/Markdown.Converter',
+                // bower modules:
+                'backbone': 'bower/backbone/backbone',
+                'marionette': 'bower/marionette/lib/backbone.marionette',
+                'underscore': 'bower/underscore/underscore',
+                'backbone.collectionsubset': 'vendor/backbone.collectionsubset',
+                // external modules:
+                'facebook_sdk': '//connect.facebook.net/en_US/all',
+                'google_jsapi': '//www.google.com/jsapi?',
+                'mapquest': '//open.mapquestapi.com/sdk/js/v7.1.0/mqa.toolkit.js?key=Amjtd%7Cluua2908ng%2Ca5%3Do5-lzblu'
+            },
+            waitSeconds: 15,
+            shim: {
+                'markdown': {
+                    deps: ['markdown_converter'],
+                    exports: 'Markdown'
+                },
+                'facebook_sdk': {
+                    exports: 'FB'
+                },
+                'google_jsapi': {
+                    exports: 'google'
+                },
+                'underscore': {
+                    exports: '_'
+                },
+                'backbone': {
+                    deps: ['underscore'],
+                    exports: 'Backbone'
+                },
+                'backbone.collectionsubset': {
+                    deps: ['backbone']
+                }
+            }
+        }
+        var jqueryplugins = [
+            'autoGrowInput',
+            'backstretch',
+            'bloodhound',
+            'colorPicker',
+            'cookie',
+            'doTimeout',
+            'dropper',
+            'fieldhint',
+            'fieldlimiter',
+            'fileUpload',
+            'fontAvailable',
+            'form',
+            'getJSONP',
+            'iframeTransport',
+            'imagesLoaded',
+            'isInArray',
+            'json',
+            'jstorage',
+            'matchFontSize',
+            'pagethumbs',
+            'payments',
+            'prettyDate',
+            'scrollIntoView',
+            'scrollToTop',
+            'shrinkLine',
+            'shrinkWrap',
+            'throttle',
+            'tickslider',
+            'tinysort',
+            'toggle',
+            'touchpunch',
+            'touchswipe',
+            'truncate',
+            'typeahead',
+            'validate',
+            'vhide',
+            'widget'
+        ];
+        for (var j = 0; j < jqueryplugins.length; j++) {
+            var p = jqueryplugins[j];
+            config.paths[p] = 'jquery/' + p;
+        }
+        //console.log(config);
+        requirejs.config(config);
+    })(requirejs);
+    define('globals', function() {
+        var g = {};
+        g.UNSUPPORTED = false;
+        g.DOMAIN_NAME = "about.me";
+        g.DOMAIN_NAME_URL = "http://about.me";
+        g.SSL_DOMAIN = "https://about.me";
+        g.STATIC_HOSTNAME = "http://d2ed0w4q03gsmw.cloudfront.net/64d7526";
+        g.AWS_THUMBNAIL = "http://d3mod6n032mdiz.cloudfront.net";
+        g.AWS_IMAGES = "http://d13pix9kaak6wt.cloudfront.net";
+        g.JS_DEBUG = false;
+        g.FEED_DEBUG = false;
+        g.NAV_HEIGHT = 50;
+        g.THUMBNAIL_SIZES = ['840x560', '540x360', '300x200', '210x140', '105x70'];
+        g.ENVIRONMENT = "production";
+        g.CUSTOMIZE_SAVER_DELAY = "2000";
+        g.FACEBOOK_APP_ID = '249413078192';
+        g.SIGNUP_DELAY = 10;
+        g.VIMEO_SCREENCAST = true;
+        g.AUTH_TOKEN = "27388196036227225924683885924142085661";
+        g.IOS_APP_PROMO = true;
+        g.BRANCH_ADMIN = false;
+        g.AMD_COMPILED = true;
+        g.JS_LOGS_IGNORE = ['amd', 'metric', 'event'];
+        g.SHOW_ALL_CTAS = false;
+        g.STORE_KEY = "pk_live_RlI4aulcrfnDp0vi1aZHyc8y";
+        g.FRAMED = false;
+        //]]>
+        //<![CDATA[
+        g.MAPPED = false;
+        //]]>
+        g.PAGE = 'user';
+        g.PAGE_USER_NAME = 'ricardo.quintas';
+        g.PAGE_USER_RENAMED = false;
+        //<![CDATA[
+        g.SERVER_MESSAGE = {
+            message: "",
+            status: "ok"
+        };
+        //]]>
+        //<![CDATA[
+        var console = (g.JS_DEBUG && window.console) ? window.console : {
+            log: function() {},
+            time: function() {},
+            timeEnd: function() {},
+            error: function() {}
+        };
+        console.time = console.time || (function() {});
+        console.timeEnd = console.timeEnd || (function() {});
+        //]]>
+        //<![CDATA[
+        return g;
+    });
+    //]]>
+    </script>
+    <script src="js/jquery1.8.3-jqueryui1.9.2.js"></script>
+    <script src="js/176651799.js"></script>
+    <script type="text/javascript">
+    define('applist', function() {
+        return [{
+            "iframe_url": "/content/ricardo.quintas/twitter",
+            "platform": "twitter",
+            "display_order": 1,
+            "display_name": "Twitter",
+            "id": 1
+        }, {
+            "iframe_url": "/content/ricardo.quintas/linkedin",
+            "platform": "linkedin",
+            "display_order": 2,
+            "display_name": "LinkedIn",
+            "id": 2
+        }, {
+            "iframe_url": "/content/ricardo.quintas/github",
+            "platform": "github",
+            "display_order": 3,
+            "display_name": "GitHub",
+            "id": 3
+        }];
+    })
+    </script>
+    <script type="text/javascript">
+    //<![CDATA[
+    define('data/user', function() {
+        var settings = {
+                user_id: '3392255',
+                user_name: 'ricardo.quintas',
+                first_name: 'Ricardo',
+                last_name: 'Quintas',
+                display_name: 'Ricardo Quintas',
+                possessive_display_name: 'Ricardo Quintas’',
+                possessive_first_name: 'Ricardo’s',
+                twitter_name: 'ricquintas',
+                email_public: true,
+                add_visible: true,
+                allow_fave: true,
+                share_buttons: {
+                    "share_embed": true,
+                    "share_buttons_location": "profilebox",
+                    "share_email": true,
+                    "share_linkedin": true,
+                    "share_pinterest": null,
+                    "share_facebook": true,
+                    "share_twitter": true,
+                    "share_googleplus": false
+                },
+                follow_buttons: {
+                    "follow_linkedin": true,
+                    "follow_tumblr": true,
+                    "follow_twitter": true,
+                    "follow_instagram": true,
+                    "follow_wordpress": null,
+                    "follow_px500": true
+                },
+                compliment_buttons: {
+                    "display_creative": true,
+                    "display_greatpic": true,
+                    "display_love": true,
+                    "display_inspired": true,
+                    "display_wellwritten": true,
+                    "display_impressed": true,
+                    "display_cool": true,
+                    "display_greatpage": true,
+                    "display_fan": true
+                },
+                has_websites_info: true,
+                contact_visible: true,
+                renamed: '',
+                mobile: {},
+                colors: {
+                    color_input: '',
+                    background_color: '333333',
+                    profile_color: '000000',
+                    profile_opacity: 30,
+                    pattern: '',
+                    pattern_opacity: 75,
+                    heading_color: 'FFFFFF',
+                    bio_color: 'FFFFFF',
+                    name_color: 'FFFFFF',
+                    links_color: '2B82AD',
+                    saved_colors: [],
+                    profile_shadow: false
+                },
+                fonts: {
+                    typekitEnabled: true,
+                    font_name: 'calluna-1,calluna-2',
+                    font_name_size: 89,
+                    font_heading: 'proxima-nova-1,proxima-nova-2',
+                    font_heading_size: 41,
+                    font_bio: 'proxima-nova-1,proxima-nova-2',
+                    font_bio_size: 17,
+                    font_findme: 'proxima-nova-1,proxima-nova-2',
+                    font_findme_size: 17,
+                    font_kit: 'xyv2teg'
+                },
+                profile: {
+                    // profile_width: 450,
+                    profile_width: 0,
+                    text_left: -438,
+                    text_top: 100,
+                    bg_offset: 0
+                },
+                images: {
+                    background_image: 'http://d13pix9kaak6wt.cloudfront.net/background/users/r/i/c/ricardo.quintas_1412273872_42.png',
+                    background_height: 1050,
+                    background_width: 1680,
+                    background_x: 0,
+                    background_y: 0,
+                    background_repeat: 'scale',
+                    profile_image: "",
+                    avatar_image: ""
+                },
+                page_complete: {
+                    user_name: 'ricardo.quintas',
+                    bio: 'true',
+                    background: 'custom',
+                    services: '4'
+                },
+                location: '',
+                locations: ["Europe"],
+                contact: {},
+                work: [],
+                education: [],
+                tags: [],
+                tags_visible: true,
+                featured_video: {},
+                framed: false,
+                origin_domain: false
+            }
+            //]]>
+            //<![CDATA[
+        settings.linkedin_id = "BhKGrC2FN6";
+        //]]>
+        //<![CDATA[
+        settings.contact.phone = '1-351-967-2850';
+        settings.contact.country = 'Portugal';
+        settings.contact.address1 = '';
+        settings.contact.address2 = '';
+        settings.contact.state = '';
+        settings.contact.city = '';
+        settings.contact.zip = '';
+        //]]>
+        //<![CDATA[
+        return {
+            Settings: settings
+        }
+    });
+    //]]>
+    </script>
+    <script type="text/javascript">
+    require(['main'])
+    </script> -->
+
+    <meta name="robots" content="index">
+    <title>Ricardo Quintas - Europe | about.me</title>
+    <link rel="canonical" id="page_url" href="./Ricardo Quintas - Europe   about.me_files/Ricardo Quintas - Europe   about.me.htm">
+    <meta name="description" content="View Ricardo Quintas on about.me. About.me makes it easy for you to learn about Ricardo Quintas’ background and interests.">
+    <meta name="keywords" content="Ricardo Quintas ricardo.quintas about.me page">
+    <meta name="author" content="Ricardo Quintas (ricardo.quintas)">
+    <meta name="thumbnail" content="http://d3mod6n032mdiz.cloudfront.net/thumb2/r/i/c/ricardo.quintas/ricardo.quintas-300x200.jpg">
+    <meta property="og:site_name" content="about.me">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:url" content="http://about.me/ricardo.quintas">
+    <meta property="og:title" content="Ricardo Quintas (ricardo.quintas) on about.me">
+    <meta property="og:description" content="View Ricardo Quintas on about.me. About.me makes it easy for you to learn about Ricardo Quintas’ background and interests.">
+    <meta property="og:image" content="http://o.aolcdn.com/dims-global/dims/ABOUTME/5/200/200/100/http://d3mod6n032mdiz.cloudfront.net/thumb2/r/i/c/ricardo.quintas/ricardo.quintas-840x560.jpg">
+    <meta property="og:type" content="aboutme_prod:page">
+    <meta property="fb:app_id" content="249413078192">
+    <meta name="twitter:card" content="photo">
+    <meta name="twitter:site" content="@aboutdotme">
+    <meta name="twitter:creator" content="@ricquintas">
+    <meta name="twitter:url" content="http://about.me/ricardo.quintas">
+    <meta name="twitter:title" content="Ricardo Quintas (ricardo.quintas) on about.me">
+    <meta name="twitter:description" content="View Ricardo Quintas on about.me. About.me makes it easy for you to learn about Ricardo Quintas’ background and interests.">
+    <meta name="twitter:image" content="http://o.aolcdn.com/dims-global/dims/ABOUTME/5/435/290/100/http://d3mod6n032mdiz.cloudfront.net/thumb2/r/i/c/ricardo.quintas/ricardo.quintas-840x560.jpg">
+    <meta name="twitter:image:width" content="435">
+    <meta name="twitter:image:height" content="290">
+    <style type="text/css">
+    /*div.profile .profile-content {
+		width: 450px;
+	}*/
+    
+    .background-pattern {
+        opacity: 0.75;
+    }
+    .profile div.profile-head h1.name {
+        font-family: calluna-1, calluna-2, "proxima-nova-1", "proxima-nova-2", Tahoma, Helvetica, Verdana, sans-serif;
+        font-size: 89px;
+        color: #FFFFFF;
+    }
+    .profile div.profile-head h2.headline {
+        font-family: proxima-nova-1, proxima-nova-2, "proxima-nova-1", "proxima-nova-2", Tahoma, Helvetica, Verdana, sans-serif;
+        font-size: 41px;
+        color: #FFFFFF;
+    }
+    .profile div.profile_photo {
+        padding-top: 5.0px;
+    }
+    .profile div.bio {
+        font-family: proxima-nova-1, proxima-nova-2, "proxima-nova-1", "proxima-nova-2", Tahoma, Helvetica, Verdana, sans-serif;
+        font-size: 17px;
+        color: #FFFFFF;
+    }
+    .profile div.bio a {
+        color: #2B82AD;
+    }
+    .profile div.rsswrapper h4,
+    .profile div.rsswrapper .source {
+        color: #FFFFFF;
+        ;
+    }
+    .profile div.location,
+    .profile .meta ul.list {
+        font-size: 14px;
+        color: #FFFFFF;
+    }
+    .profile div.location a,
+    .profile .meta ul.list a {
+        color: #2B82AD;
+    }
+    .profile .contactinfo .menu-toggle {
+        font-size: 11px;
+        color: #2B82AD;
+    }
+    .profile div.services {
+        color: #FFFFFF;
+    }
+    .profile ul.links {
+        font-family: proxima-nova-1, proxima-nova-2, "proxima-nova-1", "proxima-nova-2", Tahoma, Helvetica, Verdana, sans-serif;
+        font-size: 17px;
+    }
+    .profile ul.links a,
+    .profile ul.feeds a {
+        color: #2B82AD;
+    }
+    .embed-modal .logobutton-wordpress:before {
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QkM3RDZDQ0NFMjQ1MTFFMDkyOTBENjlCMDJBMTE3MjgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QkM3RDZDQ0RFMjQ1MTFFMDkyOTBENjlCMDJBMTE3MjgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpCMjVGMUJFQkUyMzAxMUUwOTI5MEQ2OUIwMkExMTcyOCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpCMjVGMUJFQ0UyMzAxMUUwOTI5MEQ2OUIwMkExMTcyOCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pk+XzrUAAAd6SURBVHjavFd7UFTnFf/t3Xv37lvWBXyw0QUWUREDYkErEKJJzdTGidpYo3k0k3SmDWljGv+w6UynTdt0Op02EzWmTiclmYyG2DQmRq2oDZZWQQ1IYFRgNysEEYVdXvt+93wXd110kU5n9Js5M7t3757f77zPJ3vtzT+DThFJNYkF9+bYSN4iaeVvgL/x0rObqzRqNWQy2V1FjsVicHu9VTtq9jFjX2YEqhm4UhThdrsRiUTuKgG5XA6VSgWG+WbNvmpGwKJSKuFyuSR2d/uEw2HJUJ1Ox75a+GTXTHWsAy68f9aKlt5BhCMxDHl9UsgMKiXknAwlc9LxVFk+8jK0U4YhfiQC0Wj0jgS6h734+Sdn4PQG8JNVxdj+nTIYtCoIPAeWMYFQBMPuAOov9aC6tgHpGiV+u64M5jT1pDoZ5v9EYG/zZdScuoQ3nqjCcksWuvod+Mvxszjd0Q1XIEjmAHqlAsvyzdiwvBD/eXUzGq1X8Nx79Xh2xQJsKcmemgBLvFQEfnG4BfZBFxp+tgkOlxdrf78PVxxDiLB3yfUxZj99HvIF0NPYjo8a22DKMGL382vwr1c3YePOg+joH8Jra5bcpjue7Fwym+RTc8aGyw4XDrz0GN7/dxseff1dCTzMEWe5gBgnR4wyGnIeMpIoPQvJFegfHEBNXRM8vhCObNuAy04X/tpkndQDXHII4mJzuvHBOSs+rF6L/afa8UHdSRgVMsLioCHMTDEGAwJQB1xQkRi5MGYqOQiIQk7OeW51KbKma8FzHOq2PY7a5q/wldMzAeOOIfgVuf7tpx6m2ArYXFGI9WXzMTjqxvO7/45Sy33YurYcCrLaHwiAk3NUARycY15s2fEROFkMaqqK5PPWlpX45cEmvPdk+eQhiDPrGBjDkMePZZZZ4EixKAhUclG8uOcAHL4I6i704IW3PyFbYzBlGjHbaECvYwQ/2v03BEkdC8PhpgsTCJTmzsIIVRDTfasHbiPwbmMXXlldgkGXP6FAqxQppl7EeAW8nIgeAjx05mLi95wZRviYF8krQYUGe/7ZNIHAtVEvXv5WCWpId0oCybG5dG0E5fNMeKe+GW5/UHpJVAh4dOkicLEoJZyAoKjF8dYu8sy4G6frtSg2myj+ZAhPJKDAb/afSDSdo+dtqJifhc6B0QlYKT3gCoWRphbR0NaJY+c7ElaUF+ZBEQ1BRtkf5kVYHWPo6htI/L56ybxxAqQyzCvR1Pm1FGcnle+R5guYRnkxFgil9kA8CZmEwlHqcHK4KGZHzt0ksNg8E2kqkRKO/ki5wcrR2tt/M87z5kLkYuBZa+CFG1M1ioaLdgyNjEKgZGW64zi3JWFcEv2arLxAFtqvO8fzgCxYmmeCGApS++GgopIszs1KvJ9lnAbLjOlUilRapGdupoFIyPH5l1aiwSGWVP/JWFzygGDC+nuQmGpoWsXIys+aOxMgK/JN4CgMSlkERaZ0qBUK1LWONxlm8QOLLBAifgpFRMr8wVEPWnuuQ63Vk/UR8oJsQvxTJqGOEm7M58c3cmcjRF440WZPJFtFQR6B8hAJZGVBDk6027G3/mxC2bL5JvCxcYIPFebiaJsNEYpESd4cuCih9VRNKZMw+WF+hh6nrFfxeGk+eUDAdbcfjV1fSy+zCWjJmAZNNIiKBSac7OyD/dowbDSg2Fl03ywYtRrM0fAw6DQ4RuQjnAIbl+XTgLpKunVTE3hiqRl//Mc55FM80whQTmV3qOVmL69YaEbeLIOUUO39I4iKKnx8ZjxMHO0ES7Nnoyw7Ez3DLnQPOKHXp5EuI/5w9AtsosmYkkAyiTyDikpGgdPWPux5ZiUClEjnbH1w+3zSew8uysEjRRbUXeyjepcjoNChgTzENh12qgotWFdejANNFyXr9zyzCmftV8n9POlWTp0DTLavKsBPa+uRQR74wQOL4Y3K8GHjJekP2TPT8e3S+2n56EZEUMEvqDFILfpUR+84wcW5mJmZTi7vx/cfLEamTo0f7/0c21cW3IaT0gNMTDoBG5dkY+Ouz/D0Nxdg84r7cdp2NVE6vSNu2Ic8CCtUNIZFCoMGn563JpR2XR/BIyUL8PTyAmzY+Sm+R7qYzlvBE9Pw1j2Nff7uwhnodrixnhTsp7HsLMqBxx+GTq3Aoeau8T1AxlHjoa5GnaG1ZxA+6nRq2o7mpk+DOSMN63YcgNmgkXRNtnFxqR7G7wbbKnNRmZOByt/VopcWC7VSkJ6rlJQnVFJahEAVjnSRoxI1I3CjpbdfcaDy9VpU5mbiFdJxpzPlVryB2C+fa8SvD57GKNXyVppqa4qy8eSKheDlN5ZSqgjWOw632rHjeAv0ooA/PbYEWRphym17UgLBYBA+ynyPxyPJD3M5uDgjjrV0YOexLxCi14dpXkjTkLZgNgPyjRq8sDgd2ogbnr7L6NNooCFhFxEFdc1JCcTBk0kItIgw0ev1E/5Ay9H/fSVLDnFyFdgCwRB4nr/r98I4OMNimAybeWDXxycaLOsfqqxii8e9uJwycMI8ybAZgS9JttKDF+/x9XwXw/6vAAMAQl0PaOjnvg0AAAAASUVORK5CYII=);
+    }
+    .embed-modal .logobutton-tumblr:before {
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEaElEQVR42r2XzU+cVRTG3btQilDQKl+tIJ1hBuzAMMxQSgcKhYEZhvkEighSOpaCgIltahe11cSPSNSu2o1xoavGjWmaxtT4H2jckrBAZcGCBQsSJjnec/C53Lnzlqabvskv5+Oec59n3pnNvCBPSa1XcVfx+PkgWl5T/HFoZP7fzMLX+Qsrd2hs6VtHcFYUl78zZw7dyyyu5lmLNUWb3QSjuX9Gc19QePI6BZJL1J74oIBgegXoXkfKmrPmnXqh9IfUPX6Vkpe/pA6lKW+CnQzN3s53jX1EgdQytY0uItrY58iZJ874HebPTFwj1mRtMRCZva1cLlFbfIF8I1cEv3Jt5E+qZQd1a1zONdLDvAFrDc99RtrAwMwtOhWbZ4cANV/KkS+U3n5/gV5sCAPMA9TI//9gUnMucWD65oGB8MR1EWgZfh8ROPYbeqbIfNC39wBqE9bUBrrHr2nHzUM55HZP5/G5j0197jHOO8ijlwtq1tQGAollcekZnFOHl5A7UtOZpR/uP3R8A5jxRuQOs2/n8jvQBvzxRWpWS0zT+VlGckEtcN3Y+y4d84/Sxaufk/1gFvvA7Nszvuj8gQHv4CVy9b8n7oBdN54dozvf3yenBz9GYO4jl3rgos5ZUxtgRyfPTQsuhbt/hl1yzj3Jn+HBjiPmmTbgFleCvGogtcSZZzLg3t+TaN6NPtAG3gq/QwBvgWnsmZKemTs8mGE4R21HMy80UN99gRg+FKEexCmOQkN4Umby+byNnsE9h9QSgTbQoIRPnJkgjsgZ5PVKHGe7u7s2RTv1ZzHveB8ofAPHT48JcI0eItjZ2bHBWfFel/N9yLUBOKrtzBJyu4e4vb1tUzT7tPvQ1wZqgmlSqIMMIWeHHO16a2vLxpzR1J3OFt4BjVBGz2gDcAWqOlJ2LrE6lKbNzU0bPVsTyph7wOyZsfANVCveaE8IcIvcrDc2NorY309JLGuO0KutI4770guIhqANVAWSxBxri+9Hfxx1Eevr60WIqC9GL7n66JPVe+SLzNBrygTfwYLY5drU0gaqO1K8wK4kmqCPs7W1tSJWbq5SVyJHP/38QOpfHv1GtcEUduw7JLJmgYFKX5QqT0XhVr3GmET0wINff4fwoaRzN7BvR+F1/6hpIE0VysDRt4cZzvl7NHtcS5xe+fSp4lNLt9QHisl8ZWuMd7EPlIGE8SNUBsqbIwAu7Z6OV258RX/8+ZcpKvU3936kpt5JmatQIph3uq/KNFDlT9IrngE62jKkKVegp6KqIxwZ/tFJvze7wIgozrCDKD2v5KgFpWl8Be0paZY2nTcRp6Weg7rMO4hPwPVhETlQJgbREyN1oYxpILnHl5e4+uDQRs6AXZda9ZGmfsw4zpd7I1QbSO3BwN0yV+/fdcEsVbQMa8cvnzynOeLul4izEncfaswAzNg5atFgLdbEXzMPOylXjepAcu/NznE1kCGOAD1EJ44HsxLt2ROdY3Zvj7VYU7SJCCae999zD2v/Bz1Fqw0ZMbL0AAAAAElFTkSuQmCC);
+    }
+    .embed-modal .logobutton-blogger:before {
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA1VJREFUeNrEV01ME0EU/nZ2WwsuFBETU4gQBEUTFMR4MbFrNHIx8acGNXLioAeP3rxw46oeNWo8aOCiHIh6tCXxoEFANIpiTCHAwQC2pSktlF1ntlh221m2mLJO8rqZ7nvzfe+bNz8raJqG0cvVCgAlmpz1w4Hm9fhC9BFkJjFwCtzdFmhS5NqzTuAjPjmofHg+7qdEILHMM+AngC8PHCEgH7yOtgCUHy9jIcJkl727tx5cKl23708hV9aCYUv6y1Vq6S1OO50w95dTGV767wp9qcGxpopUBVU1EEjF6B/WAUmqTngBmIvTRDh+EgGqZKCuEvBI9gSIShNO/DIQWIpYEohTpcZiPogtN1BadxKCW87z0ZbjiIbfYHj0Pg6Vz0LeVoAMDNOkgMbPfCy5H9sDj7nA2VbihXTgPLS9pzE20IUj5Ju9EgyTqZHpJDIK5Fg4WY2yc08gespBCLE15sf8WRxvPJOlEgYCFk7J5puQaHaiKBZszJ/F2RJYm3IpS4DTPI1nQOig2f7PflRNvzD5zNVcRLL+Ql5c+uttvThtt4dMFVm8pNmY6uZzP0jifXZ+WY0sRQSIDQFzldM44i6nyztWIAELBURD9jqBxksYGpxBOjKdCa6ogffwJcg5fqwNjmfA63ZQqygSAW9rh26FtPruSf35O3iXVvMd6z0hOwUc20zxWVnVqVuW468rAJqpuprPjpAi7b281EX9EJKyPDgERM7cFo+AZCAguKgkKVsCwqc+lI33boi12HQVWvOVnL2a48gwkTIQUO2LcOFdH0rn31pus2xZRqICKluu2SugE/hbA4Kb6yTQQ0ag22tWtdZODA9MYXl+ikvAvXMPfNTHWDvqUtSCgNtAgPAJuCZeQTNks+t4p26bughNvLaoAbdhGbIOZ5mUBHtAVuL/vAQJVbAk1MNfgnkEOIeFsDAJz8N2OtBiQaehyWiM51G7Pgb3IDIRENyWJ5Yw8xHue8cgjTyDWIga1If5shgWa3kSmmvAtfGdcD4M0ttVvEuhwJaYK4eA6tyllG28ZgL6TuggAX0aJGMRinC8rWES/UMxFgYalMKuUcUwhkUxGTbTIRgaCvv9R6Fgn+JM9othUMwgJRAURjp87K//8nlO8YJ/BBgA9hFvfW3mEjkAAAAASUVORK5CYII=);
+    }
+    .embed-modal .logobutton-typepad:before {
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABRNJREFUeNq8V1tsVEUY/uac7Z7dtttS2BZoSxVopWKNaLHECwEv8cEHLT4YjQ81Rn3hEi4xIT74oFGID9UaeSBgYkiIoqYSIyReiiA0JYCEQm2ptW0slNLtBbbbdne75+I/s+fszm4LUrP030zO5OzM/33z3+Y/DCS1H+WtosdGGuWYG/mbxp7D745dYDb4J6+/tH095lC+bKw/To9tnMC+12o3vqmbU4gZ4TkBz1K9cCluHDy8Z7+Lm11hCkwrBlVx/edmy7LEM6JPYkIPimc0FoVhGfxP0qFCy/LAQyA57gJoqgYGRexhjIl1HIto8FflAtGCdVswvpHPx6ZGMDxxHTdiw5jvLcZibwkq5j2DBd7FkgYLI2FaE2lHT6gLN8MDyFXnYaGvGPluP1Sm2jrjpAQB09SJlTENmItCG4Ym+9FHysp8FXhu6WasLFoHn1ZwR+YO6yFcvH4M5waO4HzgdyzMLkFJ7nJYpikRIHAZlJ+YS1SP4M/Rs1jmq8HW6q+xZN79s/a31+XDmtIXxRihgzR2NOCPwE94pGh9kkDUiCBmRlM2Mvpx8FdWvI8a2pwJWUCnf6v6Y1wNvoGDbe/ELRw3uQnhRGl0DrZh++pDGQOXpTS/ElvWfCURSAvCa6Fe1D1cLxbeLfG6cmUXTKQE4aKcagq0x+akJggCUxQDwg22rLt3w10H1uUsCFMxgeSGotwld5ZisZCI7DxPEfK0+bMiYCcaXE7xSFE8FQKyb735avAyTvb9guUFZagsXDtr8GkuSJdr439Ny/nhyas40/8jfuv+FiuKqlFbuQX+7NLMxEC6nLiy164FdNqxNgyG23Gur4XKqAfvPdWY0ewQBAzDSAsQHT/3fAaDAkVVFJzv78bLVTvw6oObMwasyneBbsZmChMBrpsGdq79lEppbUazoLH9Q/kusFLSMMUaumk7IzPSHmjB0a4GBCODkgt0GhIBZudFlktF+1Af6lYVi/cj4X66ekv+F3DH0Gk09X6BnuFWZLs9dMu6ZBfo4B2RI27VjYnoBPqGRrDr2YNY5FuGfWe3oS3QBL+vEA/4n0ZJXhWKfffBn1NK63MSPuUHmYwFEQwPoj/UiUuBZvSOnsZ4NAjN5aVuSKXOKwavW0sSUImNgWQcjBP44/e8gA8qNomOp/nKdwR+jNZpuDEewonQIVr1TWK95somxVlxl5HySKKwMbGHz/kaXnz4rc8tbJiGTEBNKIvqU3i7ph4rC9ehbfAkjv9zAO0DLcQ4W+jkFxdPR0dZHNQQIxnhGlILHKP/9fglb/vXpTD5LjAQob7On1eA3WtPIUJ3ww+dDWjqOkDmitDptIQCzNi+MQmQpQZS+tyeOOQFAa+HoW71XlQUPIoLg7+iqXs/OgJn4FHyKBWzRJakANvHt+zGhfJIhp5e3a0kUefqd7ouQWDnE0fRE7yIA5d24GT392RCLzTFJ3bGLy0rTZclHcxKgFs2Od7eMYloknDyvWVJhWh38/O4Mjpg+49ShH68LljTDZtCRA4qJ4mZlfwPTgkxk5YTvaeIASkNY1ENKtTbX502CweQSX5NJ8gkHzuE4vOktZyXwg4KfUzEtcYH/1BJaGSO75LglqSAE5kpNNm0PIjPnYxTnCf/UByLBlIaUtNpUh0Ntk9ZmnIZgd0iN9L3Oa0fx6wqe1K44PPe1svlpVVL5/TjNOemH219p7YyHhQbduU/RO82zdXnOT85B6dDt/4rwABLdS71z54DcAAAAABJRU5ErkJggg==);
+    }
+    body.profilepage {
+        background-color: #333333;
+    }
+    /*profile position*/
+    
+    .profilepage .background-container .profile {
+        top: 100px;
+    }
+    .profilepage .background-container.drag .profile,
+    .profilepage .background-container.repeat .profile,
+    .profilepage .background-container.scale .profile,
+    .profilepage .background-container.center .profile {
+        margin-left: -438px;
+        left: 50%;
+        right: auto;
+    }
+    .profilepage .background-container.instagram-right .profile {
+        right: auto;
+        margin-left: -438px;
+        ;
+        left: 50%;
+    }
+    .profilepage .background-container.instagram-left .profile {
+        right: auto;
+        margin-left: -438px;
+        ;
+        left: 50%;
+    }
+    .profilepage .background-container.right .profile {
+        right: -438px;
+        margin-left: 0;
+        left: auto;
+    }
+    .profilepage .background-container.left .profile {
+        left: -438px;
+        margin-left: 0;
+        right: auto;
+    }
+    .profilepage .background-container .background {
+        width: 1680px;
+        height: 1050px;
+        margin-left: -840px;
+    }
+    .profilepage .background-container.drag .background {
+        top: 0px;
+        margin-left: 0px;
+    }
+    .profilepage .background-container.repeat {
+        background-image: url(http://d13pix9kaak6wt.cloudfront.net/background/users/r/i/c/ricardo.quintas_1412273872_42.png);
+        background-position: 50% 0px;
+    }
+    .profilepage .background-container.scale .background,
+    .profilepage .background-container.repeat .background {
+        width: 100%;
+        height: 100%;
+        left: 0;
+        margin-left: 0;
+        top: 50px;
+    }
+    .profilepage .background-container.repeat .background {
+        top: 0;
+    }
+    @media only screen and (max-width: 640px) {
+        /* even if scaled, on mobile bg image will show the same way*/
+        
+        .profilepage .mobile-background-container {
+            background-image: url(http://d13pix9kaak6wt.cloudfront.net/background/users/r/i/c/ricardo.quintas_1412273872_42.png);
+            background-color: #333333;
+        }
+    }
+    </style>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="user-scalable=no, width=device-width, minimum-scale=1, maximum-scale=1">
+    <meta http-equiv="cleartype" content="on">
+
+    <style type="text/css">
+    .tk-calluna {
+        font-family: "calluna-1", "calluna-2", serif;
+    }
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="css/edit.css">
+    <style type="text/css" id="edit-css">
+    #colorwell_background_color {
+        background-color: #333333;
+    }
+    #colorwell_profile_color {
+        background-color: #000000;
+    }
+    #colorwell_name_color {
+        background-color: #FFFFFF;
+    }
+    #colorwell_heading_color {
+        background: #FFFFFF;
+    }
+    #colorwell_bio_color {
+        background: #FFFFFF;
+    }
+    #colorwell_links_color {
+        background: #2B82AD;
+    }
+    </style>
+
+</head>
+
+<body class="profilepage layout-mobile layout-tablet layout-desktop layout-desktop-wide mobile-enabled has-fixednav profilepage-edit has-resume" data-feedly-mini="yes">
+    <div class="page-container">
+        <div class="page-content">
+
+
+            <div class="structure topnav">
+                <div class="content">
+
+                    <a class="logo nav-link" href="https://about.me/">
+
+
+                        <span class="nav-item">
+                            <img src="./Ricardo Quintas - Europe   about.me_files/aboutme_logo_white.svg">
+                        </span>
+
+
+                    </a>
+
+
+
+
+
+                    <ul class="nav accountlinks">
+
+
+
+                        <li class="backstory-link">
+                            <a href="http://about.me/ricardo.quintas/below/backstory" class="promo-link button dark orange" data-metric="Add Backstory - Button" title="Set yourself apart professionally with Backstory">Backstory</a>
+                        </li>
+
+
+
+
+                        <li class="dashboard">
+
+                            <a href="http://about.me/home" class="nav-link hasbadge" data-metric="Home">Home<span class="badge">1</span></a>
+
+                        </li>
+
+                        <li class="mypage menu menu-right menu-setup" data-menuname="User">
+                            <span class="menu-head nav-link">
+                                <span class="menu-toggle menu-arrow nav-item active glyph-triangle-down-after">Ricardo</span>
+                            </span>
+                            <div class="menu-container">
+                                <ul class="menu-content">
+                                    <li class="item" data-metric="Edit Page"><a href="http://about.me/ricardo.quintas/#!/edit" class="editbutton">Edit Page</a>
+                                    </li>
+                                    <li class="item" data-metric="Get More Visitors"><a href="http://about.me/share">Get More Visitors</a>
+                                    </li>
+
+                                    <li class="item add_backstory" data-metric="Add Backstory - Menu"><a href="http://about.me/ricardo.quintas/below/backstory">Create Backstory</a>
+                                    </li>
+
+                                    <li class="item directories" data-metric="My Collections"><a href="http://about.me/ricardo.quintas/collections">My Collections</a>
+                                    </li>
+                                    <li class="item" data-metric="Stats"><a href="http://about.me/stats/">Stats</a>
+                                    </li>
+                                    <li class="separator">
+                                        <hr>
+                                    </li>
+
+                                    <li class="item upgrade" data-metric="Upgrade"><a href="http://about.me/upgrade">Upgrade</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="accountmenu menu menu-right menu-setup" data-menuname="Account">
+                            <span class="nav-link menu-head">
+                                <span class="menu-toggle glyph-menu glyph-center">&nbsp;</span>
+                            </span>
+                            <div class="menu-container">
+                                <ul class="menu-content">
+                                    <li class="item" data-metric="Account Settings"><a href="http://about.me/account/">Account Settings</a>
+                                    </li>
+                                    <li class="item" data-metric="Invite Friends"><a href="http://about.me/invite/">Invite Friends</a>
+                                    </li>
+
+
+                                    <li class="item helplink" data-metric="Help"><a href="http://support.about.me/" target="_blank">Help</a>
+                                    </li>
+                                    <li class="separator">
+                                        <hr>
+                                    </li>
+                                    <li class="item signin" data-metric="Log Out"><a href="http://about.me/logout">Log Out</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="hamburger menu menu-right menu-setup" data-menuname="Hamburger">
+                            <span class="nav-link menu-head">
+                                <span class="menu-toggle glyph-menu glyph-center">&nbsp;</span>
+                            </span>
+                            <div class="menu-container">
+                                <ul class="menu-content">
+                                    <li class="item" data-metric="My Page"><a href="./Ricardo Quintas - Europe   about.me_files/Ricardo Quintas - Europe   about.me.htm" class="my-page">My Page</a>
+                                    </li>
+                                    <li class="item" data-metric="My Collections"><a href="http://about.me/ricardo.quintas/collections">My Collections</a>
+                                    </li>
+                                    <li class="item" data-metric="Account Settings"><a href="http://about.me/account/">Account Settings</a>
+                                    </li>
+                                    <li class="item" data-metric="Invite Friends"><a href="http://about.me/invite/">Invite Friends</a>
+                                    </li>
+                                    <li class="item" data-metric="Get More Visitors"><a href="http://about.me/share">Get More Visitors</a>
+                                    </li>
+                                    <li class="item" data-metric="Discover"><a href="http://about.me/people/">Discover</a>
+                                    </li>
+                                    <li class="item helplink" data-metric="Help"><a href="http://support.about.me/" target="_blank">Help</a>
+                                    </li>
+                                    <li class="separator">
+                                        <hr>
+                                    </li>
+
+                                    <li class="item upgrade" data-metric="Upgrade"><a href="http://about.me/upgrade">Upgrade</a>
+                                    </li>
+
+                                    <li class="separator">
+                                        <hr>
+                                    </li>
+                                    <li class="item signin" data-metric="Log Out"><a href="http://about.me/logout">Log Out</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+
+                    </ul>
+
+
+
+
+                    <ul class="nav applinks">
+
+                        <li class="search-icon">
+
+                            <a href="http://about.me/search/" class="nav-link glyph-search glyph-center" title="Find people" data-metric="Search">&nbsp;</a>
+
+                        </li>
+                        <li class="search">
+                            <div class="search-field">
+                                <div id="search-form">
+                                    <form class="searchform">
+                                        <div class="buttonfield">
+                                            <input class="input search-main-field" name="terms" id="terms" type="text" value="" tabindex="1" maxlength="100" autocomplete="off" autocapitalize="off" autocorrect="off">
+                                            <input class="input hint" name="terms_hint" id="terms_hint" type="text" value="" maxlength="100" autocomplete="off" disabled="">
+                                            <button class="button submitbutton glyph-search glyph-center" type="submit" tabindex="-1" data-metric="Search"></button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div id="search-suggestions"></div>
+                            </div>
+                        </li>
+
+
+
+                        <li class="people">
+
+                            <a href="http://about.me/people/" class="nav-link" title="Explore the best pages on about.me" data-metric="Discover">Discover</a>
+
+                        </li>
+
+                    </ul>
+
+                </div>
+            </div>
+
+
+
+
+
+            <div class="main-container">
+                <div class="background-pattern"></div>
+                <div class="mobile-background-container" style="background-position: 50% 50%;">
+                    <img src="./Ricardo Quintas - Europe   about.me_files/ricardo.quintas_1412273872_42.png" class="mobile-bg-test-img" alt="Ricardo Quintas">
+                </div>
+                <div class="profile-container" style="min-width: 0px; height: 824px;">
+                    <div class="background-container scale" style="width: 100%;">
+                        <div class="profile-constrain"></div>
+                        <div class="background ui-draggable">
+                            <img src="./Ricardo Quintas - Europe   about.me_files/blank.gif" class="background-fill" alt="">
+                        </div>
+                        <noscript>
+                            &amp;lt;div class="profile no-js"&amp;gt; &amp;lt;div class="profile-head"&amp;gt; &amp;lt;h1 class="name"&amp;gt;Ricardo Quintas&amp;lt;/h1&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;div class="profile-content bio-container clearfix"&amp;gt; &amp;lt;div class="bio"&amp;gt; Freelance Software Engineer. I take myself seriously, but not today. If not coding, I'm playing the Jazz clarinet somewhere. #Javascript #NodeJS #fullstack #SAP &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt;
+                        </noscript>
+                        <div class="profile ui-draggable" id="profile_box" itemscope="itemscope" itemtype="http://schema.org/Person" style="background-color: rgba(0, 0, 0, 0.298039);">
+                            <div class="profile-head" style="width: auto;">
+                                <h1 class="name" itemprop="name" style="font-size: 89px;">Ricardo Quintas</h1>
+                                <h2 class="headline invisible" style="font-size: 41px;"></h2>
+                                <ul class="actions buttonbar">
+                                    <li class="button large dark grey glyph-thumbsup glyph-center first" id="compliment_button" title="Send Ricardo a compliment">&nbsp;</li>
+                                    <li class="button large dark grey glyph-plus glyph-center" id="add_button" title="Add Ricardo to a collection">&nbsp;</li>
+                                    <li class="button large dark grey glyph-forward glyph-center" id="share_button" data-url="http://about.me/ricardo.quintas" data-thumbnail="http://d3mod6n032mdiz.cloudfront.net/thumb2/r/i/c/ricardo.quintas/ricardo.quintas-840x560.jpg" data-description="Ricardo Quintas’ page on about.me – http://about.me/ricardo.quintas" title="Share Ricardo’s page">&nbsp;</li>
+                                    <li class="button large dark grey last" id="emailme_button" title="Send Ricardo a message">Email Me</li>
+                                </ul>
+
+                                <div id="emailmemodal" class="invisible">
+                                    <div class="signupmenuform email_public emailmebutton">
+                                        <p class="or-login invisible">Already a member? <a href="https://about.me/login?came_from=ricardo.quintas">Log In</a> to email Ricardo.
+                                            <br>
+                                            <br>Not a member? Complete the form to register and send Ricardo your message.</p>
+                                        <form action="http://about.me/send_message/ricardo.quintas" id="emailme" method="post" onsubmit="return false">
+                                            <input name="_authentication_token" type="hidden" value="27388196036227225924683885924142085661">
+                                            <fieldset class="from invisible clearfix">
+                                                <label>From:</label>
+                                                <p class="email_from"></p>
+                                            </fieldset>
+                                            <fieldset class="first_name name invisible">
+                                                <label class="label" for="ricardo.quintas_first_name">First name</label>
+                                                <input type="text" name="first_name" id="ricardo.quintas_first_name" class="input fullwidth first_name" value="" maxlength="32">
+                                            </fieldset>
+                                            <fieldset class="last_name name invisible">
+                                                <label class="label" for="ricardo.quintas_last_name">Last name</label>
+                                                <input type="text" name="last_name" id="ricardo.quintas_last_name" class="input fullwidth last_name" value="" maxlength="32">
+                                            </fieldset>
+                                            <fieldset class="email invisible">
+                                                <label class="label" for="ricardo.quintas_email">Email address</label>
+                                                <input type="text" name="email" id="ricardo.quintas_email" class="input fullwidth email" value="" maxlength="254">
+                                            </fieldset>
+                                            <fieldset class="emailmessage">
+                                                <label for="emailme_message">Message
+                                                    <span class="maxchars">(max 1000 characters)</span>
+                                                </label>
+                                                <textarea id="emailme_message" name="emailme_message" class="required input fullwidth"></textarea>
+                                            </fieldset>
+                                            <p class="emailmedisclaimer">The recipient of this message can respond directly to your email address.</p>
+                                            <fieldset class="buttons last">
+                                                <button type="submit" value="Send" class="button large dark blue submitbutton">
+                                                    <span class="button-content">
+                                                        <span class="default-text">Send</span>
+                                                        <span class="loading-text">Sending...</span>
+                                                    </span>
+                                                </button>
+                                            </fieldset>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="profile-content clearfix" style="width: 651px;">
+                                <!--feature video Embed-->
+                                <div class="featured invisible">
+                                </div>
+                                <div class="bio-container clearfix">
+                                    <div class="profile_photo invisible"></div>
+                                    <div class="bio clearfix">Freelance Software Engineer. I take myself seriously, but not today. If not coding, I'm playing the Jazz clarinet somewhere. #Javascript #NodeJS #fullstack #SAP</div>
+                                </div>
+                                <div class="meta">
+                                    <ul class="phone list glyph-phone invisible">
+                                        <li>1-351-967-2850</li>
+                                    </ul>
+                                    <ul class="locations list glyph-location">
+                                        <li><a href="http://about.me/search/place:Europe" itemprop="homeLocation">Europe</a>
+                                        </li>
+                                    </ul>
+                                    <div class="contactinfo menu light menu-setup">
+                                        <span class="menu-head km-clicks-contact-info-visitor menu-toggle menu-arrow glyph-triangle-down-after">Contact Info</span>
+                                        <div class="menu-container">
+                                            <ul class="menu-content addresslist">
+                                                <li class="nonitem phone glyph-phone">1-351-967-2850</li>
+                                                <li class="nonitem address glyph-address">
+                                                    <ul>
+                                                        <li class="address1"></li>
+                                                        <li class="address2"></li>
+                                                        <li class="group">
+                                                            <span class="city"></span>
+                                                            <span class="state"></span>
+                                                            <span class="zip"></span>
+                                                        </li>
+                                                        <li class="country">Portugal</li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <ul class="jobs list glyph-building invisible">
+                                    </ul>
+                                    <ul class="educations list glyph-education invisible">
+                                    </ul>
+                                    <ul class="tags list glyph-tag invisible">
+                                    </ul>
+                                </div>
+                                <div class="bevel bevel-services" style="opacity: 0.3;">
+                                    <hr>
+                                </div>
+                                <div class="services">
+                                    <ul id="service-icons" class="services clearfix">
+                                        <li class="service-icon site_1 group-twitter" data-id="1" data-platform="twitter" data-name="Twitter">
+                                            <a href="http://about.me/ricardo.quintas#show_twitter_1" class="icon twitter">&nbsp;<span class="service-icon-overlay">&nbsp;</span></a>
+                                        </li>
+                                        <li class="service-icon site_2 group-linkedin" data-id="2" data-platform="linkedin" data-name="LinkedIn">
+                                            <a href="http://about.me/ricardo.quintas#show_linkedin_2" class="icon linkedin">&nbsp;<span class="service-icon-overlay">&nbsp;</span></a>
+                                        </li>
+                                        <li class="service-icon site_3 group-github" data-id="3" data-platform="github" data-name="GitHub">
+                                            <a href="http://about.me/ricardo.quintas#show_github_3" class="icon github">&nbsp;<span class="service-icon-overlay">&nbsp;</span></a>
+                                        </li>
+
+                                        <li class="serviceactions">
+                                            <ul class="buttonbar">
+                                                <!--follow button-->
+                                                <li id="follow_button" class="button dark gray" title="Follow or connect with Ricardo.">Follow</li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <span class="addbutton addservicebutton button dark">Add App</span>
+                                        </li>
+                                    </ul>
+                                    <!--hidden, used for invisible menu creation-->
+                                    <ul id="service-icons-setup">
+                                        <li class="service-icon site_1" data-id="1" data-platform="twitter" data-name="Twitter">
+                                            <a href="http://about.me/ricardo.quintas#show_twitter_1" class="icon twitter">&nbsp;<span class="service-icon-overlay">&nbsp;</span></a>
+                                        </li>
+                                        <li class="service-icon site_2" data-id="2" data-platform="linkedin" data-name="LinkedIn">
+                                            <a href="http://about.me/ricardo.quintas#show_linkedin_2" class="icon linkedin">&nbsp;<span class="service-icon-overlay">&nbsp;</span></a>
+                                        </li>
+                                        <li class="service-icon site_3" data-id="3" data-platform="github" data-name="GitHub">
+                                            <a href="http://about.me/ricardo.quintas#show_github_3" class="icon github">&nbsp;<span class="service-icon-overlay">&nbsp;</span></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <ul class="links clearfix">
+                                <li class="site_4" style="line-height: 20px; background-image: url(http://d15rluch0y3zzq.cloudfront.net/favicon/e4a5e2907098845e4ab852e91711ffa5.png);">
+                                    <a href="https://medium.com/@ricquintas" target="_blank" class="website site_4" rel="me">
+                                        <span class="displayname">My Blog</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="profile-content no-thumbnail" style="width: 651px;">
+                                <div class="mobile-links invisible">
+                                    <div class="app-links-wrap mobile-links-wrap">
+                                        <ul class="app-links">
+                                            <li class="app-link" data-id="1" data-platform="twitter">
+                                                <a href="http://about.me/ricardo.quintas#show_mobile_twitter_1" class="glyph-angle-right-after">
+                                                    <span class="displayname">Twitter</span>
+                                                </a>
+                                            </li>
+                                            <li class="app-link" data-id="2" data-platform="linkedin">
+                                                <a href="http://about.me/ricardo.quintas#show_mobile_linkedin_2" class="glyph-angle-right-after">
+                                                    <span class="displayname">LinkedIn</span>
+                                                </a>
+                                            </li>
+                                            <li class="app-link" data-id="3" data-platform="github">
+                                                <a href="http://about.me/ricardo.quintas#show_mobile_github_3" class="glyph-angle-right-after">
+                                                    <span class="displayname">GitHub</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="flat-links-wrap mobile-links-wrap">
+                                        <ul class="flat-links">
+                                            <li class="flat-link" data-id="4">
+                                                <a href="https://medium.com/@ricquintas" target="_blank">
+                                                    <span class="displayname">My Blog</span>
+                                                    <span class="icon" aria-hidden="true" data-icon="A"></span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /profile -->
+                        <div id="backstretch" style="left: 0px; top: 0px; position: fixed; overflow: hidden; z-index: -999999; margin: 0px; padding: 0px; height: 610px; width: 1349px;">
+                            <img src="./Ricardo Quintas - Europe   about.me_files/ricardo.quintas_1412273872_42.png" style="position: absolute; margin: 0px; padding: 0px; border: none; z-index: -999999; max-width: none; width: 1349px; height: 843.125px; left: 0px; top: 0px;">
+                        </div>
+                    </div>
+                    <!--/end background-container-->
+                </div>
+                <!--/end profile-container-->
+                <div id="belowthefold">
+                    <div class="below" style="top: 779px;">
+                        <div id="below-nav">
+                            <ul class="below-tabs">
+                                <li class="below-tab" id="below-tab-backstory">
+                                    Backstory
+                                </li>
+                                <li class="below-tab" id="below-tab-groups">
+                                    My Collections
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="below-nav-fixed">
+                            <ul class="below-tabs">
+                                <li class="below-tab" id="below-tab-backstory">
+                                    Backstory
+                                </li>
+                                <li class="below-tab" id="below-tab-groups">
+                                    My Collections
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="below-content">
+                            <div class="below-containers">
+                                <div class="below-container" id="below-backstory" style="background-color: rgb(68, 68, 68);">
+                                    <h2 class="below-mobile-title">Backstory</h2>
+
+                                    <div class="container-promo">
+                                        <section class="backstory-onboarding">
+                                            <p>Set yourself apart professionally with Backstory, your online resume.
+                                                <span class="backstory-onboarding-links">
+                                                    <span class="button large dark blue backstory-tour">Take a Tour</span>
+                                                    <a href="http://about.me/ricardo.quintas#" class="backstory-cancel">I will set up my Backstory another time.</a>
+                                                </span>
+                                            </p>
+                                        </section>
+                                    </div>
+                                    <div class="container-controls-wrap">
+                                        <div class="container-controls-inside clearfix">
+                                            <div class="container-controls container-controls-top">
+                                                <div class="publictoggle">
+                                                    <span class="public-toggle button dark transparent glyph-plus">Publish Backstory</span>
+                                                </div>
+                                            </div>
+                                            <div class="container-content-controls">
+                                                <span class="backstory-content-controls">
+
+                                                    <span class="backstory-preview backstory-mode-toggle glyph-eye">&nbsp;
+                                                        <div class="tooltip tiny  top arrow" style="display: none; text-align: center; min-width: 100px; margin-top: 15px;">
+                                                            <div class="tooltip-content">Preview your Backstory</div>
+                                                            <div class="tooltip-header"></div>
+                                                        </div>
+                                                    </span>
+                                                    <div class="backstory-edit-options clearfix">
+                                                        <span class="glyph-photo glyph-center backstory-color-photo">&nbsp;
+                                                            <div class="tooltip tiny  top arrow" style="display: none; text-align: center; min-width: 100px; margin-top: 15px;">
+                                                                <div class="tooltip-content">Coordinate Backstory colors to your photo</div>
+                                                                <div class="tooltip-header"></div>
+                                                            </div>
+                                                        </span>
+                                                        <ul class="backstory-color-scheme">
+                                                            <li class="backstory-color-1" style="background-color: rgb(136, 136, 136);"></li>
+                                                            <li class="backstory-color-2" style="background-color: rgb(68, 68, 68);"></li>
+                                                            <li class="backstory-color-3" style="background-color: rgb(151, 151, 151);"></li>
+                                                            <li class="backstory-color-4" style="background-color: rgb(177, 177, 177);"></li>
+                                                        </ul>
+                                                    </div>
+
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="container-content container-section">
+                                        <div class="below-backstory clearfix">
+
+                                            <article class="editing">
+
+
+                                                <header class="row columns-12 resume-heading backstory-parent">
+
+                                                    <div class="item-toggle section-toggle">
+                                                        <input type="checkbox" id="backstory-visible-heading" class="backstory-edit-visibility">
+                                                        <label for="backstory-visible-heading" class="glyph-check-after" title="Show this section to your page visitors">Show this section</label>
+                                                    </div>
+
+                                                    <div class="column colspan-3">&nbsp;</div>
+                                                    <div class="column colspan-6">
+                                                        <h1>
+
+                                                            <span class="glyph-center glyph-shuffle backstory-heading-shuffle">&nbsp;</span>
+
+                                                            <span class="backstory-heading resume-editable backstory-edit-text" id="backstory-heading" contenteditable="true">“Strive not to be a success, but rather to be of value.” – Albert Einstein</span>
+                                                        </h1>
+
+                                                        <p class="backstory-edit-help">Enter your professional objective, an inspirational quote, your philosophy, or a mission statement.</p>
+
+
+
+                                                        <div class="item-toggle backstory-contact-toggle">
+                                                            <input type="checkbox" id="backstory-visible-contact" class="backstory-contact-visibility" checked="">
+                                                            <label for="backstory-visible-contact" class="glyph-check-after" title="Show &#39;Contact Me&#39; button to your visitors">Show Contact Me Button</label>
+                                                        </div>
+
+
+                                                    </div>
+                                                    <div class="column colspan-3">&nbsp;</div>
+                                                </header>
+
+
+
+                                                <section class="resume-history clearfix">
+
+                                                    <div class="item-toggle section-toggle">
+                                                        <input type="checkbox" id="backstory-visible-history" class="backstory-edit-visibility">
+                                                        <label for="backstory-visible-history" class="glyph-check-after" title="Show this section to your page visitors">Show this section</label>
+                                                    </div>
+
+                                                    <div class="backstory-history-left backstory-parent">
+
+                                                        <div class="backstory-history-section-current backstory-parent">
+                                                            <h3>Current Role</h3>
+                                                            <h2 class="resume-current-position resume-editable backstory-edit-text" id="backstory-current_role" contenteditable="true" style="color: rgb(151, 151, 151);">What is your latest role?</h2>
+                                                            <span class="resume-current-org resume-editable backstory-edit-text" id="backstory-current_role_org" contenteditable="true">Which company?</span>
+                                                            <span class="resume-current-time resume-editable backstory-edit-text" id="backstory-current_role_date" contenteditable="true">How long have you been in this role?</span>
+                                                            <span class="resume-current-descrip resume-editable backstory-edit-text" id="backstory-current_role_descrip" contenteditable="true">What were your responsibilities and achievements?</span>
+                                                        </div>
+                                                        <div class="backstory-history-section-work backstory-parent-work backstory-parent">
+                                                            <h3>Work History</h3>
+                                                            <div class="backstory-work">
+                                                                <ul class="ui-sortable">
+                                                                    <li class="collection-item-container backstory-new-item">
+                                                                        <span class="resume-job-title resume-editable backstory-edit-collection" data-attribute="title" contenteditable="true">What was your job title?</span>
+                                                                        <span class="resume-job-org resume-editable backstory-edit-collection" data-attribute="org" contenteditable="true">Which company?</span>
+                                                                        <span class="resume-job-date resume-editable backstory-edit-collection" data-attribute="date" contenteditable="true">When did you work here?</span>
+                                                                        <p class="resume-job-descrip resume-editable backstory-edit-collection" data-attribute="description" contenteditable="true">What were your responsibilities and achievements?</p>
+                                                                        <span class="glyph-close resume-remove" title="Remove this item">&nbsp;</span>
+                                                                        <span class="glyph-menu resume-handle" title="Drag to sort">&nbsp;</span>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="backstory-history-section-skills backstory-parent">
+                                                        <div class="backstory-parent-skills backstory-parent">
+                                                            <h3>Skills &amp; Expertise</h3>
+                                                            <div class="backstory-skills">
+                                                                <ul class="ui-sortable">
+                                                                    <li class="collection-item-container backstory-new-item">
+                                                                        <span class="resume-skill resume-editable backstory-edit-collection" data-attribute="skill" contenteditable="true">Enter a skill, expertise, or certification</span>
+                                                                        <span class="glyph-close resume-remove" title="Remove this item">&nbsp;</span>
+                                                                        <span class="glyph-menu resume-handle" title="Drag to sort">&nbsp;</span>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <div class="backstory-parent-education backstory-parent">
+                                                            <h3>Education</h3>
+                                                            <div class="backstory-education">
+                                                                <ul class="ui-sortable">
+                                                                    <li class="collection-item-container backstory-new-item">
+                                                                        <span class="resume-ed-deg resume-editable backstory-edit-collection" data-attribute="degree" contenteditable="true">What was your degree or field of study?</span>
+                                                                        <span class="resume-ed-org resume-editable backstory-edit-collection" data-attribute="org" contenteditable="true">Which school did you attend?</span>
+                                                                        <span class="resume-ed-date resume-editable backstory-edit-collection" data-attribute="date" contenteditable="true">When did you finish?</span>
+                                                                        <span class="glyph-close resume-remove" title="Remove this item">&nbsp;</span>
+                                                                        <span class="glyph-menu resume-handle" title="Drag to sort">&nbsp;</span>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
+
+
+
+
+                                                <section class="resume-map backstory-parent">
+
+                                                    <div class="item-toggle section-toggle">
+                                                        <input type="checkbox" id="backstory-visible-map" class="backstory-edit-visibility">
+                                                        <label for="backstory-visible-map" class="glyph-check-after" title="Show this section to your page visitors">Show this section</label>
+                                                    </div>
+
+                                                    <div id="backstory_map" class="resume-map-container" style="position: relative; width: 1260px; height: 400px;">
+                                                        <div style="width: 1260px; height: 400px; z-index: 0; overflow: hidden; position: relative; top: 0px; left: 0px; cursor: default; background: rgb(255, 255, 255);">
+                                                            <div id="mqa_display_div" class="mqa-display" style="position: absolute; z-index: 0;">
+                                                                <div class="mqa-zl mqa-zl100 mqa-zlf" style="position: absolute; z-index: 100; cursor: default;">
+                                                                    <div style="position: absolute;">
+                                                                        <img src="./Ricardo Quintas - Europe   about.me_files/transaction" style="display: none;">
+                                                                        <img src="./Ricardo Quintas - Europe   about.me_files/nothing.gif" style="display: none;">
+                                                                        <img src="./Ricardo Quintas - Europe   about.me_files/nothing.gif" style="display: none;">
+                                                                    </div>
+                                                                    <div style="position: absolute; left: 1260px;"></div>
+                                                                    <div style="position: absolute; top: 400px;"></div>
+                                                                    <div style="position: absolute; left: 1260px; top: 400px;"></div>
+                                                                    <img class="questyLogo" src="./Ricardo Quintas - Europe   about.me_files/questy.png" width="61" height="43" style="width: 61px; height: 43px; position: absolute; display: block; left: 5px; top: 352px;">
+                                                                    <div style="position: absolute; display: block; overflow: hidden; width: 150px; height: 26px; left: 76px; top: 367px;">
+                                                                        <div class="scale_bar" style="margin-bottom: 1px; width: 126.005379676543px;">
+                                                                            <div class="scale_text">1000mi</div>
+                                                                        </div>
+                                                                        <div class="scale_bar" style="margin-bottom: 1px; margin-top: 13px; width: 78.2961131169418px;">
+                                                                            <div class="scale_text">1000km</div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div style="position: absolute; left: 1260px; top: 400px;">
+                                                                        <div class="mqacopyright mqacopyrightdark" style="position: absolute; bottom: 0px; right: 5px; text-align: right;">©2014&nbsp;MapQuest | <a id="terms" class="termsLink" target="_blank" href="http://www.mapquest.com/terms-of-use">Terms</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="mqa-zl mqa-zl0 mqa-zlgl" style="position: absolute; z-index: 0; left: 630px; top: 200px;">
+                                                                    <div style="position: absolute; left: -1654px; top: -1224px; width: 3308px; height: 2448px; background-image: url(http://api.mqcdn.com/open-sdk/js/v7.1.0/images/loading-tile-gears.jpg); background-repeat: repeat;"></div>
+                                                                </div>
+                                                                <div class="mqa-zl mqa-zl1000 mqa-zlf" style="position: absolute; z-index: 1000;">
+                                                                    <div style="position: absolute; z-index: 1000; left: 0px; top: 0px;"></div>
+                                                                </div>
+                                                                <div class="mqa-zl mqa-zl1000 mqa-zlgl" style="position: absolute; z-index: 1000; left: 630px; top: 200px;">
+                                                                    <div style="position: absolute; z-index: 1000;"></div>
+                                                                </div>
+                                                                <div class="mqa-zl mqa-zl5 mqa-zlgl" style="position: absolute; z-index: 5; left: 630px; top: 200px;">
+                                                                    <div style="position: absolute;">
+                                                                        <img unselectable="on" galleryimg="no" src="./Ricardo Quintas - Europe   about.me_files/3.png" width="256" style="position: absolute; left: -28px; top: -7px;">
+                                                                        <img unselectable="on" galleryimg="no" src="./Ricardo Quintas - Europe   about.me_files/3(1).png" width="256" style="position: absolute; left: 228px; top: -7px;">
+                                                                        <img unselectable="on" galleryimg="no" src="./Ricardo Quintas - Europe   about.me_files/4.png" width="256" style="position: absolute; left: -28px; top: 249px;">
+                                                                        <img unselectable="on" galleryimg="no" src="./Ricardo Quintas - Europe   about.me_files/2.png" width="256" style="position: absolute; left: -28px; top: -263px;">
+                                                                        <img unselectable="on" galleryimg="no" src="./Ricardo Quintas - Europe   about.me_files/3(2).png" width="256" style="position: absolute; left: -284px; top: -7px;">
+                                                                        <img unselectable="on" galleryimg="no" src="./Ricardo Quintas - Europe   about.me_files/4(1).png" width="256" style="position: absolute; left: 228px; top: 249px;">
+                                                                        <img unselectable="on" galleryimg="no" src="./Ricardo Quintas - Europe   about.me_files/2(1).png" width="256" style="position: absolute; left: 228px; top: -263px;">
+                                                                        <img unselectable="on" galleryimg="no" src="./Ricardo Quintas - Europe   about.me_files/4(2).png" width="256" style="position: absolute; left: -284px; top: 249px;">
+                                                                        <img unselectable="on" galleryimg="no" src="./Ricardo Quintas - Europe   about.me_files/2(2).png" width="256" style="position: absolute; left: -284px; top: -263px;">
+                                                                        <img unselectable="on" galleryimg="no" src="./Ricardo Quintas - Europe   about.me_files/1.png" width="256" style="position: absolute; left: -28px; top: -519px;">
+                                                                        <img unselectable="on" galleryimg="no" src="./Ricardo Quintas - Europe   about.me_files/3(3).png" width="256" style="position: absolute; left: 484px; top: -7px;">
+                                                                        <img unselectable="on" galleryimg="no" src="./Ricardo Quintas - Europe   about.me_files/1(1).png" width="256" style="position: absolute; left: 228px; top: -519px;">
+                                                                        <img unselectable="on" galleryimg="no" src="./Ricardo Quintas - Europe   about.me_files/1(2).png" width="256" style="position: absolute; left: -284px; top: -519px;">
+                                                                        <img unselectable="on" galleryimg="no" src="./Ricardo Quintas - Europe   about.me_files/3(4).png" width="256" style="position: absolute; left: -540px; top: -7px;">
+                                                                        <img unselectable="on" galleryimg="no" src="./Ricardo Quintas - Europe   about.me_files/4(3).png" width="256" style="position: absolute; left: 484px; top: 249px;">
+                                                                        <img unselectable="on" galleryimg="no" src="./Ricardo Quintas - Europe   about.me_files/2(3).png" width="256" style="position: absolute; left: 484px; top: -263px;">
+                                                                        <img unselectable="on" galleryimg="no" src="./Ricardo Quintas - Europe   about.me_files/4(4).png" width="256" style="position: absolute; left: -540px; top: 249px;">
+                                                                        <img unselectable="on" galleryimg="no" src="./Ricardo Quintas - Europe   about.me_files/2(4).png" width="256" style="position: absolute; left: -540px; top: -263px;">
+                                                                        <img unselectable="on" galleryimg="no" src="./Ricardo Quintas - Europe   about.me_files/1(3).png" width="256" style="position: absolute; left: 484px; top: -519px;">
+                                                                        <img unselectable="on" galleryimg="no" src="./Ricardo Quintas - Europe   about.me_files/1(4).png" width="256" style="position: absolute; left: -540px; top: -519px;">
+                                                                        <img unselectable="on" galleryimg="no" src="./Ricardo Quintas - Europe   about.me_files/3(5).png" width="256" style="position: absolute; left: 740px; top: -7px;">
+                                                                        <img unselectable="on" galleryimg="no" src="./Ricardo Quintas - Europe   about.me_files/4(5).png" width="256" style="position: absolute; left: 740px; top: 249px;">
+                                                                        <img unselectable="on" galleryimg="no" src="./Ricardo Quintas - Europe   about.me_files/2(5).png" width="256" style="position: absolute; left: 740px; top: -263px;">
+                                                                        <img unselectable="on" galleryimg="no" src="./Ricardo Quintas - Europe   about.me_files/3(6).png" width="256" style="position: absolute; left: -796px; top: -7px;">
+                                                                        <img unselectable="on" galleryimg="no" src="./Ricardo Quintas - Europe   about.me_files/4(6).png" width="256" style="position: absolute; left: -796px; top: 249px;">
+                                                                        <img unselectable="on" galleryimg="no" src="./Ricardo Quintas - Europe   about.me_files/2(6).png" width="256" style="position: absolute; left: -796px; top: -263px;">
+                                                                        <img unselectable="on" galleryimg="no" src="./Ricardo Quintas - Europe   about.me_files/1(5).png" width="256" style="position: absolute; left: 740px; top: -519px;">
+                                                                        <img unselectable="on" galleryimg="no" src="./Ricardo Quintas - Europe   about.me_files/1(6).png" width="256" style="position: absolute; left: -796px; top: -519px;">
+                                                                        <img unselectable="on" galleryimg="no" src="./Ricardo Quintas - Europe   about.me_files/1(7).png" width="256" style="position: absolute; left: -1052px; top: -519px;">
+                                                                        <img unselectable="on" galleryimg="no" src="./Ricardo Quintas - Europe   about.me_files/3(7).png" width="256" style="position: absolute; left: -1052px; top: -7px;">
+                                                                        <img unselectable="on" galleryimg="no" src="./Ricardo Quintas - Europe   about.me_files/4(7).png" width="256" style="position: absolute; left: -1052px; top: 249px;">
+                                                                        <img unselectable="on" galleryimg="no" src="./Ricardo Quintas - Europe   about.me_files/2(7).png" width="256" style="position: absolute; left: -1052px; top: -263px;">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="backstory-map-scroll-fix"></div>
+                                                    <div class="resume-map-overlay">
+                                                        <span class="resume-map-label" style="color: rgb(151, 151, 151);">I’m looking in…</span>
+                                                        <span class="resume-map-location resume-editable backstory-edit-text" id="backstory-location" contenteditable="true">Enter a location</span>
+                                                    </div>
+                                                </section>
+
+
+
+                                                <section class="resume-links backstory-parent-links backstory-parent clearfix">
+
+                                                    <div class="item-toggle section-toggle">
+                                                        <input type="checkbox" id="backstory-visible-links" class="backstory-edit-visibility" checked="">
+                                                        <label for="backstory-visible-links" class="glyph-check-after" title="Show this section to your page visitors">Show this section</label>
+                                                    </div>
+
+                                                    <h3>Links To My Work</h3>
+
+                                                    <p class="backstory-edit-help">e.g., Dribbble, Behance, Github, etc.</p>
+
+                                                    <div class="backstory-links">
+                                                        <ul class="ui-sortable">
+                                                            <li class="collection-item-container backstory-new-item">
+                                                                <span class="resume-link resume-edit-link">
+
+                                                                    <span class="glyph-center resume-link-icon glyph-globe">&nbsp;</span>
+                                                                    <span class="resume-link-title">
+                                                                        <span class="resume-link-edit-title resume-editable backstory-edit-collection" data-attribute="title" contenteditable="true">Link Title</span>
+                                                                        <span class="resume-link-url resume-editable backstory-edit-collection" data-attribute="url" contenteditable="true">Link URL</span>
+                                                                    </span>
+                                                                </span>
+                                                                <span class="glyph-close resume-remove" title="Remove this item">&nbsp;</span>
+                                                                <span class="glyph-menu resume-handle" title="Drag to sort">&nbsp;</span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </section>
+
+                                            </article>
+                                        </div>
+                                    </div>
+
+                                    <div class="container-controls-wrap container-controls-wrap-bottom">
+                                        <div class="container-controls-inside clearfix">
+                                            <div class="container-controls container-controls-bottom">
+                                                <div class="publictoggle">
+                                                    <span class="public-toggle button dark transparent glyph-plus">Publish Backstory</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="below-container" id="below-groups" style="min-height: 515px;">
+                                    <h2 class="below-mobile-title">My Collections</h2>
+
+                                    <div class="container-promo"></div>
+                                    <div class="container-controls-wrap">
+                                        <div class="container-controls-inside clearfix">
+                                            <div class="container-controls container-controls-top">
+                                                <div class="publictoggle">
+                                                    <span class="public-toggle button dark transparent glyph-plus">Publish My Collections</span>
+                                                </div>
+                                            </div>
+                                            <div class="container-content-controls"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="container-content container-section">
+                                        <div class="below-groups clearfix">
+                                            <h1 class="below-groups-heading">My Collections</h1>
+                                            <div id="below-groups-content">
+                                                <div class="groups">
+                                                    <div class="group">
+                                                        <div class="group-nav">
+                                                            <span class="group-prev group-nav-item glyph-angle-thin-left glyph-center disabled"></span>
+                                                            <span class="group-next group-nav-item glyph-angle-thin-right glyph-center"></span>
+                                                        </div>
+                                                        <div class="group-heading">
+                                                            <h2>
+                                                                <a href="http://about.me/ricardo.quintas/collections/twitterfriends">Twitter Friends</a>
+                                                            </h2>
+                                                        </div>
+                                                        <div class="group-thumbs pagethumbs-sidescroll-wrap">
+                                                            <div class="pagethumbs pagethumbs2 pagethumbs-sidescroll group-members">
+                                                                <div class="pagethumb2 pagethumb2-nameonly loaded">
+                                                                    <div class="thumbwrap">
+                                                                        <a href="http://about.me/tonydaly" class="thumb_link" target="_blank">
+                                                                            <img class="thumb thumb_full" src="./Ricardo Quintas - Europe   about.me_files/tonydaly-540x360.jpg">
+                                                                        </a>
+                                                                        <div class="thumb_overlay">
+                                                                            <span class="thumb_details">
+                                                                                <span class="thumb_description">
+                                                                                    <a href="http://about.me/tonydaly">Tony Daly</a>
+
+                                                                                    <span class="interests"></span>
+
+                                                                                </span>
+                                                                            </span>
+                                                                        </div>
+
+                                                                        <ul class="actions primary">
+                                                                            <li class="glyph-plus collect action">&nbsp;</li>
+                                                                            <li class="glyph-thumbsup compliment action">&nbsp;</li>
+                                                                        </ul>
+
+                                                                        <span class="actions secondary">
+
+
+
+                                                                            <span class="action mute glyph-block glyph-center" title="Mute Tony"></span>
+
+                                                                        </span>
+
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="pagethumb2 pagethumb2-nameonly loaded">
+                                                                    <div class="thumbwrap">
+                                                                        <a href="http://about.me/soarez" class="thumb_link" target="_blank">
+                                                                            <img class="thumb thumb_full" src="./Ricardo Quintas - Europe   about.me_files/soarez-540x360.jpg">
+                                                                        </a>
+                                                                        <div class="thumb_overlay">
+                                                                            <span class="thumb_details">
+                                                                                <span class="thumb_description">
+                                                                                    <a href="http://about.me/soarez">Igor Soarez</a>
+
+                                                                                    <span class="interests"></span>
+
+                                                                                </span>
+                                                                            </span>
+                                                                        </div>
+
+                                                                        <ul class="actions primary">
+                                                                            <li class="glyph-plus collect action">&nbsp;</li>
+                                                                            <li class="glyph-thumbsup compliment action">&nbsp;</li>
+                                                                        </ul>
+
+                                                                        <span class="actions secondary">
+
+
+
+                                                                            <span class="action mute glyph-block glyph-center" title="Mute Igor"></span>
+
+                                                                        </span>
+
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="pagethumb2 pagethumb2-nameonly missing loaded">
+                                                                    <div class="thumbwrap">
+                                                                        <a href="http://about.me/zoe.gillenwater" class="thumb_link" target="_blank">
+                                                                            <img class="thumb thumb_full" src="./Ricardo Quintas - Europe   about.me_files/silhouette-540x360.png">
+                                                                        </a>
+                                                                        <div class="thumb_overlay">
+                                                                            <span class="thumb_details">
+                                                                                <span class="thumb_description">
+                                                                                    <a href="http://about.me/zoe.gillenwater">Zoe Mickley Gillenwater</a>
+
+                                                                                    <span class="interests"></span>
+
+                                                                                </span>
+                                                                            </span>
+                                                                        </div>
+
+                                                                        <ul class="actions primary">
+                                                                            <li class="glyph-plus collect action">&nbsp;</li>
+                                                                            <li class="glyph-thumbsup compliment action">&nbsp;</li>
+                                                                        </ul>
+
+                                                                        <span class="actions secondary">
+
+
+
+                                                                            <span class="action mute glyph-block glyph-center" title="Mute Zoe Mickley"></span>
+
+                                                                        </span>
+
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="pagethumb2 pagethumb2-nameonly loaded">
+                                                                    <div class="thumbwrap">
+                                                                        <a href="http://about.me/visualidiot" class="thumb_link" target="_blank">
+                                                                            <img class="thumb thumb_full" src="./Ricardo Quintas - Europe   about.me_files/visualidiot-540x360.jpg">
+                                                                        </a>
+                                                                        <div class="thumb_overlay">
+                                                                            <span class="thumb_details">
+                                                                                <span class="thumb_description">
+                                                                                    <a href="http://about.me/visualidiot">Visual Idiot</a>
+
+                                                                                    <span class="interests"></span>
+
+                                                                                </span>
+                                                                            </span>
+                                                                        </div>
+
+                                                                        <ul class="actions primary">
+                                                                            <li class="glyph-plus collect action">&nbsp;</li>
+                                                                            <li class="glyph-thumbsup compliment action">&nbsp;</li>
+                                                                        </ul>
+
+                                                                        <span class="actions secondary">
+
+
+
+                                                                            <span class="action mute glyph-block glyph-center" title="Mute Visual"></span>
+
+                                                                        </span>
+
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="pagethumb2 pagethumb2-nameonly loaded">
+                                                                    <div class="thumbwrap">
+                                                                        <a href="http://about.me/fernando_mendes" class="thumb_link" target="_blank">
+                                                                            <img class="thumb thumb_full" src="./Ricardo Quintas - Europe   about.me_files/fernando_mendes-540x360.jpg">
+                                                                        </a>
+                                                                        <div class="thumb_overlay">
+                                                                            <span class="thumb_details">
+                                                                                <span class="thumb_description">
+                                                                                    <a href="http://about.me/fernando_mendes">Fernando Mendes</a>
+
+                                                                                    <span class="interests"></span>
+
+                                                                                </span>
+                                                                            </span>
+                                                                        </div>
+
+                                                                        <ul class="actions primary">
+                                                                            <li class="glyph-plus collect action">&nbsp;</li>
+                                                                            <li class="glyph-thumbsup compliment action">&nbsp;</li>
+                                                                        </ul>
+
+                                                                        <span class="actions secondary">
+
+
+
+                                                                            <span class="action mute glyph-block glyph-center" title="Mute Fernando"></span>
+
+                                                                        </span>
+
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="pagethumb2 pagethumb2-nameonly loaded">
+                                                                    <div class="thumbwrap">
+                                                                        <a href="http://about.me/patrickmcneil" class="thumb_link" target="_blank">
+                                                                            <img class="thumb thumb_full" src="./Ricardo Quintas - Europe   about.me_files/patrickmcneil-540x360.jpg">
+                                                                        </a>
+                                                                        <div class="thumb_overlay">
+                                                                            <span class="thumb_details">
+                                                                                <span class="thumb_description">
+                                                                                    <a href="http://about.me/patrickmcneil">Patrick McNeil</a>
+
+                                                                                    <span class="interests"></span>
+
+                                                                                </span>
+                                                                            </span>
+                                                                        </div>
+
+                                                                        <ul class="actions primary">
+                                                                            <li class="glyph-plus collect action">&nbsp;</li>
+                                                                            <li class="glyph-thumbsup compliment action">&nbsp;</li>
+                                                                        </ul>
+
+                                                                        <span class="actions secondary">
+
+
+
+                                                                            <span class="action mute glyph-block glyph-center" title="Mute Patrick"></span>
+
+                                                                        </span>
+
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="pagethumb2 pagethumb2-nameonly loaded">
+                                                                    <div class="thumbwrap">
+                                                                        <a href="http://about.me/david.dias" class="thumb_link" target="_blank">
+                                                                            <img class="thumb thumb_full" src="./Ricardo Quintas - Europe   about.me_files/david.dias-540x360.jpg">
+                                                                        </a>
+                                                                        <div class="thumb_overlay">
+                                                                            <span class="thumb_details">
+                                                                                <span class="thumb_description">
+                                                                                    <a href="http://about.me/david.dias">David Dias</a>
+
+                                                                                    <span class="interests"></span>
+
+                                                                                </span>
+                                                                            </span>
+                                                                        </div>
+
+                                                                        <ul class="actions primary">
+                                                                            <li class="glyph-plus collect action">&nbsp;</li>
+                                                                            <li class="glyph-thumbsup compliment action">&nbsp;</li>
+                                                                        </ul>
+
+                                                                        <span class="actions secondary">
+
+
+
+                                                                            <span class="action mute glyph-block glyph-center" title="Mute David"></span>
+
+                                                                        </span>
+
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="pagethumb2 pagethumb2-nameonly loaded">
+                                                                    <div class="thumbwrap">
+                                                                        <a href="http://about.me/pedroteixeira" class="thumb_link" target="_blank">
+                                                                            <img class="thumb thumb_full" src="./Ricardo Quintas - Europe   about.me_files/pedroteixeira-540x360.jpg">
+                                                                        </a>
+                                                                        <div class="thumb_overlay">
+                                                                            <span class="thumb_details">
+                                                                                <span class="thumb_description">
+                                                                                    <a href="http://about.me/pedroteixeira">Pedro Teixeira</a>
+
+                                                                                    <span class="interests"></span>
+
+                                                                                </span>
+                                                                            </span>
+                                                                        </div>
+
+                                                                        <ul class="actions primary">
+                                                                            <li class="glyph-plus collect action">&nbsp;</li>
+                                                                            <li class="glyph-thumbsup compliment action">&nbsp;</li>
+                                                                        </ul>
+
+                                                                        <span class="actions secondary">
+
+
+
+                                                                            <span class="action mute glyph-block glyph-center" title="Mute Pedro"></span>
+
+                                                                        </span>
+
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="pagethumb2 pagethumb2-nameonly missing loaded">
+                                                                    <div class="thumbwrap">
+                                                                        <a href="http://about.me/richardrodger" class="thumb_link" target="_blank">
+                                                                            <img class="thumb thumb_full" src="./Ricardo Quintas - Europe   about.me_files/silhouette-540x360.png">
+                                                                        </a>
+                                                                        <div class="thumb_overlay">
+                                                                            <span class="thumb_details">
+                                                                                <span class="thumb_description">
+                                                                                    <a href="http://about.me/richardrodger">Richard Rodger</a>
+
+                                                                                    <span class="interests"></span>
+
+                                                                                </span>
+                                                                            </span>
+                                                                        </div>
+
+                                                                        <ul class="actions primary">
+                                                                            <li class="glyph-plus collect action">&nbsp;</li>
+                                                                            <li class="glyph-thumbsup compliment action">&nbsp;</li>
+                                                                        </ul>
+
+                                                                        <span class="actions secondary">
+
+
+
+                                                                            <span class="action mute glyph-block glyph-center" title="Mute Richard"></span>
+
+                                                                        </span>
+
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="pagethumb2 pagethumb2-nameonly loaded">
+                                                                    <div class="thumbwrap">
+                                                                        <a href="http://about.me/denisejacobs" class="thumb_link" target="_blank">
+                                                                            <img class="thumb thumb_full" src="./Ricardo Quintas - Europe   about.me_files/denisejacobs-540x360.jpg">
+                                                                        </a>
+                                                                        <div class="thumb_overlay">
+                                                                            <span class="thumb_details">
+                                                                                <span class="thumb_description">
+                                                                                    <a href="http://about.me/denisejacobs">Denise Jacobs</a>
+
+                                                                                    <span class="interests"></span>
+
+                                                                                </span>
+                                                                            </span>
+                                                                        </div>
+
+                                                                        <ul class="actions primary">
+                                                                            <li class="glyph-plus collect action">&nbsp;</li>
+                                                                            <li class="glyph-thumbsup compliment action">&nbsp;</li>
+                                                                        </ul>
+
+                                                                        <span class="actions secondary">
+
+
+
+                                                                            <span class="action mute glyph-block glyph-center" title="Mute Denise"></span>
+
+                                                                        </span>
+
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="pagethumb2 pagethumb2-nameonly loaded">
+                                                                    <div class="thumbwrap">
+                                                                        <a href="http://about.me/mikemonteiro" class="thumb_link" target="_blank">
+                                                                            <img class="thumb thumb_full" src="./Ricardo Quintas - Europe   about.me_files/mikemonteiro-540x360.jpg">
+                                                                        </a>
+                                                                        <div class="thumb_overlay">
+                                                                            <span class="thumb_details">
+                                                                                <span class="thumb_description">
+                                                                                    <a href="http://about.me/mikemonteiro">Mike Monteiro</a>
+
+                                                                                    <span class="interests"></span>
+
+                                                                                </span>
+                                                                            </span>
+                                                                        </div>
+
+                                                                        <ul class="actions primary">
+                                                                            <li class="glyph-plus collect action">&nbsp;</li>
+                                                                            <li class="glyph-thumbsup compliment action">&nbsp;</li>
+                                                                        </ul>
+
+                                                                        <span class="actions secondary">
+
+
+
+                                                                            <span class="action mute glyph-block glyph-center" title="Mute Mike"></span>
+
+                                                                        </span>
+
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="pagethumb2 pagethumb2-nameonly loaded">
+                                                                    <div class="thumbwrap">
+                                                                        <a href="http://about.me/davidriley1983" class="thumb_link" target="_blank">
+                                                                            <img class="thumb thumb_full" src="./Ricardo Quintas - Europe   about.me_files/davidriley1983-540x360.jpg">
+                                                                        </a>
+                                                                        <div class="thumb_overlay">
+                                                                            <span class="thumb_details">
+                                                                                <span class="thumb_description">
+                                                                                    <a href="http://about.me/davidriley1983">David Riley</a>
+
+                                                                                    <span class="interests"></span>
+
+                                                                                </span>
+                                                                            </span>
+                                                                        </div>
+
+                                                                        <ul class="actions primary">
+                                                                            <li class="glyph-plus collect action">&nbsp;</li>
+                                                                            <li class="glyph-thumbsup compliment action">&nbsp;</li>
+                                                                        </ul>
+
+                                                                        <span class="actions secondary">
+
+
+
+                                                                            <span class="action mute glyph-block glyph-center" title="Mute David"></span>
+
+                                                                        </span>
+
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="pagethumb2 pagethumb2-nameonly loaded">
+                                                                    <div class="thumbwrap">
+                                                                        <a href="http://about.me/nunojob" class="thumb_link" target="_blank">
+                                                                            <img class="thumb thumb_full" src="./Ricardo Quintas - Europe   about.me_files/nunojob-540x360.jpg">
+                                                                        </a>
+                                                                        <div class="thumb_overlay">
+                                                                            <span class="thumb_details">
+                                                                                <span class="thumb_description">
+                                                                                    <a href="http://about.me/nunojob">Nuno Job</a>
+
+                                                                                    <span class="interests"></span>
+
+                                                                                </span>
+                                                                            </span>
+                                                                        </div>
+
+                                                                        <ul class="actions primary">
+                                                                            <li class="glyph-plus collect action">&nbsp;</li>
+                                                                            <li class="glyph-thumbsup compliment action">&nbsp;</li>
+                                                                        </ul>
+
+                                                                        <span class="actions secondary">
+
+
+
+                                                                            <span class="action mute glyph-block glyph-center" title="Mute Nuno"></span>
+
+                                                                        </span>
+
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="pagethumb2 pagethumb2-nameonly loaded">
+                                                                    <div class="thumbwrap">
+                                                                        <a href="http://about.me/ev" class="thumb_link" target="_blank">
+                                                                            <img class="thumb thumb_full" src="./Ricardo Quintas - Europe   about.me_files/ev-540x360.jpg">
+                                                                        </a>
+                                                                        <div class="thumb_overlay">
+                                                                            <span class="thumb_details">
+                                                                                <span class="thumb_description">
+                                                                                    <a href="http://about.me/ev">@ev</a>
+
+                                                                                    <span class="interests"></span>
+
+                                                                                </span>
+                                                                            </span>
+                                                                        </div>
+
+                                                                        <ul class="actions primary">
+                                                                            <li class="glyph-plus collect action">&nbsp;</li>
+                                                                            <li class="glyph-thumbsup compliment action">&nbsp;</li>
+                                                                        </ul>
+
+                                                                        <span class="actions secondary">
+
+
+
+                                                                            <span class="action mute glyph-block glyph-center" title="Mute @ev"></span>
+
+                                                                        </span>
+
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="pagethumb2 pagethumb2-nameonly loaded">
+                                                                    <div class="thumbwrap">
+                                                                        <a href="http://about.me/om" class="thumb_link" target="_blank">
+                                                                            <img class="thumb thumb_full" src="./Ricardo Quintas - Europe   about.me_files/om-540x360.jpg">
+                                                                        </a>
+                                                                        <div class="thumb_overlay">
+                                                                            <span class="thumb_details">
+                                                                                <span class="thumb_description">
+                                                                                    <a href="http://about.me/om">Om Malik</a>
+
+                                                                                    <span class="interests"></span>
+
+                                                                                </span>
+                                                                            </span>
+                                                                        </div>
+
+                                                                        <ul class="actions primary">
+                                                                            <li class="glyph-plus collect action">&nbsp;</li>
+                                                                            <li class="glyph-thumbsup compliment action">&nbsp;</li>
+                                                                        </ul>
+
+                                                                        <span class="actions secondary">
+
+
+
+                                                                            <span class="action mute glyph-block glyph-center" title="Mute Om"></span>
+
+                                                                        </span>
+
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="below-groups-more">
+                                                <div>
+                                                    <a href="http://about.me/ricardo.quintas/collections/">See All My Collections</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="container-controls-wrap container-controls-wrap-bottom">
+                                        <div class="container-controls-inside clearfix">
+                                            <div class="container-controls container-controls-bottom">
+                                                <div class="publictoggle">
+                                                    <span class="public-toggle button dark transparent glyph-plus">Publish My Collections</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="displayname invisible">Ricardo Quintas</div>
+                <div id="services_modal" class="content" style="display:none">
+                    <div id="container_nav" style="display:none">
+                        <ul class="tabheader">
+                            <li class="site site_1" data-id="1">
+                                <a href="http://about.me/ricardo.quintas#switch_twitter_1" class="tab tab_1">Twitter</a>
+                            </li>
+                            <li class="site site_2" data-id="2">
+                                <a href="http://about.me/ricardo.quintas#switch_linkedin_2" class="tab tab_2">LinkedIn</a>
+                            </li>
+                            <li class="site site_3" data-id="3">
+                                <a href="http://about.me/ricardo.quintas#switch_github_3" class="tab tab_3">GitHub</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="wrapper"></div>
+                </div>
+                <div class="embed-modal" style="display:none">
+                    <div class="section embedtype expandable expanded untyped">
+                        <span class="button xsmall typed-content expandable-trigger glyph-center">&nbsp;</span>
+                        <h4 class="typed-content expandable-trigger">Embed Type
+                            <span class="embedtype-title"></span>
+                        </h4>
+                        <h4 class="untyped-content">Embed Type
+                            <span class="embedtype-title"></span>
+                        </h4>
+                        <div class="expanded-content expanded-content-animate">
+                            <p class="note">Where do you want to embed this page?</p>
+                            <div class="buttons">
+                                <span class="button logobutton logobutton-wordpress" data-type="wordpress">WordPress</span>
+                                <span class="button logobutton logobutton-tumblr" data-type="tumblr">Tumblr</span>
+                                <span class="button logobutton logobutton-blogger" data-type="blogger">Blogger</span>
+                                <span class="button" data-type="other">Other</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pane embed-javascript">
+                        <div class="section embedcode">
+                            <div class="othernote">
+                                <p class="note">Embedding about.me pages is officially supported on WordPress, Tumblr, Blogger, and TypePad. Feel free to use the embed code below on any other site, but it may not work on some sites. Submit feedback at <a href="http://support.about.me/">support.about.me</a> if you have questions.</p>
+                            </div>
+                            <p class="note">
+                                <span class="sentence">Embed this page
+                                    <span class="embedtype-title"></span>by copying the
+                                    <strong>Embed Code</strong>below.</span>
+                                <a href="http://support.about.me/knowledgebase/articles/141673-embedding-about-me-in-tumblr" class="learnmore learnmore-tumblr" target="_blank">Learn more &gt;</a>
+                                <a href="http://support.about.me/knowledgebase/articles/141727-embedding-about-me-in-blogger" class="learnmore learnmore-blogger" target="_blank">Learn more &gt;</a>
+                                <a href="http://support.about.me/knowledgebase/articles/142118-embedding-about-me-in-typepad" class="learnmore learnmore-typepad" target="_blank">Learn more &gt;</a>
+                                <a href="http://support.about.me/knowledgebase/articles/142119-embedding-about-me-in-other-websites" class="learnmore learnmore-other" target="_blank">Learn more &gt;</a>
+                            </p>
+                            <fieldset class="buttonfield copyfield">
+                                <input type="text" class="input large" name="embedcode" id="embedcode">
+                                <button class="button large">Copy</button>
+                            </fieldset>
+                        </div>
+                        <div class="section options expandable">
+                            <span class="button xsmall expandable-trigger glyph-center">&nbsp;</span>
+                            <h4 class="expandable-trigger">Options</h4>
+                            <div class="expanded-content expanded-content-animate">
+                                <fieldset class="appearance">
+                                    <label class="label">Appearance</label>
+                                    <div class="buttonbar">
+                                        <div class="button button-small active" data-value="default" title="Use the default about.me appearance">Use about.me Style</div>
+                                        <div class="button button-small" data-value="site" title="Use the styles defined by your site’s stylesheet. The preview below will not fully reflect the embedded appearance.">Use My Site’s Style</div>
+                                    </div>
+                                </fieldset>
+                                <fieldset class="elements">
+                                    <label class="label">Include</label>
+                                    <label class="inline checkbox">
+                                        <input type="checkbox" class="checkbox-image" data-key="image" data-other="name" checked="checked">Image
+                                    </label>
+                                    <label class="inline checkbox">
+                                        <input type="checkbox" class="checkbox-name" data-key="name" data-other="image" checked="checked">Name
+                                    </label>
+                                    <label class="inline checkbox">
+                                        <input type="checkbox" data-key="headline" checked="checked">Headline
+                                    </label>
+                                    <label class="inline checkbox">
+                                        <input type="checkbox" data-key="bio" checked="checked">Biography
+                                    </label>
+                                    <label class="inline checkbox">
+                                        <input type="checkbox" data-key="apps" checked="checked">Apps
+                                    </label>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="section preview expandable expanded">
+                            <span class="button xsmall expandable-trigger glyph-center">&nbsp;</span>
+                            <h4 class="expandable-trigger">Preview</h4>
+                            <div class="expanded-content expanded-content-animate">
+                                <p class="note">The final size of the embed will be determined by the layout of your site.</p>
+                                <div class="preview-resize-container">
+                                    <div class="preview-resize">
+                                        <div class="embedpreview" id="embedpreview"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pane embed-wordpress">
+                        <div class="section instructions-wpdotcom">
+                            <h4>About.me Widget for WordPress.com <a href="http://support.about.me/knowledgebase/articles/145110-embedding-about-me-in-a-wordpress-com-theme" class="learnmore learnmore-wordpress" target="_blank">Learn more &gt;</a>
+                            </h4>
+                            <p class="note">To add the about.me widget to your WordPress.com blog:</p>
+                            <ol class="numbered">
+                                <li>Log in to your account on <a href="http://www.wordpress.com/" target="_blank">WordPress.com</a>.</li>
+                                <li>Go to the Widgets section of your Appearance settings.</li>
+                                <li>Drag the about.me widget to your preferred widget area.</li>
+                                <li>Add your about.me username and configure the widget.</li>
+                            </ol>
+                        </div>
+                        <div class="section instructions-wpdotorg">
+                            <h4>About.me Widget for WordPress.org (self-hosted) <a href="http://support.about.me/knowledgebase/articles/141724-embedding-about-me-in-a-wordpress-org-theme" class="learnmore learnmore-wordpress" target="_blank">Learn more &gt;</a>
+                            </h4>
+                            <p class="note">To add the about.me widget to your WordPress.org blog, click the button below:</p>
+                            <p><a class="button logobutton logobutton-wordpress" href="http://wordpress.org/extend/plugins/aboutme-widget/installation/" target="_blank">Add about.me to your self-hosted WordPress blog</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div id="welcome" class="invisible">
+                    <div class="guide">
+                        <p class="guidename">Veronica Belmont -
+                            <span class="text italic grey">about.me user since 2010</span>
+                        </p>
+                    </div>
+                    <ul class="tabs clearfix">
+                        <li>
+                            <a href="http://about.me/ricardo.quintas#step1" class="tab step1 steps stats-notrack">
+                                <span class="step-inner">1</span>
+                                <span class="tabname">create &amp; customize</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://about.me/ricardo.quintas#step2" class="tab step2 steps stats-notrack">
+                                <span class="step-inner">2</span>
+                                <span class="tabname">Connect &amp; Share</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://about.me/ricardo.quintas#step3" class="tab step3 steps stats-notrack">
+                                <span class="step-inner">3</span>
+                                <span class="tabname">Benefits</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div id="step1" class="tab clearfix active">
+                        <p class="guidetext indent">“First, customize your page. It’s easy and fun to design!”</p>
+                        <div class="welcome-text">
+                            <h2 class="big">Your Name</h2>
+                            <p class="bio">Hi! I’m currently living in
+                                <span class="text grey italic">(City)</span>, where I work at
+                                <span class="text grey italic">(Work Place)</span>
+                                doing
+                                <span class="text grey italic">(Job Title)</span>. When I’m not working I like to
+                                <span class="text grey italic">(Hobby)</span>,
+                                <span class="text grey italic">(Interest)</span>and
+                                <span class="text grey italic">(Passion)</span>. Connect with me!</p>
+                        </div>
+                        <p class="buttons right">
+                            <span class="button dark button-large large">
+                                <span class="button-content">Next: Connect &amp; Share</span>
+                            </span>
+                        </p>
+                    </div>
+                    <div id="step2" class="tab clearfix">
+                        <p class="guidetext indent">“Next, connect services and send people to your page.”</p>
+                        <p class="buttons right">
+                            <span class="button dark button-large large">
+                                <span class="button-content">Next: Benefits</span>
+                            </span>
+                        </p>
+                    </div>
+                    <div id="step3" class="tab clearfix">
+                        <p class="guidetext indent">“That’s it! Let about.me do all of the work for you.”</p>
+                        <div class="welcome-text big">
+                            <p class="checkmark">Showcase a 360 degree view of who you are</p>
+                            <p class="checkmark">Help people find and follow you on your social networks</p>
+                            <p class="checkmark">Be found for new opportunities</p>
+                        </div>
+                        <p class="buttons right">
+                            <span class="button button-submit button-large large dark blue">
+                                <span class="button-content">Get Started</span>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+    <div class="trailing-content">
+
+        <div class="signupform signup-modal invisible">
+            <div id="signup-modal">
+                <h2>
+                    <img src="./Ricardo Quintas - Europe   about.me_files/aboutme_logo_black.svg">
+                </h2>
+                <h3 class="action">It’s free and only takes minutes to set up a page. Join now or <a href="https://about.me/">learn more</a>.</h3>
+                <div class="signup">
+                    <form action="http://about.me/register" id="signup_signupmodal" method="post" onsubmit="return false">
+                        <input name="_authentication_token" type="hidden" value="27388196036227225924683885924142085661">
+                        <fieldset class="first_name name">
+                            <label class="label" for="signupmodal_first_name">First name</label>
+                            <input type="text" name="first_name" id="signupmodal_first_name" class="input fullwidth large first_name" value="" maxlength="32">
+                        </fieldset>
+                        <fieldset class="last_name name">
+                            <label class="label" for="signupmodal_last_name">Last name</label>
+                            <input type="text" name="last_name" id="signupmodal_last_name" class="input fullwidth large last_name" value="" maxlength="32">
+                        </fieldset>
+                        <fieldset class="email">
+                            <label class="label" for="signupmodal_email">Email address</label>
+                            <input type="text" name="email" id="signupmodal_email" class="input fullwidth large email" value="" maxlength="254">
+                        </fieldset>
+                        <input type="hidden" value="signupmodal" name="location" class="signuplocation">
+                        <fieldset class="buttons large">
+                            <div class="alreadyjoined right invisible button-item">
+                                <span class="">Already joined? &nbsp;</span><a href="http://about.me/login" class="not-deferred">Log In</a>
+                            </div>
+                            <button type="submit" class="button test130106 large dark blue signup-submitbutton not-deferred">
+                                <span class="default-text">Join for FREE</span>
+                                <span class="loading-text">Join for FREE</span>
+                            </button>
+                        </fieldset>
+                        <div class="socialsignup">
+                            <h4>or continue with…</h4>
+                            <div class="buttons">
+                                <a href="http://www.facebook.com/share.php?u=http%3A%2F%2Fabout.me%2Fricardo.quintas" class="button signupbutton large  facebook glyph-facebook not-deferred">Facebook</a>
+                                <a href="http://twitter.com/intent/tweet?text=Check%20out%20my%20%40aboutdotme%20page%20-%20http%3A%2F%2Fabout.me%2Fricardo.quintas.%20Get%20yours%20now%20before%20all%20the%20names%20are%20gone.%20http%3A%2F%2Fabout.me" class="button signupbutton large  twitter glyph-twitter not-deferred">Twitter</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+        var _kmq = window._kmq || [];
+
+        function _kms(u) {
+            setTimeout(function() {
+                var s = document.createElement('script');
+                var f = document.getElementsByTagName('script')[0];
+                s.type = 'text/javascript';
+                s.async = true;
+                s.src = u;
+                f.parentNode.insertBefore(s, f);
+            }, 1);
+        }
+        _kms('//i.kissmetrics.com/i.js');
+        _kms('//doug1izaerwt3.cloudfront.net/02c12958c27452f207e74e259da5adcd66b80beb.1.js');
+        _kmq.push(function() {
+            var params = KM.uprts(KM.u()).params;
+            if (param = params['NCID'] || params['ncid']) {
+                _kmq.push(['set', {
+                    'NCID': param
+                }]);
+            }
+        });
+        </script>
+        <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(
+            ['_setAccount', 'UA-17228769-1'], ['_trackPageview', location.pathname + location.search + location.hash]
+        );
+        (function() {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+        </script>
+    </div>
+
+    <div id="feedly-mini" title="feedly Mini tookit"></div>
+    <div class="ui-dialog ui-widget ui-widget-content ui-corner-all customize small dark dialog_1412353007560_32430309918709100" tabindex="-1" role="dialog" aria-labelledby="ui-id-1" style="display: none; outline: 0px; z-index: 299;">
+        <div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix">
+            <span id="ui-id-1" class="ui-dialog-title">Edit Page</span><a href="http://about.me/ricardo.quintas#" class="ui-dialog-titlebar-close ui-corner-all glyph-close glyph-center" role="button">&nbsp;</a>
+        </div>
+        <div id="customize" class="pane ui-dialog-content ui-widget-content" style="display: block;">
+            <div class="customize-content">
+                <div class="customize-head">
+                    <ul class="buttonbar customize-tabs tabs-setup">
+                        <li class="button active" data-section="backgrounds">Photo</li>
+                        <li class="button" data-section="biography">Biography</li>
+                        <li class="button" data-section="colors">Colors</li>
+                        <li class="button" data-section="fonts">Fonts</li>
+                        <li class="button" data-section="apps">Apps</li>
+                        <li class="button" data-section="links">Links</li>
+                        <li class="button" data-section="contact">Contact</li>
+                        <li class="button" data-section="getvisitors">Promote</li>
+                    </ul>
+                </div>
+                <div class="customize-body">
+                    <div id="customize-pane-backgrounds" class="tab customize-pane" style="display: block;">
+                        <div class="pane-header">
+                            <div class="pane-headertext">Background Photo
+                                <span class="tinytip-info" id="backgrounds-tip">&nbsp;
+                                    <div class="tooltip tiny  top arrow" style="display: none;">
+                                        <div class="tooltip-content">A picture sets you apart from the rest. Upload an image, import a favorite photo or make a collage!</div>
+                                        <div class="tooltip-header"></div>
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
+                        <ul class="tabs bg-select tabs-setup">
+                            <li class="nouploadhide"><a href="http://about.me/ricardo.quintas#upload" class="tab bg-upload active">Upload</a>
+                            </li>
+                            <li><a href="http://about.me/ricardo.quintas#instagram" class="tab bg-instagram">Instagram</a>
+                            </li>
+                            <li><a href="http://about.me/ricardo.quintas#facebook" class="tab bg-facebook">Facebook</a>
+                            </li>
+                            <li><a href="http://about.me/ricardo.quintas#gallery" class="tab bg-gallery">Saved</a>
+                            </li>
+                        </ul>
+                        <div class="tab instagram" id="bg-instagram" style="display: none;">
+                            <div class="bg-instagram-added" style="display:none">
+                                <div class="section carousel fullwidth size12 clearfix">
+                                    <h4>Choose a Single Photo
+                                        <span class="tinytip-info" id="instagram-background-tip">&nbsp;
+                                            <div class="tooltip tiny  top arrow" style="display: none;">
+                                                <div class="tooltip-content">Your Instagram account must be public to use the images in your background. If your pics don’t show, try refreshing the page.</div>
+                                                <div class="tooltip-header"></div>
+                                            </div>
+                                        </span>
+                                    </h4>
+                                    <ul id="bg_instagram_thumbs" class="clearfix" style="display:none"></ul>
+                                    <p class="no-content" style="display:none">Your Instagram photos aren’t yet loaded. Please check back later.</p>
+                                </div>
+                                <div class="section clearfix">
+                                    <div class="bg-instagram-layouts">
+                                        <span class="bg-instagram-right inactive" data-value="instagram-right"></span>
+                                        <span class="bg-instagram-left inactive" data-value="instagram-left"></span>
+                                    </div>
+                                    <p>Pick a simple layout for your photo and bio or use the background position buttons below.</p>
+                                </div>
+                                <hr>
+                                <div class="section bg-instagram-tiled">
+                                    <div>
+                                        <img src="./Ricardo Quintas - Europe   about.me_files/edit-backgrounds-ig-tiled.jpg" alt="">
+                                        <h4>Create a Tiled Background</h4>
+                                        <p>Easily create a tiled background of your most recent Instagram photos.</p>
+                                        <span id="bg-instagram-tile" class="button dark small">Create My Background</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="no-content" style="">Please add Instagram to your page to access your photos.
+                                <span id="bg-add-instagram" class="button button-small small">
+                                    <span class="button-content">Add Instagram</span>
+                                </span>
+                            </p>
+                        </div>
+                        <div class="tab facebook" id="bg-facebook" style="display: none;">
+                            <div class="bg-facebook-added" style="display:none">
+                                <div class="section carousel fullwidth size12 clearfix">
+                                    <h4>Choose a Photo</h4>
+                                    <ul id="bg_facebook_thumbs" class="clearfix" style="display:none"></ul>
+                                    <p class="no-content" style="display:none">Your Facebook photos aren’t yet loaded. Please check back later.</p>
+                                </div>
+                                <hr>
+                                <div class="section bg-facebook-tiled">
+                                    <div>
+                                        <img src="./Ricardo Quintas - Europe   about.me_files/edit-backgrounds-ig-tiled.jpg" alt="">
+                                        <h4>Create a Tiled Background</h4>
+                                        <p>Easily create a tiled background of your most recent Facebook photos.</p>
+                                        <span id="bg-facebook-tile" class="button dark small">Create My Background</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="no-content" style="">Please add Facebook to your page to access your photos.
+                                <span id="bg-add-facebook" class="button button-small small">
+                                    <span class="button-content">Add Facebook</span>
+                                </span>
+                            </p>
+                        </div>
+                        <div class="tab upload nouploadhide" id="bg-upload" style="display: block;">
+                            <div id="bg-upload-target" class="bg-upload-target" ondragover="return false">
+                                <div>
+                                    <h3 class="draghide">Drag background photo here</h3>
+                                    <p class="draghide">or</p>
+                                    <span id="background_change" class="button button-submit dark blue button-large large upload-button">
+                                        <span class="button-content">Upload
+                                            <span class="dragshow">a Background Image</span>
+                                            <span class="draghide">from my computer</span>
+                                        </span>
+                                        <input id="background_upload" type="file">
+                                    </span>
+                                    <!-- <span class="loader upload-loader" id="upload_background_loader" style="display:none"><img src="${static_asset(r, '/images/ajax/ajax-loader-alt2.gif')}" alt="Activity indicator" />&nbsp;Uploading...</span> -->
+                                    <!-- <p id="upload_status_background" class="uploadstatus middle small"></p> -->
+                                    <p class="text gray upload-filesize">JPG, GIF, or PNG. Maximum file size is 5MB.</p>
+                                </div>
+                                <!-- <div class="clear text gray gray-medium upload-message">The maximum visible background image we display is 1680x1050 pixels.</div> --></div>
+                        </div>
+                        <div class="tab gallery" id="bg-gallery" style="display: none;">
+                            <div class="bg_saved_carousel section carousel fullwidth size3 clearfix">
+                                <h4>Saved Backgrounds</h4>
+                                <div class="nav buttonbar bg_saved_thumbs-bar">
+                                    <span class="button small first disabled glyph-angle-left glyph-center jcarousel-control inactive" id="bg_saved_thumbs_prev_photo_thumb" data-jcarouselcontrol="true">&nbsp;</span>
+                                    <span class="buttonbar numberbar bg_saved_thumbs-numberbar jcarousel-pagination" data-jcarouselpagination="true" style="display: block;">
+                                        <span class="button small number number-1" style="display: block;">1</span>
+                                        <span class="button small number number-2" style="display: block;">2</span>
+                                    </span>
+                                    <span class="button small last glyph-angle-right glyph-center jcarousel-control" id="bg_saved_thumbs_next_photo_thumb" data-jcarouselcontrol="true">&nbsp;</span>
+                                </div>
+                                <div class="jcarousel" id="bg_saved_thumbs-carousel" style="position:relative;height:130px;" data-jcarousel="true">
+                                    <ul id="bg_saved_thumbs" class="wrapped" style="width: 915px; position: absolute; left: 0px; top: 0px;">
+                                        <li class="carousel-item active visible">
+                                            <a href="http://about.me/ricardo.quintas#" data-value="http://d13pix9kaak6wt.cloudfront.net/background/users/r/i/c/ricardo.quintas_1412273872_42.png" class="saved_bg theme_background">
+                                                <img src="./Ricardo Quintas - Europe   about.me_files/ricardo.quintas_1412273872_42(1).png" data-src="http://d13pix9kaak6wt.cloudfront.net/thumbnail/users/r/i/c/ricardo.quintas_1412273872_42.png" class="loaded">
+                                                <span class="checkmark"></span>
+                                            </a>
+                                            <span class="bgthumbaction remove-thumb glyph-close glyph-center" title="Delete this image">&nbsp;</span>
+                                            <a href="./Ricardo Quintas - Europe   about.me_files/ricardo.quintas_1412273872_42.png" class="bgthumbaction saved-download glyph-download glyph-center" target="_blank" download="" title="Download this image"></a>
+                                        </li>
+                                        <li class="carousel-item visible">
+                                            <a href="http://about.me/ricardo.quintas#" data-value="http://d13pix9kaak6wt.cloudfront.net/background/users/r/i/c/ricardo.quintas_1412273573_54.png" class="saved_bg theme_background">
+                                                <img src="./Ricardo Quintas - Europe   about.me_files/ricardo.quintas_1412273573_54.png" data-src="http://d13pix9kaak6wt.cloudfront.net/thumbnail/users/r/i/c/ricardo.quintas_1412273573_54.png" class="loaded">
+                                                <span class="checkmark"></span>
+                                            </a>
+                                            <span class="bgthumbaction remove-thumb glyph-close glyph-center" title="Delete this image">&nbsp;</span>
+                                            <a href="http://d13pix9kaak6wt.cloudfront.net/background/users/r/i/c/ricardo.quintas_1412273573_54.png" class="bgthumbaction saved-download glyph-download glyph-center" target="_blank" download="" title="Download this image"></a>
+                                        </li>
+                                        <li class="carousel-item visible">
+                                            <a href="http://about.me/ricardo.quintas#" data-value="http://d13pix9kaak6wt.cloudfront.net/background/users/r/i/c/ricardo.quintas_1412272850_75.jpg" class="saved_bg theme_background">
+                                                <img src="./Ricardo Quintas - Europe   about.me_files/ricardo.quintas_1412272850_75.jpg" data-src="http://d13pix9kaak6wt.cloudfront.net/thumbnail/users/r/i/c/ricardo.quintas_1412272850_75.jpg" class="loaded">
+                                                <span class="checkmark"></span>
+                                            </a>
+                                            <span class="bgthumbaction remove-thumb glyph-close glyph-center" title="Delete this image">&nbsp;</span>
+                                            <a href="http://d13pix9kaak6wt.cloudfront.net/background/users/r/i/c/ricardo.quintas_1412272850_75.jpg" class="bgthumbaction saved-download glyph-download glyph-center" target="_blank" download="" title="Download this image"></a>
+                                        </li>
+                                        <li class="carousel-item loading">
+                                            <a href="http://about.me/ricardo.quintas#" data-value="http://d13pix9kaak6wt.cloudfront.net/background/users/r/i/c/ricardo.quintas_1412268675_84.png" class="saved_bg theme_background">
+                                                <img src="./Ricardo Quintas - Europe   about.me_files/blank(1).gif" data-src="http://d13pix9kaak6wt.cloudfront.net/thumbnail/users/r/i/c/ricardo.quintas_1412268675_84.png">
+                                                <span class="checkmark"></span>
+                                            </a>
+                                            <span class="bgthumbaction remove-thumb glyph-close glyph-center" title="Delete this image">&nbsp;</span>
+                                            <a href="http://d13pix9kaak6wt.cloudfront.net/background/users/r/i/c/ricardo.quintas_1412268675_84.png" class="bgthumbaction saved-download glyph-download glyph-center" target="_blank" download="" title="Download this image"></a>
+                                        </li>
+                                        <li class="carousel-item loading">
+                                            <a href="http://about.me/ricardo.quintas#" data-value="http://d13pix9kaak6wt.cloudfront.net/background/Speulderbos_8_by_Mr_-DESHAMER_1680.jpg" class="saved_bg theme_background">
+                                                <img src="./Ricardo Quintas - Europe   about.me_files/blank(1).gif" data-src="http://d13pix9kaak6wt.cloudfront.net/thumbnail/Speulderbos_8_by_Mr_-DESHAMER_1680.jpg">
+                                                <span class="checkmark"></span>
+                                            </a>
+                                            <span class="background-sig"><a href="http://500px.com/photo/53991558/speulderbos-8-by-mr-deshamer">Speulderbos 8</a>
+                                                <br>by <a href="http://500px.com/photo/53991558/speulderbos-8-by-mr-deshamer">Mr DESHAMER</a>
+                                            </span>
+                                            <span class="bgthumbaction remove-thumb glyph-close glyph-center" title="Delete this image">&nbsp;</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <hr class="">
+                            <div class="section carousel fullwidth size3 clearfix">
+                                <h4>Gallery Backgrounds</h4>
+                                <div class="nav buttonbar bg_custom_thumbs-bar">
+                                    <span class="button small first disabled glyph-angle-left glyph-center jcarousel-control inactive" id="bg_custom_thumbs_prev_photo_thumb" data-jcarouselcontrol="true">&nbsp;</span>
+                                    <span class="buttonbar numberbar bg_custom_thumbs-numberbar jcarousel-pagination" data-jcarouselpagination="true" style="display: block;">
+                                        <span class="button small number number-1" style="display: block;">1</span>
+                                        <span class="button small number number-2" style="display: block;">2</span>
+                                        <span class="button small number number-3" style="display: block;">3</span>
+                                        <span class="button small number number-4" style="display: block;">4</span>
+                                    </span>
+                                    <span class="button small last glyph-angle-right glyph-center jcarousel-control" id="bg_custom_thumbs_next_photo_thumb" data-jcarouselcontrol="true">&nbsp;</span>
+                                </div>
+                                <div class="jcarousel" id="bg_custom_thumbs-carousel" style="position:relative;height:130px;" data-jcarousel="true">
+                                    <ul id="bg_custom_thumbs" class="wrapped" style="width: 2013px; position: absolute; left: 0px; top: 0px;">
+                                        <li class="carousel-item visible">
+                                            <a href="http://about.me/ricardo.quintas#" data-value="Props-to-David-Choe-by-Salvador-Armendariz_1680.jpg" class="theme_background">
+                                                <img src="./Ricardo Quintas - Europe   about.me_files/Props-to-David-Choe-by-Salvador-Armendariz_1680.jpg" data-src="http://d13pix9kaak6wt.cloudfront.net/thumbnail/Props-to-David-Choe-by-Salvador-Armendariz_1680.jpg" class="loaded">
+                                            </a>
+                                            <span class="background-sig"><a href="http://500px.com/photo/51938814/props-to-david-choe-by-salvador-armendariz">Props to David Choe</a>
+                                                <br>by <a href="http://500px.com/photo/51938814/props-to-david-choe-by-salvador-armendariz">Salvador Armendariz</a>
+                                            </span>
+                                        </li>
+                                        <li class="carousel-item visible">
+                                            <a href="http://about.me/ricardo.quintas#" data-value="Morning-by-Filip-Molcan_1680.jpg" class="theme_background">
+                                                <img src="./Ricardo Quintas - Europe   about.me_files/Morning-by-Filip-Molcan_1680.jpg" data-src="http://d13pix9kaak6wt.cloudfront.net/thumbnail/Morning-by-Filip-Molcan_1680.jpg" class="loaded">
+                                            </a>
+                                            <span class="background-sig"><a href="http://500px.com/photo/45644048/morning-by-filip-molcan">Morning</a>
+                                                <br>by <a href="http://500px.com/photo/45644048/morning-by-filip-molcan">Filip Molcan</a>
+                                            </span>
+                                        </li>
+                                        <li class="carousel-item visible">
+                                            <a href="http://about.me/ricardo.quintas#" data-value="One-Tree-by-Jeffrey-Sinnock_1680.jpg" class="theme_background">
+                                                <img src="./Ricardo Quintas - Europe   about.me_files/One-Tree-by-Jeffrey-Sinnock_1680.jpg" data-src="http://d13pix9kaak6wt.cloudfront.net/thumbnail/One-Tree-by-Jeffrey-Sinnock_1680.jpg" class="loaded">
+                                            </a>
+                                            <span class="background-sig"><a href="http://500px.com/photo/54048020/one-tree-by-jeffrey-sinnock">One Tree</a>
+                                                <br>by <a href="http://500px.com/photo/54048020/one-tree-by-jeffrey-sinnock">Jeffrey Sinnock</a>
+                                            </span>
+                                        </li>
+                                        <li class="carousel-item loading">
+                                            <a href="http://about.me/ricardo.quintas#" data-value="Speulderbos_8_by_Mr_-DESHAMER_1680.jpg" class="theme_background">
+                                                <img src="./Ricardo Quintas - Europe   about.me_files/blank(1).gif" data-src="http://d13pix9kaak6wt.cloudfront.net/thumbnail/Speulderbos_8_by_Mr_-DESHAMER_1680.jpg">
+                                            </a>
+                                            <span class="background-sig"><a href="http://500px.com/photo/53991558/speulderbos-8-by-mr-deshamer">Speulderbos 8</a>
+                                                <br>by <a href="http://500px.com/photo/53991558/speulderbos-8-by-mr-deshamer">Mr DESHAMER</a>
+                                            </span>
+                                        </li>
+                                        <li class="carousel-item loading">
+                                            <a href="http://about.me/ricardo.quintas#" data-value="TemplE-oF-KnowledgE-_-by-Guillaume-Rio_1680.jpg" class="theme_background">
+                                                <img src="./Ricardo Quintas - Europe   about.me_files/blank(1).gif" data-src="http://d13pix9kaak6wt.cloudfront.net/thumbnail/TemplE-oF-KnowledgE-_-by-Guillaume-Rio_1680.jpg">
+                                            </a>
+                                            <span class="background-sig"><a href="http://500px.com/photo/50496990/temple-of-knowledge-%23-by-guillaume-rio">TemplE oF KnowldegE #</a>
+                                                <br>by <a href="http://500px.com/photo/50496990/temple-of-knowledge-%23-by-guillaume-rio">Guillaume Rio</a>
+                                            </span>
+                                        </li>
+                                        <li class="carousel-item loading">
+                                            <a href="http://about.me/ricardo.quintas#" data-value="The-Way-to-Go-by-Bj_rn-Kleemann_1680.jpg" class="theme_background">
+                                                <img src="./Ricardo Quintas - Europe   about.me_files/blank(1).gif" data-src="http://d13pix9kaak6wt.cloudfront.net/thumbnail/The-Way-to-Go-by-Bj_rn-Kleemann_1680.jpg">
+                                            </a>
+                                            <span class="background-sig"><a href="http://500px.com/photo/38698754/the-way-to-go-by-bj%C3%B6rn-kleemann">The Way to Go</a>
+                                                <br>by <a href="http://500px.com/photo/38698754/the-way-to-go-by-bj%C3%B6rn-kleemann">Bjorn Kleemann</a>
+                                            </span>
+                                        </li>
+                                        <li class="carousel-item loading">
+                                            <a href="http://about.me/ricardo.quintas#" data-value="The-cave-by-Bruno-Carlos_1680.jpg" class="theme_background">
+                                                <img src="./Ricardo Quintas - Europe   about.me_files/blank(1).gif" data-src="http://d13pix9kaak6wt.cloudfront.net/thumbnail/The-cave-by-Bruno-Carlos_1680.jpg">
+                                            </a>
+                                            <span class="background-sig"><a href="http://500px.com/photo/48468926/the-cave-by-bruno-carlos">The cave</a>
+                                                <br>by <a href="http://500px.com/photo/48468926/the-cave-by-bruno-carlos">Brumo Carlos</a>
+                                            </span>
+                                        </li>
+                                        <li class="carousel-item loading">
+                                            <a href="http://about.me/ricardo.quintas#" data-value="Twilight-in-_eteora-by-George-Papapostolou_1680.jpg" class="theme_background">
+                                                <img src="./Ricardo Quintas - Europe   about.me_files/blank(1).gif" data-src="http://d13pix9kaak6wt.cloudfront.net/thumbnail/Twilight-in-_eteora-by-George-Papapostolou_1680.jpg">
+                                            </a>
+                                            <span class="background-sig"><a href="http://500px.com/photo/57499892/twilight-in-%CE%9Ceteora-by-george-papapostolou">Twilight in Meteora</a>
+                                                <br>by <a href="http://500px.com/photo/57499892/twilight-in-%CE%9Ceteora-by-george-papapostolou">George Papapostolou</a>
+                                            </span>
+                                        </li>
+                                        <li class="carousel-item loading">
+                                            <a href="http://about.me/ricardo.quintas#" data-value="the-power-of-Wind-by-Jen_-Kolosz_r_1680.jpg" class="theme_background">
+                                                <img src="./Ricardo Quintas - Europe   about.me_files/blank(1).gif" data-src="http://d13pix9kaak6wt.cloudfront.net/thumbnail/the-power-of-Wind-by-Jen_-Kolosz_r_1680.jpg">
+                                            </a>
+                                            <span class="background-sig"><a href="http://500px.com/photo/40770008/the-power-of-wind-by-jen%C5%91-kolosz%C3%A1r">the power of Wind</a>
+                                                <br>by <a href="http://500px.com/photo/40770008/the-power-of-wind-by-jen%C5%91-kolosz%C3%A1r">Jeno Koloszar</a>
+                                            </span>
+                                        </li>
+                                        <li class="carousel-item loading">
+                                            <a href="http://about.me/ricardo.quintas#" data-value="olden_0912.jpg" class="theme_background">
+                                                <img src="./Ricardo Quintas - Europe   about.me_files/blank(1).gif" data-src="http://d13pix9kaak6wt.cloudfront.net/thumbnail/olden_0912.jpg">
+                                            </a>
+                                            <span class="background-sig">by <a href="">DeAnna Watters</a>
+                                            </span>
+                                        </li>
+                                        <li class="carousel-item loading">
+                                            <a href="http://about.me/ricardo.quintas#" data-value="train_0912.jpg" class="theme_background">
+                                                <img src="./Ricardo Quintas - Europe   about.me_files/blank(1).gif" data-src="http://d13pix9kaak6wt.cloudfront.net/thumbnail/train_0912.jpg">
+                                            </a>
+                                            <span class="background-sig">by <a href="http://about.me/arthurarnesen">Arthur Arnesen</a>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="bg-position clearfix">
+                            <h4>Position
+                                <span class="tinytip-info" id="bg-position-tip">&nbsp;
+                                    <div class="tooltip tiny  bottom arrow" style="display: none;">
+                                        <div class="tooltip-content">Align your photo to the left, right or center. You can also drag and drop it directly on your page.</div>
+                                        <div class="tooltip-header"></div>
+                                    </div>
+                                </span>
+                            </h4>
+                            <div class="buttonbar bgpositionoptions">
+                                <!--left-->
+                                <div class="button small" data-value="left">
+                                    <span class="button-content">Left</span>
+                                </div>
+                                <!--center-->
+                                <div class="button small" data-value="center">
+                                    <span class="button-content">Center</span>
+                                </div>
+                                <!--right-->
+                                <div class="button small" data-value="right">
+                                    <span class="button-content">Right</span>
+                                </div>
+                                <!--scaled-->
+                                <div class="button small" data-value="scale partial">
+                                    <span class="button-content">Fit to Window</span>
+                                </div>
+                                <!--filled-->
+                                <div class="button small active" data-value="scale">
+                                    <span class="button-content">Fill Window</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="customize-pane-biography" class="tab customize-pane loading" style="display: none;"></div>
+                    <div id="customize-pane-colors" class="tab customize-pane loading" style="display: none;"></div>
+                    <div id="customize-pane-fonts" class="tab customize-pane loading" style="display: none;"></div>
+                    <div id="customize-pane-apps" class="tab customize-pane customize-pane-appslinks loading" style="display: none;"></div>
+                    <div id="customize-pane-links" class="tab customize-pane customize-pane-appslinks loading" style="display: none;"></div>
+                    <div id="customize-pane-getvisitors" class="tab customize-pane getvisitors  loading" style="display: none;"></div>
+                    <div id="customize-pane-contact" class="tab customize-pane contact loading" style="display: none;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tooltip tiny  top arrow" style="display: none; text-align: center; min-width: 100px; margin-top: 10px; margin-left: -5px;">
+        <div class="tooltip-content">Try a new color scheme</div>
+        <div class="tooltip-header"></div>
+    </div>
+    <div class="bubbles">
+        <div class="notification bubble bubble-profilepromos share_page" style="position: fixed; bottom: 30px; right: 30px; width: auto; display: block;">
+            <div class="bubble-content">
+                <div class="bubble-control bubble-close glyph-close glyph-center"></div>
+                <div class="message-content">
+                    <h5>Share your page!</h5>
+                    <p class="buttons"><a class="button small dark branded twitter glyph-twitter popup" target="_blank" href="http://twitter.com/intent/tweet?text=Check%20out%20my%20%40aboutdotme%20page%20-%20http%3A%2F%2Fabout.me%2Fricardo.quintas.%20Get%20yours%20now%20before%20all%20the%20names%20are%20gone.%20http%3A%2F%2Fabout.me">Tweet</a><a class="button small dark branded facebook glyph-facebook popup" target="_blank" href="http://www.facebook.com/share.php?u=http%3A%2F%2Fabout.me%2Fricardo.quintas">Share</a><a class="button small dark branded linkedin glyph-linkedin popup" target="_blank" href="http://www.linkedin.com/shareArticle?url=http%3A%2F%2Fabout.me%2Fricardo.quintas">Share</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./Ricardo Quintas - Europe   about.me_files/search" type="text/javascript"></script>
+    <script src="http://open.mapquestapi.com/nominatim/v1/search?q=North%20Atlantic%20Ocean&format=json&json_callback=MQA.NominatimIO.CALLBACKS.c14123530198904" type="text/javascript"></script>
+</body>
+
+</html>
