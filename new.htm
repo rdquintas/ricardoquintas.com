@@ -5,6 +5,14 @@
     <title>zrq testing</title>
     <style type="text/css" scr="css/normalize.css"></style>
     <style>
+    * {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    html {
+        font-size: 62.5%;
+    }
     body {
         margin: 50%;
         background-color: black;
@@ -16,17 +24,29 @@
         
         width: 100%
     }
+    .intro {
+        color: white;
+        font-size: 2.4rem;
+    }
     .float-box {
-        margin-left: 18%;
+        /*float: left;*/
+        /*margin-right: 10%;*/
+        /*width: 650px;*/
+        
+        left: 100px;
         padding: 20px;
         top: 28%;
         position: absolute;
-        background-color: rgba(255, 255, 255, 0.06);
+        /*background-color: rgba(255, 255, 255, 0.06);*/
+        
+        background-color: rgba(0, 0, 0, 0.298039);
     }
     .name {
         color: white;
         margin: 0;
-        font-size: 89px
+        /*font-size: 89px*/
+        
+        font-size: 8.9rem;
     }
     </style>
 </head>
@@ -41,6 +61,10 @@
 
     <section class="float-box">
         <h1 class="name">Ricardo Quintas</h1>
+        <p class="intro">Freelance Software Engineer.
+            <br>I take myself seriously, but not today.
+            <br>If not coding, I'm playing the Jazz clarinet somewhere.
+
     </section>
 
     <script type="text/javascript" src="js/picturefill.js"></script>
@@ -49,7 +73,6 @@
     $(window).resize(function() {
         // $('.float-box').css('margin-left', $(window).width() / 6);
     });
-  
     </script>
 </body>
 
