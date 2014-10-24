@@ -3,14 +3,15 @@
 
 <head>
     <title>zrq testing</title>
-    <style type="text/css" scr="css/normalize.css"></style>
+    <style type="text/css" scr="css/bootstrap.min.css"></style>
 
     <style>
-    * {
+    /*    * {
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
-    }
+    }*/
+    
     html {
         font-size: 62.5%;
     }
@@ -20,14 +21,25 @@
         padding: 0;
         margin: 0
     }
-    img {
-        /*align: center;*/
+    hr {
+        border-top: 1px solid #000;
+        border-bottom: 1px solid #fff;
+        margin: 0;
+        line-height: 1px;
+        height: 0;
+        filter: alpha(opacity=15);
+        opacity: .15;
+    }
+    /*    img {
+        align: center;
         
         width: 100%
-    }
+    }*/
+    
     p {
         color: white;
         font-size: 2.4rem;
+        /*line-height: 0.9;*/
     }
     .my-name {
         color: white;
@@ -36,11 +48,19 @@
         /*font-size: 9.2rem;*/
     }
     .icon {
-        float: left;
-        margin-left: 5px;
+        display: inline;
+        /*position: relative;*/
+        /*float: left;*/
+        /*margin-left: 5px;*/
+        
         background-color: red;
-        width: 40px;
-        height: 40px;
+        width: 80px;
+        height: 80px;
+    }
+    .icon-list {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
     }
     .float-box {
         /*float: left;*/
@@ -86,27 +106,44 @@
 
 <body>
     <picture>
-        <source media="(max-width: 480px)" srcset="img/ricardo_small.png">
+        <source media="(max-width: 480px)" srcset="http://placehold.it/490x300" class="img-responsive">
+            <source media="(max-width: 640px)" srcset="http://placehold.it/650x406" class="img-responsive">
+                <source media="(max-width: 1024px)" srcset="http://placehold.it/1680x1050" class="img-responsive">
+                    <img src="http://placehold.it/1680x1050" alt="Ricardo Quintas" class="img-responsive">
+
+                    <!--         <source media="(max-width: 480px)" srcset="img/ricardo_small.png">
             <source media="(max-width: 640px)" srcset="img/ricardo_medium.png">
                 <source media="(max-width: 1024px)" srcset="img/ricardo_large.png">
-                    <img src="img/ricardo_large.png" alt="Ricardo Quintas">
+                    <img src="img/ricardo_large.png" alt="Ricardo Quintas"> -->
     </picture>
 
     <section class="float-box">
         <h1 class="my-name">Ricardo Quintas</h1>
         <article>
-            <p>Freelance Software Engineer.
-                <br>I take myself seriously, but not today. If not coding, I'm playing the Jazz clarinet somewhere.
-                <br>If not coding, I'm playing the Jazz clarinet somewhere.
-                <br>If not coding, I'm playing the Jazz clarinet somewhere.</p>
+            <p>Freelance Software Engineer.</p>
+            <hr>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                <br>Porro excepturi dolores quibusdam architecto voluptatem amet, fugiat nesciunt.
+                <br>Cumque accusamus itaque voluptate modi quidem dolore optio
+                <br>Nostrum nemo soluta sapiente sit dolor quae voluptas quidem doloribus, recusandae facere magni ullam suscipit</p>
         </article>
-        <article class="logos">
+
+        <article>
+            <ul class="icon-list">
+                <li class="icon">a</li>
+                <li class="icon">b</li>
+                <li class="icon">c</li>
+            </ul>
+            <br>
+            <!--    <div class="icon"></div>
             <div class="icon"></div>
             <div class="icon"></div>
             <div class="icon"></div>
-            <div class="icon"></div>
-            <div class="icon"></div>
+            <div class="icon"></div> -->
         </article>
+
+
     </section>
 
     <script type="text/javascript" src="js/jquery.min.js"></script>
