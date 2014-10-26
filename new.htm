@@ -52,14 +52,14 @@
         /*position: relative;*/
         /*float: left;*/
         /*margin-left: 5px;*/
-        
-        background-color: red;
-        width: 80px;
-        height: 80px;
+        /*background-color: red;*/
+        /*width: 80px;*/
+        /*height: 80px;*/
     }
     .icon-list {
         list-style-type: none;
-        margin: 0;
+        /*margin-left: 2%;*/
+        
         padding: 0;
     }
     .float-box {
@@ -68,8 +68,7 @@
         
         width: 62%;
         left: 100px;
-        /*padding: 20px;*/
-        
+        padding: 2%;
         top: 18%;
         position: absolute;
         /*background-color: rgba(255, 255, 255, 0.06);*/
@@ -105,47 +104,63 @@
 </head>
 
 <body>
-    <picture>
-        <source media="(max-width: 480px)" srcset="http://placehold.it/490x300" class="img-responsive">
-            <source media="(max-width: 640px)" srcset="http://placehold.it/650x406" class="img-responsive">
-                <source media="(max-width: 1024px)" srcset="http://placehold.it/1680x1050" class="img-responsive">
-                    <img src="http://placehold.it/1680x1050" alt="Ricardo Quintas" class="img-responsive">
+    <div class="container-fluid">
+        <picture>
+            <source media="(max-width: 480px)" srcset="http://placehold.it/490x300" class="img-responsive">
+                <source media="(max-width: 750px)" srcset="http://placehold.it/750x469" class="img-responsive">
+                    <source media="(max-width: 1024px)" srcset="http://placehold.it/1680x1050" class="img-responsive">
+                        <img src="http://placehold.it/1680x1050" alt="Ricardo Quintas" class="img-responsive">
 
-                    <!--         <source media="(max-width: 480px)" srcset="img/ricardo_small.png">
+                        <!--         <source media="(max-width: 480px)" srcset="img/ricardo_small.png">
             <source media="(max-width: 640px)" srcset="img/ricardo_medium.png">
                 <source media="(max-width: 1024px)" srcset="img/ricardo_large.png">
                     <img src="img/ricardo_large.png" alt="Ricardo Quintas"> -->
-    </picture>
+        </picture>
 
-    <section class="float-box">
-        <h1 class="my-name">Ricardo Quintas</h1>
-        <article>
-            <p>Freelance Software Engineer.</p>
-            <hr>
+        <section class="float-box">
+            <h1 class="my-name">Ricardo Quintas</h1>
+            <article>
+                <p>Freelance Software Engineer.</p>
+                <hr>
 
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                <br>Porro excepturi dolores quibusdam architecto voluptatem amet, fugiat nesciunt.
-                <br>Cumque accusamus itaque voluptate modi quidem dolore optio
-                <br>Nostrum nemo soluta sapiente sit dolor quae voluptas quidem doloribus, recusandae facere magni ullam suscipit</p>
-        </article>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    <br>Porro excepturi dolores quibusdam architecto voluptatem amet, fugiat nesciunt.
+                    <br>Cumque accusamus itaque voluptate modi quidem dolore optio
+                    <br>Nostrum nemo soluta sapiente sit dolor quae voluptas quidem doloribus, recusandae facere magni ullam suscipit</p>
+            </article>
 
-        <article>
-            <ul class="icon-list">
-                <li class="icon">a</li>
-                <li class="icon">b</li>
-                <li class="icon">c</li>
-            </ul>
-            <br>
-            <!--    <div class="icon"></div>
+            <article>
+                <ul class="icon-list">
+                    <li class="icon">
+                        <img src="http://placehold.it/40x40" alt="">
+                    </li>
+                    <li class="icon">
+                        <img src="http://placehold.it/40x40" alt="">
+                    </li>
+                    <li class="icon">
+                        <img src="http://placehold.it/40x40" alt="">
+                    </li>
+                    <li class="icon">
+                        <img src="http://placehold.it/40x40" alt="">
+                    </li>
+                    <li class="icon">
+                        <img src="http://placehold.it/40x40" alt="">
+                    </li>
+                    <li class="icon">
+                        <img src="http://placehold.it/40x40" alt="">
+                    </li>
+                </ul>
+                <br>
+                <!--    <div class="icon"></div>
             <div class="icon"></div>
             <div class="icon"></div>
             <div class="icon"></div>
             <div class="icon"></div> -->
-        </article>
+            </article>
 
 
-    </section>
-
+        </section>
+    </div>
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/picturefill.js"></script>
     <script type="text/javascript" src="js/jquery.fittext.js"></script>
