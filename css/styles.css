@@ -10,11 +10,11 @@ body {
     overflow-x: hidden;
 }
 a {
-    color: #F28C83;
+    color: #CB0000;
     text-decoration: none
 }
 a:hover, a:focus {
-    color: #F28C83;
+    color: #CB0000;
     text-decoration: underline
 }
 a:focus, .btn:focus {
@@ -54,39 +54,39 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 .bg-color1 {
     color: #fff;
-    background: #509B9E;
+    background: #989898;
 }
 .bg-color2 {
     color: #fff;
-    background: #F28C83;
+    background: #CB0000;
 }
 .bg-color3 {
     color: #fff;
-    background: #334959;
+    background: #000;
 }
 .border-bottom-color2 {
-    border-bottom: 7px solid #F28C83;
+    border-bottom: 7px solid #CB0000;
 }
 .border-top-color2 {
-    border-top: 7px solid #F28C83;
+    border-top: 7px solid #CB0000;
 }
 .color1 .service-icon, .color1.service-item ul li:nth-child(2):before {
-    background: #509B9E;
+    background: #989898;
 }
 .color1 .service-icon:after {
-    border: 3px solid #509B9E;
+    border: 3px solid #989898;
 }
 .color2 .service-icon, .color2.service-item ul li:nth-child(2):before {
-    background: #F28C83;
+    background: #CB0000;
 }
 .color2 .service-icon:after {
-    border: 3px solid #F28C83;
+    border: 3px solid #CB0000;
 }
 .color3 .service-icon, .color3.service-item ul li:nth-child(2):before {
-    background: #334959;
+    background: #000;
 }
 .color3 .service-icon:after {
-    border: 3px solid #334959;
+    border: 3px solid #000;
 }
 /*------------------
 ----- Buttons ------
@@ -97,13 +97,13 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     color: #fff;
     font-size: 21px;
     font-weight: 300;
-    background: #F28C83;
+    background: #CB0000;
     outline: none !important;
     border-radius: 0;
     transition: opacity .2s ease-out;
 }
 .btn-color1 {
-    background: #509B9E;
+    background: #989898;
 }
 .btn-color1:hover, .btn-color2:hover {
     color: #fff;
@@ -214,7 +214,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     border: 2px solid transparent;
 }
 #main-nav.scrolled .nav li.active a, #main-nav.scrolled .nav a:hover {
-    color: #F28C83;
+    color: #CB0000;
 }
 /*-----------------------
 ---- Header Styles ----
@@ -245,10 +245,10 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     margin: 0;
     font-size: 82px;
     font-weight: 600;
-    /*text-transform: uppercase;*/
 }
 #home h1 + p {
     font-size: 28px;
+    margin-left: 5px;
 }
 /*-----------------------
 ---- Services Styles ----
@@ -274,7 +274,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     border-radius: 50%;
     font-size: 62px;
     line-height: 150px;
-    background: #334959;
+    background: #000;
     color: #fff;
     -webkit-transition: all 0.2s ease-out;
     transition: all 0.2s ease-out;
@@ -288,7 +288,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     height: 174px;
     top: -12px;
     left: -12px;
-    border: 3px solid #334959;
+    border: 3px solid #000;
     border-radius: 50%;
     -webkit-transition: all 0.2s ease-out;
     transition: all 0.2s ease-out;
@@ -350,15 +350,15 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 .skill1 {
     left: 0;
-    background: #F28C83;
+    background: #CB0000;
 }
 .skill2 {
     left: 25%;
-    background: #509B9E;
+    background: #989898;
 }
 .skill3 {
     left: 50%;
-    background: #334959;
+    background: #000;
 }
 .skill4 {
     left: 75%;
@@ -440,7 +440,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     text-decoration: none;
 }
 #filter-works ul li.active a, #filter-works ul li:hover a {
-    color: #509B9E;
+    color: #989898;
 }
 .masonry-wrapper {
     margin: 0 auto;
@@ -500,7 +500,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     height: 100%;
     top: 0;
     left: 0;
-    background: #509B9E;
+    background: #989898;
     opacity: 0;
     filter: alpha(opacity=0);
     -webkit-transition: all 0.3s ease-out;
@@ -660,7 +660,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     background: rgba(255, 255, 255, 0.6);
 }
 #project-slider .flex-control-paging li a.flex-active {
-    background: #509B9E;
+    background: #989898;
     cursor: default;
 }
 /*----------------------
@@ -677,7 +677,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     text-decoration: none;
 }
 #twitter a {
-    color: #334959;
+    color: #000;
     text-decoration: none;
     transition: color .2s ease-out;
 }
@@ -838,7 +838,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 #contact-form .form-control:focus {
     background: #fff;
-    border-bottom: 3px solid #F28C83;
+    border-bottom: 3px solid #CB0000;
     outline: none;
     box-shadow: none;
     -webkit-transition: border-color .3s ease-in;
@@ -880,7 +880,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     line-height: 24px;
 }
 #gmap .infowin a {
-    color: #F28C83;
+    color: #CB0000;
 }
 #gmap .infowin a:hover {
     text-decoration: underline;
@@ -892,7 +892,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 #main-footer {
     padding-top: 50px;
     padding-bottom: 40px;
-    background: #1f2c37;
+    background: #000;
 }
 .social-links {
     list-style: none;
@@ -911,20 +911,19 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 .social-links li a {
     display: block;
     color: #fff;
-    color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.3);
     font-size: 21px;
     width: 50px;
     height: 50px;
     line-height: 50px;
     text-align: center;
-    background: rgba(0, 0, 0, 0.2);
     border-radius: 50%;
     -webkit-transition: all .3s ease-out;
     transition: all .3s ease-out;
 }
 .social-links li a:hover {
     color: #fff;
-    background: #509B9E
+    background: red
 }
 /*------------------------
 ---Scrolling animations---
@@ -1111,7 +1110,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
         width: 28px;
         height: 4px;
         margin-top: 0;
-        background: #6d6d6d !important;
+        background: #CB0000 !important;
     }
     #main-nav .navbar-toggle .icon-bar + .icon-bar {
         margin-top: 4px;
@@ -1125,7 +1124,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
         color: #6d6d6d;
     }
     #main-nav .nav li.active a, #main-nav .nav a:hover {
-        color: #F28C83;
+        color: #CB0000;
     }
     #main-nav .navbar-brand {
         padding-top: 5px;
@@ -1201,23 +1200,19 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 ------------------------*/
 
 #home .container .zrq {
-    /*width: 60% !important;*/
-    /*padding-bottom: 1px;  */
-    
     max-width: 50% !important;
-    /*background-color: red;*/
-    
     background-color: rgba(0, 0, 0, 0.298039);
 }
 .zrq-social-links {
     list-style: none;
     margin: 0;
     padding: 0;
-    margin-bottom: 30px;
+    margin-top: 8px;
+    /*margin-bottom: 30px;*/
 }
 .zrq-social-links li {
     display: inline-block;
-    margin: 0 5px;
+    margin: 0px !important;
     border-radius: 3px;
     box-shadow: 0 4px 0 transparent;
     -webkit-transition: all .3s ease-out;
@@ -1225,34 +1220,29 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 .zrq-social-links li a {
     display: block;
-    color: #fff;
-    color: rgba(255, 255, 255, 0.3);
-    font-size: 21px;
-    width: 50px;
-    height: 50px;
-    line-height: 50px;
+    font-size: 15px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
     text-align: center;
+    color: #fff;
     background: rgba(0, 0, 0, 0.2);
-    /*background: red;*/
-    
     border-radius: 50%;
     -webkit-transition: all .3s ease-out;
     transition: all .3s ease-out;
 }
 .zrq-social-links li a:hover {
     color: #fff;
-    background: #509B9E
+    background: red
 }
-
-.zrq2 {
-    text-decoration: underline;
-    cursor: pointer;
+.zrq-java-logo {
+    margin-top: -18px;
 }
-.zrq2:hover {
-    text-decoration: none;
-    cursor: pointer;
+.zrq-sap-logo {
+    margin-top: -8px;
+    margin-left: 7px;
 }
-/*.zrq {
-    z-index: 1;
+.zrq-music-note-logo {
+    margin-top: -12px;
+    margin-left: -11px;
 }
-*/

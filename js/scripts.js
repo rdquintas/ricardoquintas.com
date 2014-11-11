@@ -1,8 +1,8 @@
 $(document).ready(function() {
 
     /*============================================
-	Page Preloader
-	==============================================*/
+    Page Preloader
+    ==============================================*/
 
     $(window).load(function() {
         $('#page-loader').fadeOut(500, function() {
@@ -12,12 +12,22 @@ $(document).ready(function() {
     })
 
     /*============================================
-	Header
-	==============================================*/
+    ZRQ code
+    ==============================================*/
+    $(".my-name").fitText(0.8, {
+        minFontSize: '35px',
+        maxFontSize: '250px'
+    })
+
+    /*============================================
+    Header
+    ==============================================*/
 
     $('#home').height($(window).height() + 50);
 
-    $.backstretch('images/header-bg.jpg');
+    // $.backstretch('images/header-bg.jpg');
+    $.backstretch('http://placehold.it/1620x1080');
+
 
     $(window).scroll(function() {
         var st = $(this).scrollTop(),
@@ -26,9 +36,8 @@ $(document).ready(function() {
 
 
         // >>> ZRQ
-        console.log("height: " + wh);
-        console.log("st: " + st);
-
+        // console.log("height: " + wh);
+        // console.log("st: " + st);
         // $('#services').waypoint(function(direction) {
         //     console.log("cenas: " + sf);
         //     $('.zrq').css({
@@ -38,6 +47,7 @@ $(document).ready(function() {
         //     offset: "82%"
         // });
         // <<< ZRQ
+
 
         $('.backstretch img').css({
             'transform': 'scale(' + sf + ')',
@@ -71,8 +81,8 @@ $(document).ready(function() {
 
 
     /*============================================
-	Navigation Functions
-	==============================================*/
+    Navigation Functions
+    ==============================================*/
     if ($(window).scrollTop() < ($(window).height() - 50)) {
         $('#main-nav').removeClass('scrolled');
     } else {
@@ -88,8 +98,8 @@ $(document).ready(function() {
     });
 
     /*============================================
-	ScrollTo Links
-	==============================================*/
+    ScrollTo Links
+    ==============================================*/
     $('a.scrollto').click(function(e) {
         $('html,body').scrollTo(this.hash, this.hash, {
             gap: {
@@ -104,8 +114,8 @@ $(document).ready(function() {
     });
 
     /*============================================
-	Skills
-	==============================================*/
+    Skills
+    ==============================================*/
     $('.skills-item').each(function() {
         var perc = $(this).find('.percent').data('percent');
 
@@ -123,31 +133,31 @@ $(document).ready(function() {
     });
 
     /*============================================
-	Project thumbs - Masonry
-	==============================================*/
-    $(window).load(function() {
+    Project thumbs - Masonry
+    ==============================================*/
+    // $(window).load(function() {
 
-        $('#projects-container').css({
-            visibility: 'visible'
-        });
+    //     $('#projects-container').css({
+    //         visibility: 'visible'
+    //     });
 
-        $('#projects-container').masonry({
-            itemSelector: '.project-item:not(.filtered)',
-            //columnWidth:370,
-            isFitWidth: true,
-            isResizable: true,
-            isAnimated: !Modernizr.csstransitions,
-            gutterWidth: 25
-        });
+    //     $('#projects-container').masonry({
+    //         itemSelector: '.project-item:not(.filtered)',
+    //         //columnWidth:370,
+    //         isFitWidth: true,
+    //         isResizable: true,
+    //         isAnimated: !Modernizr.csstransitions,
+    //         gutterWidth: 25
+    //     });
 
-        scrollSpyRefresh();
-        waypointsRefresh();
+    //     scrollSpyRefresh();
+    //     waypointsRefresh();
 
-    });
+    // });
 
     /*============================================
-	Filter Projects
-	==============================================*/
+    Filter Projects
+    ==============================================*/
     $('#filter-works a').click(function(e) {
         e.preventDefault();
 
@@ -175,8 +185,8 @@ $(document).ready(function() {
     });
 
     /*============================================
-	Project Preview
-	==============================================*/
+    Project Preview
+    ==============================================*/
     $('.project-item').click(function(e) {
         e.preventDefault();
 
@@ -274,62 +284,63 @@ $(document).ready(function() {
 
 
     /*============================================
-	Contact Map
-	==============================================*/
+    Contact Map
+    ==============================================*/
     function loadGmap() {
 
-            if ($('#gmap').length) {
+        if ($('#gmap').length) {
 
-                var map;
-                var mapstyles = [{
-                    "stylers": [{
-                        "saturation": -100
-                    }]
-                }];
+            var map;
+            var mapstyles = [{
+                "stylers": [{
+                    "saturation": -100
+                }]
+            }];
 
-                var infoWindow = new google.maps.InfoWindow;
+            var infoWindow = new google.maps.InfoWindow;
 
-                var pointLatLng = new google.maps.LatLng(mapPoint.lat, mapPoint.lng);
+            var pointLatLng = new google.maps.LatLng(mapPoint.lat, mapPoint.lng);
 
-                var mapOptions = {
-                    zoom: mapPoint.zoom,
-                    center: pointLatLng,
-                    zoomControl: true,
-                    panControl: false,
-                    streetViewControl: false,
-                    mapTypeControl: false,
-                    overviewMapControl: false,
-                    scrollwheel: false,
-                    styles: mapstyles
-                }
-
-                map = new google.maps.Map(document.getElementById("gmap"), mapOptions);
-
-                var marker = new google.maps.Marker({
-                    position: pointLatLng,
-                    map: map,
-                    title: mapPoint.linkText,
-                    icon: mapPoint.icon
-                });
-
-                var mapLink = 'https://www.google.com/maps/preview?ll=' + mapPoint.lat + ',' + mapPoint.lng + '&z=14&q=' + mapPoint.mapAddress;
-
-                var html = '<div class="infowin">' + mapPoint.infoText + '<a href="' + mapLink + '" target="_blank">' + mapPoint.linkText + '</a>' + '</div>';
-
-                google.maps.event.addListener(marker, 'mouseover', function() {
-                    infoWindow.setContent(html);
-                    infoWindow.open(map, marker);
-                });
-
-                google.maps.event.addListener(marker, 'click', function() {
-                    window.open(mapLink, '_blank');
-                });
-
+            var mapOptions = {
+                zoom: mapPoint.zoom,
+                center: pointLatLng,
+                zoomControl: true,
+                panControl: false,
+                streetViewControl: false,
+                mapTypeControl: false,
+                overviewMapControl: false,
+                scrollwheel: false,
+                styles: mapstyles
             }
+
+            map = new google.maps.Map(document.getElementById("gmap"), mapOptions);
+
+            var marker = new google.maps.Marker({
+                position: pointLatLng,
+                map: map,
+                title: mapPoint.linkText,
+                icon: mapPoint.icon
+            });
+
+            var mapLink = 'https://www.google.com/maps/preview?ll=' + mapPoint.lat + ',' + mapPoint.lng + '&z=14&q=' + mapPoint.mapAddress;
+
+            var html = '<div class="infowin">' + mapPoint.infoText + '<a href="' + mapLink + '" target="_blank">' + mapPoint.linkText + '</a>' + '</div>';
+
+            google.maps.event.addListener(marker, 'mouseover', function() {
+                infoWindow.setContent(html);
+                infoWindow.open(map, marker);
+            });
+
+            google.maps.event.addListener(marker, 'click', function() {
+                window.open(mapLink, '_blank');
+            });
+
         }
-        /*============================================
-	Waypoints Animations
-	==============================================*/
+    }
+
+    /*============================================
+    Waypoints Animations
+    ==============================================*/
     $('#skills').waypoint(function() {
 
         $('.skills-item').each(function() {
@@ -353,8 +364,8 @@ $(document).ready(function() {
     });
 
     /*============================================
-	Resize Functions
-	==============================================*/
+    Resize Functions
+    ==============================================*/
     var thumbSize = $('.project-item').width();
 
     $(window).resize(function() {
@@ -371,8 +382,8 @@ $(document).ready(function() {
     });
 
     /*============================================
-	Refresh scrollSpy function
-	==============================================*/
+    Refresh scrollSpy function
+    ==============================================*/
     function scrollSpyRefresh() {
         setTimeout(function() {
             $('body').scrollspy('refresh');
@@ -380,8 +391,8 @@ $(document).ready(function() {
     }
 
     /*============================================
-	Refresh waypoints function
-	==============================================*/
+    Refresh waypoints function
+    ==============================================*/
     function waypointsRefresh() {
         setTimeout(function() {
             $.waypoints('refresh');
