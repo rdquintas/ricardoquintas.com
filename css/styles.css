@@ -6,7 +6,7 @@ body {
     font-family: Raleway, Arial, sans-serif;
     font-size: 16px;
     font-weight: 300;
-    color: #6d6d6d;
+    color: #292929;
     overflow-x: hidden;
 }
 a {
@@ -28,6 +28,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     font-weight: 300;
 }
 .big-text {
+    margin: 0;
     font-size: 58px;
     font-weight: 300;
     line-height: 62px;
@@ -168,7 +169,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     font-weight: 300;
 }
 #main-nav.scrolled .navbar-brand {
-    color: #6d6d6d;
+    color: #292929;
 }
 #main-nav {
     background: transparent;
@@ -206,7 +207,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     transition: color .2s ease-in;
 }
 #main-nav.scrolled .nav a, #main-nav.scrolled .nav a:active, #main-nav.scrolled .nav a:hover {
-    color: #6d6d6d;
+    color: #292929;
 }
 #main-nav li {
     background: transparent;
@@ -238,6 +239,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 #home p {
     margin: 0;
+    padding: 0;
+    margin-left: 5px;
     font-size: 32px;
     font-weight: 400;
 }
@@ -1044,6 +1047,9 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     -ms-transform: translateY(0px);
     transform: translateY(0px);
 }
+.zrq-box1 {
+    margin-top: -45px;
+}
 /*----------------------
 ----- Media Queries ----
 ------------------------*/
@@ -1075,6 +1081,9 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     #project-slider {
         min-height: 0;
     }
+    .zrq-box1 {
+        margin-top: -45px;
+    }
 }
 @media (max-width: 767px) {
     body {
@@ -1103,7 +1112,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     #main-nav .navbar-toggle {
         margin-bottom: 5px;
         margin-top: 5px;
-        color: #6d6d6d;
+        color: #292929;
         border-color: transparent !important;
     }
     #main-nav .navbar-toggle .icon-bar {
@@ -1121,7 +1130,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     #main-nav .nav a, #main-nav .nav a:active, #main-nav .nav a:hover {
         line-height: 42px;
         text-align: center;
-        color: #6d6d6d;
+        color: #292929;
     }
     #main-nav .nav li.active a, #main-nav .nav a:hover {
         color: #CB0000;
@@ -1129,7 +1138,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     #main-nav .navbar-brand {
         padding-top: 5px;
         font-size: 21px;
-        color: #6d6d6d;
+        color: #292929;
     }
     #main-nav .navbar-brand img {
         margin-right: 10px;
@@ -1185,6 +1194,9 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     #gmap {
         height: 300px;
     }
+    .zrq-box1 {
+        margin-top: 0px;
+    }
 }
 @media (max-width: 479px) {
     #projects-container .project-item {
@@ -1194,12 +1206,15 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     .project-item .hover-mask .project-title {
         margin-top: 70px;
     }
+    .zrq-box1 {
+        margin-top: 0;
+    }
 }
 /*----------------------
 -----  ZRQ Styles   ----
 ------------------------*/
 
-#home .container .zrq {
+#home .container .zrq-hi-there {
     max-width: 50% !important;
     background-color: rgba(0, 0, 0, 0.298039);
 }
@@ -1208,7 +1223,6 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     margin: 0;
     padding: 0;
     margin-top: 8px;
-    /*margin-bottom: 30px;*/
 }
 .zrq-social-links li {
     display: inline-block;
@@ -1246,3 +1260,32 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     margin-top: -12px;
     margin-left: -11px;
 }
+.zrq-contacts-logo {
+ /*   margin: 0;
+    padding: 0;
+    margin-top: 8px;*/
+}
+.zrq-contacts-logo {
+/*    margin: 0px !important;
+    border-radius: 3px;
+    box-shadow: 0 4px 0 transparent;
+    -webkit-transition: all .3s ease-out;
+    transition: all .3s ease-out;*/
+}
+.zrq-contacts-logo a {
+    /*display: block;*/
+    font-size: 15px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    /*text-align: center;*/
+    color: #fff;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    -webkit-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+}
+/*.zrq-contacts-logo a:hover {
+    color: #fff;
+    background: red
+}*/
