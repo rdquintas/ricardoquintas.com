@@ -1,6 +1,7 @@
 <?php 
-$emailTo = 'yourmail@example.com';
-$siteTitle = 'YourSiteTitle';
+$emailTo = 'rqcenter-web@yahoo.com';
+$siteTitle = 'ricardoquintas.com';
+$emailfrom =  'info@ricardoquintas.com';
 
 error_reporting(E_ALL ^ E_NOTICE); // hide all basic notices from PHP
 
@@ -45,18 +46,20 @@ if(isset($_POST['submitted'])) {
 		$sendCopy = trim($_POST['sendCopy']);
 		$body = "Name: $name \n\nEmail: $email \n\nMessage: $comments";
 		$headers = 'From: ' .' <'.$email.'>' . "\r\n" . 'Reply-To: ' . $email;
-
-		mail($emailTo, $subject, $body, $headers);
 		
-        //Autorespond
-		$respondSubject = 'Thank you for contacting '.$siteTitle;
-		$respondBody = "Your message to $siteTitle has been delivered! \n\nWe will answer back as soon as possible.";
-		$respondHeaders = 'From: ' .' <'.$emailTo.'>' . "\r\n" . 'Reply-To: ' . $emailTo;
+		$params = '-f ' . $emailfrom;
+		$emailSent = mail($emailTo, $subject, $body, $headers, $params);
+		// mail($emailTo, $subject, $body, $headers);
 		
-		mail($email, $respondSubject, $respondBody, $respondHeaders);
+  //       //Autorespond
+		// $respondSubject = 'Thank you for contacting '.$siteTitle;
+		// $respondBody = "Your message to $siteTitle has been delivered! \n\nWe will answer back as soon as possible.";
+		// $respondHeaders = 'From: ' .' <'.$emailTo.'>' . "\r\n" . 'Reply-To: ' . $emailTo;
+		
+		// mail($email, $respondSubject, $respondBody, $respondHeaders);
 		
         // set our boolean completion value to TRUE
-		$emailSent = true;
+		// $emailSent = true;
 	}
 }
 ?>

@@ -25,8 +25,8 @@ $(document).ready(function() {
 
     $('#home').height($(window).height() + 50);
 
-    // $.backstretch('images/header-bg.jpg');
-    $.backstretch('http://placehold.it/1620x1080');
+    $.backstretch('images/header-bg.jpg');
+    // $.backstretch('http://placehold.it/1620x1080');
 
 
     $(window).scroll(function() {
