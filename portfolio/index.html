@@ -55,66 +55,56 @@
             <br> This website only works with JavaScript. Sorry.
         </div>
     </noscript>
-    <section class="ui container">
-        <div class="ui stackable three  cards">
-            <div class="card">
+    <script id="entry-template" type="text/x-handlebars-template">
+        {{#each this}}
+        <div class="column iso-grid-item {{skills_class}}">
+            <div class="ui fluid card">
                 <div class="image">
-                    <img src="http://placehold.it/300x200">
+                    <a target="_blank" href="{{url.ricardo}}">
+                        <img src="img/{{image}}">
+                    </a>
                 </div>
                 <div class="content">
-                    <div class="header">Matt Giampietro</div>
-                    <div class="meta">
-                        <a>Friends</a>
+                    <div class="header">{{name}}</div>
+                    <div>
+                        {{#if url.normal}}
+                        <a target="_blank" href="{{url.normal}}">{{url.simple}}</a> {{else}}
+                        <br> {{/if}}
                     </div>
                     <div class="description">
-                        Matthew is an interior designer living in New York.
+                        {{description}}
+                    </div>
+                    <div class="proj-skills ">
+                        <a href="{{url.github}}" target="_blank" class="ui primary button">
+                            <i class="github icon"></i> Source Code
+                        </a>
+                        <a href="{{url.ricardo}}" target="_blank" class="ui button">
+                        Preview
+                    </a>
                     </div>
                 </div>
                 <div class="extra content">
-                    <span class="right floated">Joined in 2013</span>
-                    <span><i class="user icon"></i>75 Friends</span>
-                </div>
-            </div>
-            <div class="card">
-                <div class="image">
-                    <img src="http://placehold.it/300x200">
-                </div>
-                <div class="content">
-                    <div class="header">Matt Giampietro</div>
-                    <div class="meta">
-                        <a>Friends</a>
-                    </div>
-                    <div class="description">
-                        Matthew is an interior designer living in New York.
-                    </div>
-                </div>
-                <div class="extra content">
-                    <span class="right floated">Joined in 2013</span>
-                    <span><i class="user icon"></i>75 Friends</span>
-                </div>
-            </div>
-            <div class="card">
-                <a href="">
-                    <div class="image">
-                        <img style="width:100%" src="http://placehold.it/300x200">
-                    </div>
-                </a>
-                <div class="content">
-                    <div class="header">Matt Giampietro</div>
-                    <div class="meta">
-                        <a>Friends</a>
-                    </div>
-                    <div class="description">
-                        Matthew is an interior designer living in New York.
-                    </div>
-                </div>
-                <div class="extra content">
-                    <span class="right floated">Joined in 2013</span>
-                    <span><i class="user icon"></i>75 Friends</span>
+                    {{#each skills}}
+                    <div class="ui tag grey label">{{this}}</div>
+                    {{/each}}
                 </div>
             </div>
         </div>
-    </section>
+        {{/each}}
+    </script>
+    <div class="ui stackable menu">
+        <div class="header item">Filter by skill</div>
+        <a class="item All active" data-skill="All">All</a>
+        <a class="item jQuery" data-skill="jQuery">jQuery</a>
+        <!-- <a class="item NodeJS" data-skill="NodeJS">NodeJS</a> -->
+        <a class="item PHP" data-skill="PHP">PHP</a>
+        <a class="item LESS" data-skill="LESS">LESS</a>
+        <a class="item Bootstrap" data-skill="Bootstrap">Bootstrap</a>
+    </div>
+    <div class="zrq-container">
+        <div id="dynamic-html" class="ui stackable three column grid iso-grid">
+        </div>
+    </div>
     <!--     <h1>Portfolio</h1>
     <a href="./afso">AFSO</a>
     <br>
@@ -126,6 +116,11 @@
     <br>
     <a href="./unplace">Unplace</a>
     <script type="text/javascript" src="js/app.dist.js"></script> -->
+    <script type="text/javascript" src="js/handlebars-v4.0.5.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/isotope.pkgd.min.js"></script>
+    <script type="text/javascript" src="js/imagesloaded.pkgd.min.js"></script>
+    <script type="text/javascript" src="js/app.dist.js"></script>
 </body>
 
 </html>
