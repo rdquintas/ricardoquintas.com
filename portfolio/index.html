@@ -75,12 +75,12 @@
                         {{description}}
                     </div>
                     <div class="proj-skills ">
-                        <a href="{{url.github}}" target="_blank" class="ui primary button">
-                            <i class="github icon"></i> Source Code
-                        </a>
-                        <a href="{{url.ricardo}}" target="_blank" class="ui button">
+                        <a href="{{url.ricardo}}" target="_blank" class="ui primary button">
                         Preview
                     </a>
+                        <a href="{{url.github}}" target="_blank" class="ui button" title="Github">
+                            <i class="github icon"></i> Source Code
+                        </a>
                     </div>
                 </div>
                 <div class="extra content">
@@ -92,32 +92,49 @@
         </div>
         {{/each}}
     </script>
-    <div class="ui stackable menu">
-        <div class="header item">Filter by skill</div>
-        <a class="item All active" data-skill="All">All</a>
-        <a class="item jQuery" data-skill="jQuery">jQuery</a>
-        <!-- <a class="item NodeJS" data-skill="NodeJS">NodeJS</a> -->
-        <a class="item PHP" data-skill="PHP">PHP</a>
-        <a class="item LESS" data-skill="LESS">LESS</a>
-        <a class="item Bootstrap" data-skill="Bootstrap">Bootstrap</a>
-    </div>
-    <div class="zrq-container">
-        <div id="dynamic-html" class="ui stackable three column grid iso-grid">
+
+    <body>
+        <div class="zrq-mobile ui inverted labeled icon left inline vertical sidebar menu">
+         <a href="http://www.ricardoquintas.com" class="ui secondary button">Ricardo Quintas</a>
+            <a class="item All active" data-skill="All">All</a>
+            <a class="item jQuery" data-skill="jQuery">jQuery</a>
+            <!-- <a class="item NodeJS" data-skill="NodeJS">NodeJS</a> -->
+            <a class="item PHP" data-skill="PHP">PHP</a>
+            <a class="item LESS" data-skill="LESS">LESS</a>
+            <a class="item Bootstrap" data-skill="Bootstrap">Bootstrap</a>
         </div>
-    </div>
-    <!--     <h1>Portfolio</h1>
-    <a href="./afso">AFSO</a>
-    <br>
-    <a href="./alexandre_camarao">Alexandre Camarão</a>
-    <br>
-    <a href="./alphalink">Alphalink</a>
-    <br>
-    <a href="./santinho">Santinho</a>
-    <br>
-    <a href="./unplace">Unplace</a>
-    <script type="text/javascript" src="js/app.dist.js"></script> -->
+        <div class="zrq-desktop ui stackable menu">
+            <!-- <a class="item inverted" data-skill="none">Ricardo Quintas</a> -->
+            <div class="item">
+                <a href="http://www.ricardoquintas.com" class="ui secondary button">Ricardo Quintas</a>
+            </div>
+            <a class="item All active" data-skill="All">All</a>
+            <a class="item jQuery" data-skill="jQuery">jQuery</a>
+            <!-- <a class="item NodeJS" data-skill="NodeJS">NodeJS</a> -->
+            <a class="item PHP" data-skill="PHP">PHP</a>
+            <a class="item LESS" data-skill="LESS">LESS</a>
+            <a class="item Bootstrap" data-skill="Bootstrap">Bootstrap</a>
+        </div>
+        <div class="pusher zrq-container">
+            <div class="zrq-mobile">
+                <div class="ui top attached demo menu">
+                    <a id="toggle" class="item">
+                        <i class="sidebar icon"></i> Filter by skill
+                    </a>
+                </div>
+            </div>
+            <!--             <h1 class="ui huge header">First header</h1>
+ -->
+            <div id="dynamic-html" class="ui stackable three column grid iso-grid">
+            </div>
+            <!--   <div class="ui container">
+                <p>Footer</p>
+            </div> -->
+        </div>
+    </body>
     <script type="text/javascript" src="js/handlebars-v4.0.5.js"></script>
     <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/semantic.min.js"></script>
     <script type="text/javascript" src="js/isotope.pkgd.min.js"></script>
     <script type="text/javascript" src="js/imagesloaded.pkgd.min.js"></script>
     <script type="text/javascript" src="js/app.dist.js"></script>

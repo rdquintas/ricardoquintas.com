@@ -1,3 +1,11 @@
+body {
+    /*overflow-y: hidden;*/
+}
+
+body.pushable {
+    background: #fff !important;
+}
+
 img {
     width: 100%;
 }
@@ -30,6 +38,15 @@ img {
     margin: 5rem;
 }
 
+.zrq-mobile {
+    display: none;
+}
+
+.zrq-desktop {
+    margin: 0 !important;
+    /*display: flex;*/
+}
+
 .iso-grid-item {
     width: 33.33333333%;
 }
@@ -45,5 +62,14 @@ img {
 @media screen and (max-width: 770px) {
     .zrq-container {
         margin: 0rem;
+    }
+    .zrq-mobile {
+        display: flex;
+    }
+    .zrq-desktop {
+        display: none !important;
+    }
+    .ui.stackable.grid>.column:not(.row) {
+        margin-top: 5rem !important;
     }
 }
