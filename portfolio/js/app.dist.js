@@ -3,10 +3,10 @@ var projects = [{
     description: "Big band Jazz Orchestra. This responsive website required complex UI/UX components and subtle animations. All done with plain and pure CSS, no framework.",
     image: "lisbonswingers.jpg",
     url: {
-        ricardo: "http://www.lisbonswingers.com",
+        ricardo: "http://www.lisbonswingers.com/index_en.html",
         github: "https://github.com/rdquintas/LisbonSwingers",
         simple: "lisbonswingers.com",
-        normal: "http://www.lisbonswingers.com"
+        normal: "http://www.lisbonswingers.com/index_en.html"
     },
     skills: ["jQuery", "LESS"]
 }, {
