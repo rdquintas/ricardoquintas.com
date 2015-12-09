@@ -70,17 +70,15 @@
                         <h5>Skills used:</h5>
                         <ul class="clearfix tags">
                             {{#each skills}}
-                            <li class="tag">{{this}}</li>
+                            <li class="tag {{get_skill_css_color this}}">{{this}}</li>
                             {{/each}}
                         </ul>
                     </div>
                 </div>
-
             </div>
         </div>
         {{/each}}
     </script>
-
     <div id="sb-site">
         <i class="sb-toggle-left fa fa-bars"></i>
         <section id="nav-menu">
@@ -101,11 +99,9 @@
         <section id="footer">
         </section>
     </div>
-
     <div class="sb-slidebar sb-left">
         <!-- Here will be the mobile nav menu. jQuery will copy menu entries here.  -->
     </div>
-
     <script type="text/javascript" src="js/handlebars-v4.0.5.js"></script>
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/slidebars.js"></script>

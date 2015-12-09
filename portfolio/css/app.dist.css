@@ -3,51 +3,69 @@
  ***********************/
 
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700);
-*, *:after, *:before {
+*,
+*:after,
+*:before {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
+
 html {
     font-size: 62.5%;
 }
+
 body {
     font-family: 'Lato', sans-serif;
     overflow-y: hidden;
     font-size: 1.5em;
     font-weight: 400;
 }
-h1, h2, h3, h4, h5 {
+
+h1,
+h2,
+h3,
+h4,
+h5 {
     font-family: 'Lato', sans-serif;
     margin: 0;
     font-weight: 700;
 }
+
 h1 {
     font-size: 3.998em;
 }
+
 h2 {
     font-size: 2.827em;
 }
+
 h3 {
     font-size: 1.999em;
 }
+
 h4 {
     font-size: 1.414em;
 }
+
 h5 {
     font-size: 1em;
 }
+
 img {
     width: 100%;
 }
+
 ul {
     margin: 0;
     padding: 0;
     list-style-type: none;
 }
+
 ul li {
     float: left;
 }
+
 a {
     -webkit-transition: color 200ms;
     -o-transition: color 200ms;
@@ -55,9 +73,11 @@ a {
     color: rgba(0, 0, 0, 0.4);
     text-decoration: none;
 }
+
 a:hover {
     color: #1e70bf;
 }
+
 .clearfix:after {
     content: ".";
     display: block;
@@ -65,6 +85,7 @@ a:hover {
     clear: both;
     visibility: hidden;
 }
+
 .browserupdate {
     top: 0;
     bottom: 0;
@@ -79,28 +100,33 @@ a:hover {
     text-align: center;
     background-color: red;
 }
+
 .browserupdate a {
     color: #fff;
     text-decoration: underline;
 }
+
 .browserupdate a:hover {
     color: #ddd;
 }
+
 .sb-toggle-left {
     display: none;
 }
+
+
 /***********************
  * Navigation Menu (Desktop)
  ***********************/
 
 #nav-menu {
     /*padding: 1rem;*/
-    
     margin: 1rem;
     border: 1px solid #ddd;
     border-bottom-width: 3px;
     border-radius: 4px;
 }
+
 #nav-menu li {
     text-align: center;
     border-right: 1px solid #ddd;
@@ -109,13 +135,17 @@ a:hover {
     -o-transition: background-color 200ms;
     transition: background-color 200ms;
 }
+
 #nav-menu li:hover {
     cursor: pointer;
     background-color: #F8F8F8;
 }
+
 #nav-menu li.active {
     background-color: #F8F8F8;
 }
+
+
 /***********************
  * Projects
  ***********************/
@@ -124,16 +154,29 @@ a:hover {
     padding: 7rem;
     padding-top: 0rem;
 }
+
 .project-item {
     padding: 2rem;
     padding-top: 5rem;
     width: 33.33333333%;
 }
+
 .project-item img {
     box-shadow: 0 1px 3px 0 #D4D4D5, 0 0 0 1px #D4D4D5;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
+    -webkit-transition: opacity 100ms;
+    -o-transition: opacity 100ms;
+    transition: opacity 100ms;
 }
+
+.project-item img:hover {
+    opacity: 0.9;
+     -ms-transform: scale(0.8,0.8); /* IE 9 */
+    -webkit-transform: scale(0.8,0.8); /* Safari */
+    transform: scale(0.8,0.8);
+}
+
 .project-item .content {
     padding: 1rem;
     margin-top: -3px;
@@ -141,13 +184,16 @@ a:hover {
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
 }
+
 .project-item .description {
     color: rgba(0, 0, 0, 0.682353);
 }
+
 .project-item .buttons {
     padding-top: 2rem;
     padding-bottom: 2rem;
 }
+
 .project-item a.button {
     font-weight: 700;
     color: rgba(0, 0, 0, 0.682353);
@@ -159,51 +205,141 @@ a:hover {
     -o-transition: background-color 100ms;
     transition: background-color 100ms;
 }
+
 .project-item a.button i {
     margin-right: 5px;
     font-size: 22px;
     position: relative;
     top: 2px;
 }
+
 .project-item a.button:hover {
     background-color: #CACBCD;
 }
+
 .project-item a.button:active {
     background-color: #BABBBC;
 }
+
 .project-item a.button.primary {
     color: #fff;
     background-color: #2185D0;
 }
+
 .project-item a.button.primary:hover {
     background-color: #1678c2;
 }
+
 .project-item a.button.primary:active {
     background-color: #1a69a4;
 }
+
 .project-item div.skils {
     border-top: 1px;
     border-top-style: solid;
     border-top-color: #ddd;
 }
+
 .project-item div.skils h5 {
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
+
+.project-item .grey {
+    background-color: #555;
+    color: #fff;
+}
+
+.project-item .grey:before {
+    border-color: transparent #555 transparent transparent;
+}
+
+.project-item .green {
+    background-color: #61bd4f;
+    color: #fff;
+}
+
+.project-item .green:before {
+    border-color: transparent #61bd4f transparent transparent;
+}
+
+.project-item .yellow {
+    background-color: #f2d600;
+    color: #fff;
+}
+
+.project-item .yellow:before {
+    border-color: transparent #f2d600 transparent transparent;
+}
+
+.project-item .orange {
+    background-color: #ffab4a;
+    color: #fff;
+}
+
+.project-item .orange:before {
+    border-color: transparent #ffab4a transparent transparent;
+}
+
+.project-item .red {
+    background-color: #eb5a46;
+    color: #fff;
+}
+
+.project-item .red:before {
+    border-color: transparent #eb5a46 transparent transparent;
+}
+
+.project-item .purple {
+    background-color: #c377e0;
+    color: #fff;
+}
+
+.project-item .purple:before {
+    border-color: transparent #c377e0 transparent transparent;
+}
+
+.project-item .blue {
+    background-color: #0079bf;
+    color: #fff;
+}
+
+.project-item .blue:before {
+    border-color: transparent #0079bf transparent transparent;
+}
+
+.project-item .light-blue {
+    background-color: #00c2e0;
+    color: #fff;
+}
+
+.project-item .light-blue:before {
+    border-color: transparent #00c2e0 transparent transparent;
+}
+
+.project-item .light-green {
+    background-color: #51e898;
+    color: #fff;
+}
+
+.project-item .light-green:before {
+    border-color: transparent #51e898 transparent transparent;
+}
+
 .project-item div.skils .tags li {
     float: left;
     height: 26px;
     line-height: 24px;
     position: relative;
-    font-size: 10px;
+    /*font-size: 10px;*/
 }
+
 .project-item div.skils .tags li {
     margin-left: 20px;
     padding: 0 10px 0 12px;
     /*background: #0089e0;*/
-    
-    background: #555;
-    color: #fff;
+    /*background-color: #555;*/
+    /*color: #fff;*/
     text-decoration: none;
     -moz-border-radius-bottomright: 4px;
     -webkit-border-bottom-right-radius: 4px;
@@ -212,6 +348,7 @@ a:hover {
     -webkit-border-top-right-radius: 4px;
     border-top-right-radius: 4px;
 }
+
 .project-item div.skils .tags li:before {
     content: "";
     float: left;
@@ -221,11 +358,11 @@ a:hover {
     width: 0;
     height: 0;
     /*border-color: transparent #0089e0 transparent transparent;*/
-    
-    border-color: transparent #555 transparent transparent;
+    /*border-color: transparent #555 transparent transparent;*/
     border-style: solid;
     border-width: 12px 12px 14px 0;
 }
+
 .project-item div.skils .tags li:after {
     content: "";
     position: absolute;
@@ -242,9 +379,13 @@ a:hover {
     -webkit-box-shadow: -1px -1px 2px #004977;
     box-shadow: -1px -1px 2px #004977;*/
 }
+
+
 /*.project-item div.skils .tags li:hover {
     background: #555;
 }*/
+
+
 /*.project-item div.skils .tags li:hover:before {
     border-color: transparent #555 transparent transparent;
 }*/
