@@ -6,6 +6,7 @@ $(document).ready(function() {
     checkAllImagesAreLoaded();
 });
 
+
 // Handlebars get the skill CSS class
 Handlebars.registerHelper('skills_class', function() {
     var str = this.skills.join(" ");
@@ -52,22 +53,6 @@ var template = Handlebars.compile(source);
 var html = template(this.projects);
 $('#projects').html(html);
 
-// Capture skill-filter click events
-$('[id*="nav-menu"] ul li').on("click", function() {
-    var skill = $(this).attr("data-skill");
-    setActive(skill);
-    $.slidebars.close();
-    if (skill === "All") {
-        $grid.isotope({
-            filter: '*'
-        });
-    } else {
-        $grid.isotope({
-            filter: '.project-item.' + skill
-        });
-    }
-});
-
 
 function setActive(skill) {
     $('#nav-menu ul li').removeClass("active");
@@ -82,6 +67,22 @@ function initializeGrid() {
     $grid.isotope({
         itemSelector: '.project-item',
         layoutMode: 'fitRows'
+    });
+
+    // Capture skill-filter click events
+    $('ul.menu li').on("click", function() {
+        var skill = $(this).attr("data-skill");
+        setActive(skill);
+        $.slidebars.close();
+        if (skill === "All") {
+            $grid.isotope({
+                filter: '*'
+            });
+        } else {
+            $grid.isotope({
+                filter: '.project-item.' + skill
+            });
+        }
     });
 
     $('#page-loader').fadeOut(500);
