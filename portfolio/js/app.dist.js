@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    var $grid;
     $.slidebars();
     $("#nav-menu ul").clone().appendTo(".sb-slidebar");
     $("#footer .year").html(new Date().getFullYear());
@@ -77,7 +78,7 @@ function setActive(skill) {
 
 
 function initializeGrid() {
-    var $grid = $('#projects');
+    $grid = $('#projects');
     $grid.isotope({
         itemSelector: '.project-item',
         layoutMode: 'fitRows'
