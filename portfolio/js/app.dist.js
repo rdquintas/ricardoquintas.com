@@ -1,9 +1,8 @@
 $(document).ready(function() {
     $.slidebars();
     $("#nav-menu ul").clone().appendTo(".sb-slidebar");
-
-    // var year = 
     $("#footer .year").html(new Date().getFullYear());
+    checkAllImagesAreLoaded();
 });
 
 // Handlebars get the skill CSS class
@@ -46,45 +45,64 @@ Handlebars.registerHelper('get_skill_css_color', function(skill) {
 });
 
 
-
+// Initialize Handlebars
 var source = $("#entry-template").html();
 var template = Handlebars.compile(source);
 var html = template(this.projects);
 $('#projects').html(html);
 
-// setTimeout(function() {
-$('#entry-template').imagesLoaded(function() {
-    // Isotope Grid
+// Capture skill-filter click events
+$('[id*="nav-menu"] ul li').on("click", function() {
+    var skill = $(this).attr("data-skill");
+    setActive(skill);
+    $.slidebars.close();
+    if (skill === "All") {
+        $grid.isotope({
+            filter: '*'
+        });
+    } else {
+        $grid.isotope({
+            filter: '.project-item.' + skill
+        });
+    }
+});
+
+
+function setActive(skill) {
+    $('#nav-menu ul li').removeClass("active");
+    $('#nav-menu-mobile ul li').removeClass("active");
+    $('#nav-menu ul li.' + skill).addClass("active");
+    $('#nav-menu-mobile ul li.' + skill).addClass("active");
+}
+
+
+function initializeGrid() {
     var $grid = $('#projects');
     $grid.isotope({
         itemSelector: '.project-item',
         layoutMode: 'fitRows'
     });
 
+    $('#page-loader').fadeOut(500);
+}
 
-    $('[id*="nav-menu"] ul li').on("click", function() {
-        var skill = $(this).attr("data-skill");
-        setActive(skill);
-        
-        $.slidebars.close();
 
-        if (skill === "All") {
-            $grid.isotope({
-                filter: '*'
-            });
-        } else {
-            $grid.isotope({
-                filter: '.project-item.' + skill
-            });
+function checkAllImagesAreLoaded() {
+    var $img = $('img'),
+        totalImg = $img.length;
+
+    var waitImgDone = function() {
+        totalImg--;
+
+        // if all images are al
+        if (!totalImg) {
+            initializeGrid();
         }
+    };
+
+    $('img').each(function() {
+        $(this)
+            .load(waitImgDone)
+            .error(waitImgDone);
     });
-});
-// }, 1000);
-
-function setActive(skill) {
-    $('#nav-menu ul li').removeClass("active");
-    $('#nav-menu-mobile ul li').removeClass("active");
-
-    $('#nav-menu ul li.' + skill).addClass("active");
-    $('#nav-menu-mobile ul li.' + skill).addClass("active");
 }

@@ -69,12 +69,19 @@ ul li {
 }
 
 a {
-    -webkit-transition: color 200ms;
-    -o-transition: color 200ms;
-    transition: color 200ms;
-    /*color: rgba(0, 0, 0, 0.4);*/
+    -webkit-transition: all 200ms;
+    -o-transition: all 200ms;
+    transition: all 200ms;
     color: #666;
     text-decoration: none;
+}
+
+a.bottom-line {
+    border-bottom: 1px solid #babbbc;
+}
+
+a.bottom-line:hover {
+    border-bottom: 1px solid transparent;
 }
 
 a:hover {
@@ -120,6 +127,32 @@ a:hover {
 
 .sb-toggle-left:hover {
     color: #666;
+}
+
+
+/***********************
+ * Navigation Menu (Desktop)
+ ***********************/
+
+#page-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: #fff;
+    z-index: 99999;
+}
+
+#page-loader .page-loader-gif {
+    display: block;
+    width: 64px;
+    height: 64px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -32px 0 0 -32px;
+    background: url('../img/preloader.gif') no-repeat;
 }
 
 
