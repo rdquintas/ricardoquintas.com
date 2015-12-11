@@ -44,29 +44,36 @@
         <div class="project-item {{skills_class}}">
             <div class="ui fluid card">
                 <div class="image">
-                    <a target="_blank" href="{{url.ricardo}}">
+                    {{#if url.preview}}
+                    <a target="_blank" href="{{url.preview}}">
                         <img src="img/{{image}}">
                     </a>
+                    {{else}}
+                    <img src="img/{{image}}"> {{/if}}
                 </div>
                 <div class="content">
                     <h4>{{name}}</h4>
                     <div>
-                        {{#if url.normal}}
-                        <a class="normal" target="_blank" href="{{url.normal}}">{{url.simple}}</a> {{else}}
+                        {{#if url.liveSite}}
+                        <a class="normal" target="_blank" href="{{url.liveSite}}">
+                            <strong>{{url.simple}}</strong>
+                        </a> {{else}}
                         <br> {{/if}}
                     </div>
                     <div class="description">
                         {{{description}}}
                     </div>
                     <div class="buttons">
-                        <a href="{{url.ricardo}}" target="_blank" class="primary button">
+                        {{#if url.preview}}
+                        <a href="{{url.preview}}" target="_blank" class="primary button">
                         Preview
-                    </a>
+                        </a> {{/if}} {{#if url.github}}
                         <a href="{{url.github}}" target="_blank" class="button" title="Github">
                             <i class="fa fa-github"></i> Source Code
                         </a>
+                        {{/if}}
                     </div>
-                    <div class="skils">
+                    <div class="skills">
                         <h5>Skills used:</h5>
                         <ul class="clearfix tags">
                             {{#each skills}}
@@ -84,24 +91,29 @@
         <section id="nav-menu">
             <ul class="clearfix">
                 <li class="active All" data-skill="All">All </li>
-                <li class="jQuery" data-skill="jQuery">jQuery </li>
                 <!-- <li class="NodeJS" data-skill="NodeJS">NodeJS </li> -->
                 <li class="PHP" data-skill="PHP">PHP </li>
+                <li class="jQuery" data-skill="jQuery">jQuery </li>
                 <li class="LESS" data-skill="LESS">LESS </li>
                 <li class="Bootstrap" data-skill="Bootstrap">Bootstrap </li>
             </ul>
         </section>
-        <h1>Cenas</h1>
         <section id="projects-wrappper">
+            <h1>This is the portfolio of <a href="http://www.ricardoquintas.com">Ricardo Quintas</a></h1>
             <div id="projects">
             </div>
         </section>
         <section id="footer">
+            <hr>
+            <div class="copyright">
+                Site by <a href="http://www.ricardoquintas.com">ricardoquintas.com</a> © <span class="year"></span>
+            </div>
         </section>
     </div>
-    <div class="sb-slidebar sb-left">
+    <section id="nav-menu-mobile" class="sb-slidebar sb-left">
+        <h4>Filter by:</h4>
         <!-- Here will be the mobile nav menu. jQuery will copy menu entries here.  -->
-    </div>
+    </section>
     <script type="text/javascript" src="js/handlebars-v4.0.5.js"></script>
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/slidebars.js"></script>

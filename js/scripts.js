@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+ $("footer .year").html(new Date().getFullYear());
+
     /*============================================
     Page Preloader
     ==============================================*/

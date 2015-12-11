@@ -1,27 +1,19 @@
 $(document).ready(function() {
     $.slidebars();
     $("#nav-menu ul").clone().appendTo(".sb-slidebar");
+
+    // var year = 
+    $("#footer .year").html(new Date().getFullYear());
 });
 
-// Handlebars
+// Handlebars get the skill CSS class
 Handlebars.registerHelper('skills_class', function() {
     var str = this.skills.join(" ");
     return str;
 });
 
-// Handlebars
+// Handlebars get the CSS color for the skill tag
 Handlebars.registerHelper('get_skill_css_color', function(skill) {
-
-//     #61bd4f     green
-// #f2d600     yellow
-// #ffab4a     orange
-// #eb5a46     red
-// #c377e0     purple
-// #0079bf     blue
-// #00c2e0     light-blue
-// #51e898     light-green
-
-
     switch (skill) {
         case "LESS":
             return "blue";
@@ -34,6 +26,18 @@ Handlebars.registerHelper('get_skill_css_color', function(skill) {
             break;
         case "Bootstrap":
             return "light-blue";
+            break;
+        case "????????":
+            return "yellow";
+            break;
+        case "????????":
+            return "orange";
+            break;
+        case "????????":
+            return "red";
+            break;
+        case "????????":
+            return "light-green";
             break;
         default:
             return "grey";
@@ -58,9 +62,11 @@ $('#entry-template').imagesLoaded(function() {
     });
 
 
-    $('#nav-menu ul li').on("click", function() {
-        setActive(this);
+    $('[id*="nav-menu"] ul li').on("click", function() {
         var skill = $(this).attr("data-skill");
+        setActive(skill);
+        
+        $.slidebars.close();
 
         if (skill === "All") {
             $grid.isotope({
@@ -71,12 +77,14 @@ $('#entry-template').imagesLoaded(function() {
                 filter: '.project-item.' + skill
             });
         }
-
     });
 });
 // }, 1000);
 
-function setActive(obj) {
+function setActive(skill) {
     $('#nav-menu ul li').removeClass("active");
-    $(obj).addClass("active");
+    $('#nav-menu-mobile ul li').removeClass("active");
+
+    $('#nav-menu ul li.' + skill).addClass("active");
+    $('#nav-menu-mobile ul li.' + skill).addClass("active");
 }

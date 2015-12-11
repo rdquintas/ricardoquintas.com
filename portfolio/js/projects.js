@@ -4,10 +4,10 @@ this.projects = [{
     image: "lisbonswingers.jpg",
     // image: "300x200.png",
     url: {
-        ricardo: "http://www.lisbonswingers.com/index_en.html",
+        preview: "http://www.lisbonswingers.com/index_en.html",
         github: "https://github.com/rdquintas/LisbonSwingers",
         simple: "lisbonswingers.com",
-        normal: "http://www.lisbonswingers.com/index_en.html"
+        liveSite: "http://www.lisbonswingers.com/index_en.html"
     },
     skills: ["jQuery", "LESS"]
 }, {
@@ -16,10 +16,10 @@ this.projects = [{
     image: "unplace.jpg",
     // image: "300x200.png",
     url: {
-        ricardo: "http://www.ricardoquintas.com/portfolio/unplace/#%7B%22language%22%3A%22en%22%2C%22project_id%22%3Anull%2C%22tour_id%22%3Anull%7D",
+        preview: "http://www.ricardoquintas.com/portfolio/unplace/#%7B%22language%22%3A%22en%22%2C%22project_id%22%3Anull%2C%22tour_id%22%3Anull%7D",
         github: "https://github.com/rdquintas/unplace.org",
         simple: "unplace.org",
-        normal: "http://www.unplace.org"
+        liveSite: "http://www.unplace.org"
     },
     skills: ["jQuery", "LESS"]
 }, {
@@ -28,10 +28,10 @@ this.projects = [{
     image: "santinho.jpg",
     // image: "300x200.png",
     url: {
-        ricardo: "http://www.ricardoquintas.com/portfolio/santinho",
+        preview: "http://www.ricardoquintas.com/portfolio/santinho",
         github: "https://github.com/rdquintas/santinho",
         simple: "",
-        normal: ""
+        liveSite: ""
     },
     skills: ["jQuery"]
 }, {
@@ -40,10 +40,10 @@ this.projects = [{
     image: "alexandrecamarao.jpg",
     // image: "300x200.png",
     url: {
-        ricardo: "http://www.ricardoquintas.com/portfolio/alexandre_camarao",
+        preview: "http://www.ricardoquintas.com/portfolio/alexandre_camarao",
         github: "https://github.com/rdquintas/alexandrecamarao.com",
         simple: "alexandrecamarao.com",
-        normal: "http://www.alexandrecamarao.com"
+        liveSite: "http://www.alexandrecamarao.com"
     },
     skills: ["jQuery", "PHP", "LESS"]
 }, {
@@ -52,10 +52,10 @@ this.projects = [{
     image: "afso.jpg",
     // image: "300x200.png",
     url: {
-        ricardo: "http://www.ricardoquintas.com/portfolio/afso",
+        preview: "http://www.ricardoquintas.com/portfolio/afso",
         github: "https://github.com/rdquintas/afso.pt",
         simple: "afso.pt",
-        normal: "http://www.afso.pt"
+        liveSite: "http://www.afso.pt"
     },
     skills: ["jQuery", "PHP", "LESS"]
 }, {
@@ -64,10 +64,10 @@ this.projects = [{
     image: "alphalink.jpg",
     // image: "300x200.png",
     url: {
-        ricardo: "http://ricardoquintas.com/portfolio/alphalink",
+        preview: "http://ricardoquintas.com/portfolio/alphalink/en",
         github: "https://github.com/rdquintas/Alphalink",
         simple: "alphalink.pt",
-        normal: "http://www.alphalink.pt"
+        liveSite: "http://www.alphalink.pt"
     },
     skills: ["jQuery", "PHP", "LESS"]
 }, {
@@ -76,10 +76,10 @@ this.projects = [{
     image: "ricardoquintas.jpg",
     // image: "300x200.png",
     url: {
-        ricardo: "http://ricardoquintas.com/",
+        preview: "http://ricardoquintas.com/",
         github: "https://github.com/rdquintas/ricardoquintas.com",
         simple: "ricardoquintas.com",
-        normal: "http://www.ricardoquintas.com"
+        liveSite: "http://www.ricardoquintas.com"
     },
     skills: ["jQuery", "LESS", "Bootstrap"]
 }, {
@@ -88,10 +88,10 @@ this.projects = [{
     image: "sca.jpg",
     // image: "300x200.png",
     url: {
-        ricardo: "http://ricardoquintas.com/portfolio/sca",
+        preview: "http://ricardoquintas.com/portfolio/sca",
         github: "https://github.com/rdquintas/scademo",
         simple: "sca.com",
-        normal: "http://www.sca.com/"
+        liveSite: "http://www.sca.com/"
     },
     skills: ["jQuery", "Bootstrap"]
 }];
