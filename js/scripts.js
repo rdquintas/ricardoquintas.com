@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
- $("footer .year").html(new Date().getFullYear());
+    $("footer .year").html(new Date().getFullYear());
 
     /*============================================
     Page Preloader
@@ -13,13 +13,11 @@ $(document).ready(function() {
 
     })
 
-    /*============================================
-    ZRQ code
-    ==============================================*/
-    $(".my-name").fitText(0.8, {
-        minFontSize: '35px',
-        maxFontSize: '250px'
-    })
+
+    // $(".my-name").fitText(0.8, {
+    //     minFontSize: '35px',
+    //     maxFontSize: '250px'
+    // })
 
     /*============================================
     Header
@@ -27,7 +25,17 @@ $(document).ready(function() {
 
     $('#home').height($(window).height() + 50);
 
-    $.backstretch('images/header-bg.jpg');
+    var BV = new $.BigVideo();
+    BV.init();
+    // BV.show('videos/2062256.mp4', {
+    //     ambient: true
+    // });
+    BV.show('videos/7938949.mp4', {
+        ambient: true
+    });
+
+
+    // $.backstretch('images/header-bg.jpg');
     // $.backstretch('http://placehold.it/1620x1080');
 
 
