@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    $("footer .year").html(new Date().getFullYear());
+ $("footer .year").html(new Date().getFullYear());
 
     /*============================================
     Page Preloader
@@ -13,29 +13,21 @@ $(document).ready(function() {
 
     })
 
-
-    // $(".my-name").fitText(0.8, {
-    //     minFontSize: '35px',
-    //     maxFontSize: '250px'
-    // })
+    /*============================================
+    ZRQ code
+    ==============================================*/
+    $(".my-name").fitText(0.8, {
+        minFontSize: '35px',
+        maxFontSize: '250px'
+    })
 
     /*============================================
     Header
     ==============================================*/
 
-    // $('#home').height($(window).height() + 50);
+    $('#home').height($(window).height() + 50);
 
-    var BV = new $.BigVideo();
-    BV.init();
-    // BV.show('videos/2062256.mp4', {
-    //     ambient: true
-    // });
-    BV.show('videos/7938949.mp4', {
-        ambient: true
-    });
-
-
-    // $.backstretch('images/header-bg.jpg');
+    $.backstretch('images/header-bg.jpg');
     // $.backstretch('http://placehold.it/1620x1080');
 
 
@@ -59,20 +51,20 @@ $(document).ready(function() {
         // <<< ZRQ
 
 
-        // $('#.backstretch img').css({
-        //     'transform': 'scale(' + sf + ')',
-        //     '-webkit-transform': 'scale(' + sf + ')'
-        // });
+        $('.backstretch img').css({
+            'transform': 'scale(' + sf + ')',
+            '-webkit-transform': 'scale(' + sf + ')'
+        });
 
         $('#home .container').css({
             'opacity': (1.4 - st / 400)
         });
 
-        // if ($(window).scrollTop() > ($(window).height() + 50)) {
-        //     $('.backstretch').hide();
-        // } else {
-        //     $('.backstretch').show();
-        // }
+        if ($(window).scrollTop() > ($(window).height() + 50)) {
+            $('.backstretch').hide();
+        } else {
+            $('.backstretch').show();
+        }
 
     });
 
@@ -80,10 +72,10 @@ $(document).ready(function() {
         wh = $(window).height(),
         sf = 1.2 - st / (10 * wh);
 
-    // $('.backstretch img').css({
-    //     'transform': 'scale(' + sf + ')',
-    //     '-webkit-transform': 'scale(' + sf + ')'
-    // });
+    $('.backstretch img').css({
+        'transform': 'scale(' + sf + ')',
+        '-webkit-transform': 'scale(' + sf + ')'
+    });
 
     $('#home .container').css({
         'opacity': (1.4 - st / 400)
