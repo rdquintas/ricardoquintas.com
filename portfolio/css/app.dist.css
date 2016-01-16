@@ -177,6 +177,26 @@ a:hover {
     transition: background-color 200ms;
 }
 
+#nav-menu li.Home {
+    padding: 0px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    font-size: 1.5em;
+    border: 0;
+    position: relative;
+    top: 5px;
+}
+
+#nav-menu li.Home:hover {
+    background-color: #fff;
+    color: #666;
+}
+
+#nav-menu li.Home a:before {
+    font-family: "FontAwesome";
+    content: "\f015";
+}
+
 #nav-menu li:hover {
     cursor: pointer;
     background-color: #F8F8F8;
@@ -199,6 +219,12 @@ a:hover {
     -webkit-transition: background-color 200ms;
     -o-transition: background-color 200ms;
     transition: background-color 200ms;
+}
+
+#nav-menu-mobile li.Home a:before {
+    font-size: 3rem;
+    font-family: "FontAwesome";
+    content: "\f015";
 }
 
 #nav-menu-mobile li:hover {

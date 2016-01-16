@@ -72,6 +72,9 @@ function initializeGrid() {
     // Capture skill-filter click events
     $('ul.menu li').on("click", function() {
         var skill = $(this).attr("data-skill");
+        if (skill === "Home") {
+            return;
+        }
         setActive(skill);
         $.slidebars.close();
         if (skill === "All") {
