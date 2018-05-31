@@ -10,9 +10,7 @@ $(document).ready(function() {
             $("video").get(0).play();
         }
 
-
         $('#page-loader').fadeOut(3000);
-
 
         var cenas = $("video").height();
         $('.scrollimation').waypoint(function() {
