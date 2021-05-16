@@ -524,7 +524,7 @@ h6,
     top: 30px;
 }
 
-#contact-form .form-control:focus + [class*=fa] {
+#contact-form .form-control:focus+[class*=fa] {
     opacity: 1;
 }
 
@@ -911,6 +911,69 @@ h6,
     padding: 0px !important;
 }
 
+.zrq-sub-title {
+    margin: 0 auto;
+}
+
+.skills {
+    width: 100%;
+    max-width: 600px;
+    padding: 0 20px;
+}
+
+.skill-name {
+    font-size: 18px;
+    font-weight: 700;
+    text-align: left;
+    text-transform: uppercase;
+    margin: 20px 0;
+}
+
+.skill-bar {
+    height: 20px;
+    background: #cacaca;
+    border-radius: 8px;
+}
+
+.skill-per {
+    height: 20px;
+    background-color: #f05a48;
+    border-radius: 8px;
+    width: 0;
+    position: relative;
+    transition: 1s linear;
+}
+
+.skill-per::before {
+    content: attr(years);
+    position: absolute;
+    padding: 4px 6px;
+    background-color: #000;
+    color: #fff;
+    font-size: 12px;
+    border-radius: 4px;
+    top: -3px;
+    right: 0;
+    transform: translateX(50%);
+}
+
+.zrq-skills {
+    margin-top: 40px;
+}
+
+
+/* .skill-per::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #000;
+    top: -16px;
+    right: 0;
+    transform: translateX(50%) rotate(45deg);
+    border-radius: 2px;
+} */
+
 
 /*----------------------
 ----- Media Queries ----
@@ -1012,7 +1075,7 @@ h6,
         margin-top: 0;
         background: #CB0000 !important;
     }
-    #main-nav .navbar-toggle .icon-bar + .icon-bar {
+    #main-nav .navbar-toggle .icon-bar+.icon-bar {
         margin-top: 4px;
     }
     #main-nav .container,
@@ -1048,7 +1111,7 @@ h6,
     #home h1 {
         font-size: 42px;
     }
-    #home h1 + p {
+    #home h1+p {
         font-size: 21px;
     }
     .service-item {
@@ -1101,7 +1164,7 @@ h6,
     #home p {
         font-size: 18px;
     }
-    #home h1 + p {
+    #home h1+p {
         font-size: 18px;
     }
     #home .container {

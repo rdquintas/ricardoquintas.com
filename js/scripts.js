@@ -41,6 +41,24 @@ $(document).ready(function() {
     });
 
 
+    $(".skill-per").each(function() {
+        var $this = $(this);
+        var years = parseInt($this.attr("years"));
+        var maxYear = parseInt($this.attr("maxYear"));
+        var percent = years * 100 / maxYear;
+        $this.css("width", percent + "%");
+        $({ animatedValue: 0 }).animate({ animatedValue: percent }, {
+            duration: 1000,
+            step: function() {
+                $this.attr("years", Math.floor(this.animatedValue) + "%");
+            },
+            complete: function() {
+                $this.attr("years", years);
+            }
+        });
+    });
+
+
     /*============================================
     Navigation Functions
     ==============================================*/
