@@ -1,11 +1,11 @@
-$(document).ready(function() {
+$(document).ready(function () {
 
     $("footer .year").html(new Date().getFullYear());
 
     /*============================================
     Page Preloader
     ==============================================*/
-    $(window).load(function() {
+    $(window).load(function () {
         if ($("video").is(":visible")) {
             $("video").get(0).play();
         }
@@ -13,7 +13,7 @@ $(document).ready(function() {
         $('#page-loader').fadeOut(3000);
 
         var cenas = $("video").height();
-        $('.scrollimation').waypoint(function() {
+        $('.scrollimation').waypoint(function () {
             $(this).addClass('in');
         }, {
             offset: cenas - 50
@@ -21,7 +21,7 @@ $(document).ready(function() {
     });
 
 
-    $(window).scroll(function() {
+    $(window).scroll(function () {
         var st = $(this).scrollTop(),
             wh = $(window).height(),
             sf = 1.2 - st / (10 * wh);
@@ -41,21 +41,24 @@ $(document).ready(function() {
     });
 
 
-    $(".skill-per").each(function() {
+    /*============================================
+    Skills logic
+    ==============================================*/
+    $(".skill-per").each(function () {
         var $this = $(this);
         var years = parseInt($this.attr("years"));
         var maxYear = parseInt($this.attr("maxYear"));
         var percent = years * 100 / maxYear;
         $this.css("width", percent + "%");
-        $({ animatedValue: 0 }).animate({ animatedValue: percent }, {
-            duration: 1000,
-            step: function() {
-                $this.attr("years", Math.floor(this.animatedValue) + "%");
-            },
-            complete: function() {
-                $this.attr("years", years);
-            }
-        });
+        // $({ animatedValue: 0 }).animate({ animatedValue: percent }, {
+        //     duration: 1000,
+        //     step: function () {
+        //         $this.attr("years", Math.floor(this.animatedValue) + "%");
+        //     },
+        //     complete: function () {
+        //         $this.attr("years", years);
+        //     }
+        // });
     });
 
 
@@ -68,7 +71,7 @@ $(document).ready(function() {
         $('#main-nav').addClass('scrolled');
     }
 
-    $(window).scroll(function() {
+    $(window).scroll(function () {
         if ($(window).scrollTop() < ($(window).height() - 300)) {
             $('#main-nav').removeClass('scrolled');
         } else {
@@ -79,7 +82,7 @@ $(document).ready(function() {
     /*============================================
     ScrollTo Links
     ==============================================*/
-    $('a.scrollto').click(function(e) {
+    $('a.scrollto').click(function (e) {
         $('html,body').scrollTo(this.hash, this.hash, {
             gap: {
                 y: -70
@@ -96,7 +99,7 @@ $(document).ready(function() {
     Refresh scrollSpy function
     ==============================================*/
     function scrollSpyRefresh() {
-        setTimeout(function() {
+        setTimeout(function () {
             $('body').scrollspy('refresh');
         }, 1000);
     }
@@ -105,7 +108,7 @@ $(document).ready(function() {
     Refresh waypoints function
     ==============================================*/
     function waypointsRefresh() {
-        setTimeout(function() {
+        setTimeout(function () {
             $.waypoints('refresh');
         }, 1000);
     }
