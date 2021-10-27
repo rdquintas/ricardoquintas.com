@@ -2,6 +2,11 @@
 ----- Basic Styles -----
 -------------------------*/
 
+html {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 video {
     position: static;
     right: 0;
@@ -29,34 +34,20 @@ a {
     text-decoration: none
 }
 
-a:hover,
-a:focus {
+a:hover, a:focus {
     color: #CB0000;
     text-decoration: underline
 }
 
-a:focus,
-.btn:focus {
+a:focus, .btn:focus {
     outline: none;
 }
-
 
 /*-----------------------
 ----- Typo Styles ------
 -------------------------*/
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6 {
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     font-weight: 300;
 }
 
@@ -76,7 +67,6 @@ h6,
     text-align: center;
 }
 
-
 /*-----------------------
 ----- Layout Styles -----
 -------------------------*/
@@ -85,7 +75,6 @@ h6,
     padding-top: 120px;
     padding-bottom: 140px;
 }
-
 
 /*-----------------------
 ----- Color Styles ------
@@ -114,8 +103,7 @@ h6,
     border-top: 7px solid #CB0000;
 }
 
-.color1 .service-icon,
-.color1.service-item ul li:nth-child(2):before {
+.color1 .service-icon, .color1.service-item ul li:nth-child(2):before {
     background: #989898;
 }
 
@@ -123,8 +111,7 @@ h6,
     border: 3px solid #989898;
 }
 
-.color2 .service-icon,
-.color2.service-item ul li:nth-child(2):before {
+.color2 .service-icon, .color2.service-item ul li:nth-child(2):before {
     background: #CB0000;
 }
 
@@ -132,8 +119,7 @@ h6,
     border: 3px solid #CB0000;
 }
 
-.color3 .service-icon,
-.color3.service-item ul li:nth-child(2):before {
+.color3 .service-icon, .color3.service-item ul li:nth-child(2):before {
     background: #000;
 }
 
@@ -141,13 +127,11 @@ h6,
     border: 3px solid #000;
 }
 
-
 /*------------------
 ----- Buttons ------
 --------------------*/
 
-.btn-color1,
-.btn-color2 {
+.btn-color1, .btn-color2 {
     padding: 10px 30px;
     color: #fff;
     font-size: 21px;
@@ -162,24 +146,18 @@ h6,
     background: #989898;
 }
 
-.btn-color1:hover,
-.btn-color2:hover {
+.btn-color1:hover, .btn-color2:hover {
     color: #fff;
     opacity: 0.9;
 }
 
-.btn-color1:focus,
-.btn-color1:active,
-.btn-color2:focus,
-.btn-color2:active {
+.btn-color1:focus, .btn-color1:active, .btn-color2:focus, .btn-color2:active {
     color: #fff;
 }
 
-.btn-color1 .fa,
-.btn-color2 .fa {
+.btn-color1 .fa, .btn-color2 .fa {
     margin-right: 15px;
 }
-
 
 /*-----------------------
 ---- Preloader Styles ----
@@ -206,7 +184,6 @@ h6,
     background: url('../images/preloader.gif') no-repeat;
 }
 
-
 /*-----------------------
 ---- Menu Styles ----
 -------------------------*/
@@ -228,10 +205,7 @@ h6,
     /*text-transform: uppercase;*/
 }
 
-.navbar-brand,
-.navbar-brand:hover,
-.navbar-brand:active,
-.navbar-brand:focus {
+.navbar-brand, .navbar-brand:hover, .navbar-brand:active, .navbar-brand:focus {
     padding: 0 10px;
     font-size: 30px;
     line-height: 30px;
@@ -280,9 +254,7 @@ h6,
     padding: 10px 20px;
 }
 
-#main-nav .nav a,
-#main-nav .nav a:active,
-#main-nav .nav a:hover {
+#main-nav .nav a, #main-nav .nav a:active, #main-nav .nav a:hover {
     padding: 0px 10px;
     font-size: 18px;
     line-height: 54px;
@@ -292,9 +264,7 @@ h6,
     transition: color .2s ease-in;
 }
 
-#main-nav.scrolled .nav a,
-#main-nav.scrolled .nav a:active,
-#main-nav.scrolled .nav a:hover {
+#main-nav.scrolled .nav a, #main-nav.scrolled .nav a:active, #main-nav.scrolled .nav a:hover {
     color: #292929;
 }
 
@@ -304,11 +274,9 @@ h6,
     border: 2px solid transparent;
 }
 
-#main-nav.scrolled .nav li.active a,
-#main-nav.scrolled .nav a:hover {
+#main-nav.scrolled .nav li.active a, #main-nav.scrolled .nav a:hover {
     color: #CB0000;
 }
-
 
 /*-----------------------
 ---- Header Styles ----
@@ -323,7 +291,6 @@ h6,
     color: #fff;
     width: 100%;
 }
-
 
 /*.backstretch img {
     -webkit-transform: scale(1.2);
@@ -356,13 +323,11 @@ h6,
     font-weight: 600;
 }
 
-
 /*
 #home h1 + p {
     font-size: 28px;
     margin-left: 5px;
 }*/
-
 
 /*-----------------------
 ---- Services Styles ----
@@ -416,8 +381,7 @@ h6,
     display: none;
 }
 
-.service-icon:focus,
-.service-icon:active {
+.service-icon:focus, .service-icon:active {
     color: #fff;
 }
 
@@ -440,7 +404,6 @@ h6,
     max-width: 250px;
 }
 
-
 /*-----------------------
 --- About Styles ----
 -------------------------*/
@@ -452,7 +415,6 @@ h6,
     -webkit-transform: rotate(-5deg);
     transform: rotate(-5deg);
 }
-
 
 /*----------------------
 ----- Contact Styles ----
@@ -564,7 +526,6 @@ h6,
     margin-right: 5px;
 }
 
-
 /*----------------------
 ----- Footer Styles ----
 ------------------------*/
@@ -609,7 +570,6 @@ h6,
     color: #fff;
     background: red
 }
-
 
 /*------------------------
 ---Scrolling animations---
@@ -749,7 +709,6 @@ h6,
     transform: translateY(0px);
 }
 
-
 /*----------------------
 -----  ZRQ Styles   ----
 ------------------------*/
@@ -871,8 +830,7 @@ h6,
     background-color: #CB0000;
 }
 
-.zrq-effect-1 a::before,
-.zrq-effect-1 a::after {
+.zrq-effect-1 a::before, .zrq-effect-1 a::after {
     display: inline-block;
     opacity: 0;
     -webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
@@ -896,10 +854,7 @@ h6,
     transform: translateX(-20px);
 }
 
-.zrq-effect-1 a:hover::before,
-.zrq-effect-1 a:hover::after,
-.zrq-effect-1 a:focus::before,
-.zrq-effect-1 a:focus::after {
+.zrq-effect-1 a:hover::before, .zrq-effect-1 a:hover::after, .zrq-effect-1 a:focus::before, .zrq-effect-1 a:focus::after {
     opacity: 1;
     -webkit-transform: translateX(0px);
     -moz-transform: translateX(0px);
@@ -961,7 +916,6 @@ h6,
     margin-top: 40px;
 }
 
-
 /* .skill-per::after {
     content: "";
     position: absolute;
@@ -974,7 +928,6 @@ h6,
     border-radius: 2px;
 } */
 
-
 /*----------------------
 ----- Media Queries ----
 ------------------------*/
@@ -986,9 +939,7 @@ h6,
         letter-spacing: 0.01em;
         word-spacing: 0.15em;
     }
-    #main-nav .nav a,
-    #main-nav .nav a:active,
-    #main-nav .nav a:hover {
+    #main-nav .nav a, #main-nav .nav a:active, #main-nav .nav a:hover {
         font-size: 16px;
     }
     #main-nav li {
@@ -1023,7 +974,6 @@ h6,
         max-width: 90%;
     }
 }
-
 
 /*@media screen and (max-device-width: 800px) {*/
 
@@ -1081,19 +1031,15 @@ h6,
     #main-nav .navbar-toggle .icon-bar+.icon-bar {
         margin-top: 4px;
     }
-    #main-nav .container,
-    #main-nav.scrolled .container {
+    #main-nav .container, #main-nav.scrolled .container {
         padding: 5px 20px;
     }
-    #main-nav .nav a,
-    #main-nav .nav a:active,
-    #main-nav .nav a:hover {
+    #main-nav .nav a, #main-nav .nav a:active, #main-nav .nav a:hover {
         line-height: 42px;
         text-align: center;
         color: #292929;
     }
-    #main-nav .nav li.active a,
-    #main-nav .nav a:hover {
+    #main-nav .nav li.active a, #main-nav .nav a:hover {
         color: #CB0000;
     }
     #main-nav .navbar-brand {
