@@ -1031,11 +1031,14 @@ h6,
     #home {
         height: auto;
     }
-    #home img {
+    /* #home img {
         display: block;
-    }
-    #home video {
+    } */
+    /* #home video {
         display: none;
+    } */
+    #home video {
+        width: 235%;
     }
 }
 
