@@ -7,8 +7,9 @@ html {
     overflow-x: hidden;
 }
 
+
 video {
-    position: static;
+    /* position: static; */
     right: 0;
     left: 0;
     bottom: 0;
@@ -870,6 +871,10 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     margin: 0 auto;
 }
 
+.zrq-video {
+    position: static;
+}
+
 .skills {
     width: 100%;
     max-width: 600px;
@@ -939,29 +944,37 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
         letter-spacing: 0.01em;
         word-spacing: 0.15em;
     }
+
     #main-nav .nav a, #main-nav .nav a:active, #main-nav .nav a:hover {
         font-size: 16px;
     }
+
     #main-nav li {
         margin: 0 5px;
     }
+
     .percent {
         top: -60px;
         font-size: 42px;
     }
+
     #projects-container .project-item {
         width: 320px;
         margin-bottom: 20px;
     }
+
     .project-item .hover-mask .project-title {
         margin-top: 75px;
     }
+
     #project-slider {
         min-height: 0;
     }
+
     #home .container .zrq-hi-there h1 {
         white-space: initial;
     }
+
     .zrq-box1 {
         /*margin-top: -45px;*/
     }
@@ -981,6 +994,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     #home {
         height: auto;
     }
+
     /* #home img {
         display: block;
     } */
@@ -996,76 +1010,95 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     body {
         font-size: 15px;
     }
+
     .lead {
         font-size: 16px;
         font-weight: 400;
     }
+
     .add-padding {
         padding-top: 60px;
         padding-bottom: 60px;
     }
+
     .big-text {
         font-size: 38px;
         line-height: 42px;
     }
+
     .section-title {
         margin-top: -20px;
         margin-bottom: 40px;
     }
+
     #main-nav {
         background: #fff;
         box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
     }
+
     #main-nav .navbar-toggle {
         margin-bottom: 5px;
         margin-top: 5px;
         color: #292929;
         border-color: transparent !important;
     }
+
     #main-nav .navbar-toggle .icon-bar {
         width: 28px;
         height: 4px;
         margin-top: 0;
         background: #CB0000 !important;
     }
+
     #main-nav .navbar-toggle .icon-bar+.icon-bar {
         margin-top: 4px;
     }
+
     #main-nav .container, #main-nav.scrolled .container {
         padding: 5px 20px;
     }
+
     #main-nav .nav a, #main-nav .nav a:active, #main-nav .nav a:hover {
         line-height: 42px;
         text-align: center;
         color: #292929;
     }
+
     #main-nav .nav li.active a, #main-nav .nav a:hover {
         color: #CB0000;
     }
+
     #main-nav .navbar-brand {
         padding-top: 5px;
         font-size: 21px;
         color: #292929;
     }
+
     #main-nav .navbar-brand img {
         margin-right: 10px;
         max-width: 40px;
     }
+
     #home .container {
         margin-top: -80px;
     }
+
     #home p {
         font-size: 24px;
     }
+
     #home h1 {
         font-size: 42px;
     }
+
     #home h1+p {
         font-size: 21px;
     }
+
     .service-item {
         margin-bottom: 40px;
     }
+
     .polaroid {
         border: 12px solid #fff;
         width: 90%;
@@ -1075,32 +1108,40 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
         -webkit-transform: rotate(-5deg);
         transform: rotate(-5deg);
     }
+
     .percent {
         top: -45px;
         font-size: 28px;
     }
+
     .skills-item p {
         font-size: 14px;
     }
+
     #filter-works ul li a {
         display: block;
         font-size: 16px;
         height: 18px;
         padding: 10px 5px;
     }
+
     #project-title {
         font-size: 28px;
     }
+
     #twitter .tweet {
         font-size: 18px;
         line-height: 24px;
     }
+
     #contact-form {
         margin-top: 30px;
     }
+
     #gmap {
         height: 300px;
     }
+
     #home .container .zrq-hi-there {
         margin-top: 18rem;
         margin-left: 2rem;
@@ -1113,19 +1154,24 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     #home p {
         font-size: 18px;
     }
+
     #home h1+p {
         font-size: 18px;
     }
+
     #home .container {
         /*top: 32%;*/
     }
+
     #projects-container .project-item {
         width: 300px;
         margin-bottom: 15px;
     }
+
     .project-item .hover-mask .project-title {
         margin-top: 70px;
     }
+
     #home .container .zrq-hi-there {
         margin-top: 17rem;
         margin-left: 2rem;
