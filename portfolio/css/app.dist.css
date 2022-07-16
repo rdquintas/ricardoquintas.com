@@ -3,6 +3,7 @@
  ***********************/
 
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700);
+
 *,
 *:after,
 *:before {
@@ -469,6 +470,13 @@ a:hover {
     border-color: transparent #51e898 transparent transparent;
 }
 
+.project-item .zrq-link {
+    font-weight: bold;
+    color: #1678c2;
+}
+
+
+
 
 /***********************
  * Footer
@@ -499,6 +507,7 @@ a:hover {
     #projects-wrappper {
         padding: 3rem;
     }
+
     .project-item {
         padding: 2rem;
         width: 50%;
@@ -509,9 +518,11 @@ a:hover {
     #projects-wrappper {
         padding: 0rem;
     }
+
     #projects-wrappper h1 {
         padding: 2rem;
     }
+
     .project-item {
         padding-top: 3rem;
         width: 100%;
@@ -522,9 +533,11 @@ a:hover {
     h1 {
         font-size: 4rem;
     }
+
     #nav-menu {
         display: none;
     }
+
     i.sb-toggle-left {
         display: block;
         padding: 1rem;
@@ -536,6 +549,7 @@ a:hover {
     #projects-wrappper {
         padding: 0;
     }
+
     .project-item {
         padding-top: 3rem;
         width: 100%;
