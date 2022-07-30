@@ -23,12 +23,12 @@ this.projects = [
       simple: "",
       liveSite: "",
     },
-    skills: ["Javascript", "NodeJS"],
+    skills: ["Javascript", "NodeJS", "REACT"],
   },
   {
     name: "Bagel Radio: stats dashboard",
     description:
-      "Bagel Radio is the best Indie/Rock/Noise/Pop online radio. From the USA. I listen to it frequently. DJ Tead once asked for help. Who could help him with a solution to create a stats engine that would be feed with some data... and could output some monthly stats. This was my solution. It is still being used today.<br> Do listen to this radio - you won't regret it.",
+      "Bagel Radio is the best Indie/Rock/Noise/Pop online radio. From the USA. I listen to it frequently. DJ Ted once asked his listeners for help: he needed an online stats engine that would be feed with data and then output some monthly stats. I jumped right in and this was my solution. It is still being used today.<br> Do listen to this radio - you won't regret it.",
     image: "bagelradio.jpg",
     url: {
       preview: "https://rdquintas.github.io/BAGeLRadioReport/index.html",
