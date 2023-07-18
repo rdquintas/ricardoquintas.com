@@ -1,5 +1,18 @@
 this.projects = [
   {
+    name: "The Invisible Tuba",
+    description:
+      "The Invisible Tuba is a Lisbon-based Dixieland band.",
+    image: "tuba.png",
+    url: {
+      preview: "https://github.com/rdquintas/theinvisibletuba",
+      github: "https://github.com/rdquintas/theinvisibletuba",
+      simple: "theinvisibletuba.com",
+      liveSite: "http://theinvisibletuba.com",
+    },
+    skills: ["Javascript"],
+  },
+  {
     name: "React Stuff I did",
     description:
       "Here you can find different REACT projects I've been working on.",
