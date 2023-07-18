@@ -2,7 +2,7 @@ this.projects = [
   {
     name: "The Invisible Tuba", 
     description:
-      "The Invisible Tuba is a Lisbon-based Dixieland band.",
+      "The Invisible Tuba is a Lisbon-based Dixieland band",
     image: "tuba.png",
     url: {
       preview: "http://theinvisibletuba.com",
