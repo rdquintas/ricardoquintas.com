@@ -5,7 +5,7 @@ this.projects = [
       "The Invisible Tuba is a Lisbon-based Dixieland band.",
     image: "tuba.png",
     url: {
-      preview: "https://github.com/rdquintas/theinvisibletuba",
+      preview: "http://theinvisibletuba.com",
       github: "https://github.com/rdquintas/theinvisibletuba",
       simple: "theinvisibletuba.com",
       liveSite: "http://theinvisibletuba.com",
