@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<!-- 
+   Hi, you're looking at a web page built with love by:
+
+   Ricardo
+
+  /$$$$$$            /$$             /$$                        
+ /$$__  $$          |__/            | $$                        
+| $$  \ $$ /$$   /$$ /$$ /$$$$$$$  /$$$$$$    /$$$$$$   /$$$$$$$
+| $$  | $$| $$  | $$| $$| $$__  $$|_  $$_/   |____  $$ /$$_____/
+| $$  | $$| $$  | $$| $$| $$  \ $$  | $$      /$$$$$$$|  $$$$$$ 
+| $$/$$ $$| $$  | $$| $$| $$  | $$  | $$ /$$ /$$__  $$ \____  $$
+|  $$$$$$/|  $$$$$$/| $$| $$  | $$  |  $$$$/|  $$$$$$$ /$$$$$$$/
+ \____ $$$ \______/ |__/|__/  |__/   \___/   \_______/|_______/ 
+      \__/                                                                      
+
+   ricardoquintas.com   
+   January/2015 
+-->
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>ADMIN unplace.org</title>
+    <link rel="stylesheet" href="../css/pure-min.css" />
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <style type="text/css">
+    * {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    
+    body {
+        margin: 0 50px 0 50px;
+        background-color: #fff;
+    }
+    
+    h1.title {
+        font-size: 3em;
+    }
+    
+    i {
+        margin-right: 5px;
+    }
+    
+    .header {
+        z-index: 10;
+        height: 95px;
+        padding-left: 50px;
+        top: 0;
+        position: fixed;
+        background-color: #000;
+        width: 100%;
+        left: 0;
+    }
+    
+    .header .buttons {
+        float: right;
+        margin-top: 30px;
+        margin-right: 25px;
+    }
+    
+    .header .buttons div {
+        float: right;
+        margin-left: 20px;
+    }
+    
+    form {
+        position: relative;
+        margin-top: 100px;
+    }
+    
+    .button-warning {
+        background: rgb(223, 117, 20);
+        color: white;
+        border-radius: 4px;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    }
+    
+    .hidden-input {
+        display: none !important;
+    }
+    
+    .tipo-capa-group p {
+        display: inline;
+        margin-left: 10px;
+        font-size: 12px;
+        color: red;
+    }
+    
+    .box-images {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding: 10px;
+        display: none;
+        background-color: #ddd
+    }
+    
+    .box-images h5 {
+        margin: 0px;
+    }
+    
+    .box-images .images p {
+        margin: 8px;
+        font-size: 12px;
+        color: red;
+    }
+    
+    .box-videos {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding: 10px;
+        display: none;
+        background-color: #ddd
+    }
+    
+    .box-videos h5 {
+        margin: 0px;
+    }
+    
+    .box-videos .videos p {
+        margin: 8px;
+        font-size: 12px;
+        color: red;
+    }
+    
+    .browserupdate {
+        display: block;
+        margin-bottom: 3em;
+        padding: 2em;
+        color: #fff;
+        text-align: center;
+        background-color: red;
+    }
+    
+    .browserupdate a {
+        color: #fff;
+        text-decoration: underline;
+    }
+    
+    .browserupdate a:hover {
+        color: #ddd;
+    }
+    
+    .cleditorMain {
+        margin-left: 180px;
+        margin-top: -20px;
+    }
+    
+    div.pure-control-group {
+        margin-top: 25px;
+    }
+    
+    .logo {
+        float: left;
+        width: 30%;
+        margin-left: -10px;
+    }
+    
+    .logo .logo-unplace {
+        float: left;
+    }
+    
+    .logo p {
+        color: #fff;
+        display: inline;
+        float: left;
+        margin-top: 43px;
+    }
+    </style>
+    <script type="text/javascript" src="http://fast.fonts.net/jsapi/739bf436-1824-4067-a456-9bd34cfd8f44.js"></script>
+</head>
+
+<body>
+    <!--[if lte IE 9]>
+    <div class="browserupdate">
+        You are using an obsolete browser which can harm your experience and cause security troubles.
+        <br> Please <a href="http://browsehappy.com/" target="_blank">update your browser!</a>
+    </div>
+  <![endif]-->
+    <noscript>
+        <div class="browserupdate">
+            Oh, no! You don't have JavaScript enabled on your browser!
+            <br> This website only works with JavaScript. Sorry.
+        </div>
+    </noscript>
+    <section class="header">
+        <div class="logo">
+            <a class="logo-unplace" href="http://www.unplace.org">
+                <img src="../img/logo.jpg">
+            </a>
+            <!-- <p class="logo-text">exposição arte em rede: lugares-entre-lugares</p> -->
+        </div>
+        <div class="buttons">
+            <div>
+                <a class="button-warning pure-button" href="admin-visitas.html">Gerir Visitas</a>
+            </div>
+            <div id="gbnt-btn-criar" class="pure-button pure-button-primary"><i class="fa fa-floppy-o"></i>Gravar dados</div>
+            <input class="hidden-input upload" accept=".json" type="file" name="file">
+            <div id="gbnt-btn-upload" class="pure-button"><i class="fa fa-arrow-up"></i>Fazer upload dum ficheiro existente</div>
+        </div>
+    </section>
+    <form id="myForm" action="downloadJSON.php" method="post" class="pure-form pure-form-stacked">
+        <input type="hidden" name="data" id="data">
+        <input type="hidden" name="filename" id="filename">
+        <h1 class="title">Gerir Obras</h1>
+        <h1>IDIOMA: PT</h1>
+        <div class="pure-control-group">
+            <label for="titulo">T&iacute;tulo da obra (PT)</label>
+            <input class="pure-input-1" id="titulo" type="text">
+        </div>
+        <div class="pure-control-group">
+            <label for="descricao">Descri&ccedil;&atilde;o da obra (PT)</label>
+            <textarea id="descricao"></textarea>
+        </div>
+        <div class="pure-control-group">
+            <label for="www">URL da obra (PT)</label>
+            <input class="pure-input-1" id="www" type="url" placeholder="http://...">
+        </div>
+        <div class="pure-control-group">
+            <label for="fichaTecnica">PDF Ficha T&eacute;cnica (PT) </label>
+            <input class="hidden-input ficha-tecnica" accept=".pdf" type="file" name="file">
+            <input class="pure-input-1-2" readonly id="fichaTecnica" type="text">
+            <button id="btnFichaTecnica" type="submit" class="pure-button"><i class="fa fa-file-pdf-o"></i>Escolher</button>
+        </div>
+        <div class="pure-control-group">
+            <label for="autor">Nome do Autor (PT)</label>
+            <input class="pure-input-1" id="autor" type="text">
+        </div>
+        <div class="pure-control-group">
+            <label for="autorBio">Bio do Autor (PT)</label>
+            <textarea id="autorBio"></textarea>
+        </div>
+        <br>
+        <h1>IDIOMA: EN</h1>
+        <div class="pure-control-group">
+            <label for="titulo_en">T&iacute;tulo da obra (EN)</label>
+            <input class="pure-input-1" id="titulo_en" type="text">
+        </div>
+        <div class="pure-control-group">
+            <label for="descricao_en">Descri&ccedil;&atilde;o da obra (EN)</label>
+            <textarea id="descricao_en"></textarea>
+        </div>
+        <div class="pure-control-group">
+            <label for="www_en">URL da obra (EN)</label>
+            <input class="pure-input-1" id="www_en" type="url" placeholder="http://...">
+        </div>
+        <div class="pure-control-group">
+            <label for="fichaTecnica_en">PDF Ficha T&eacute;cnica (EN) </label>
+            <input class="hidden-input ficha-tecnica_en" accept=".pdf" type="file" name="file">
+            <input class="pure-input-1-2" readonly id="fichaTecnica_en" type="text">
+            <button id="btnFichaTecnica_en" type="submit" class="pure-button"><i class="fa fa-file-pdf-o"></i>Escolher</button>
+        </div>
+        <div class="pure-control-group">
+            <label for="autor_en">Nome do Autor (EN)</label>
+            <input class="pure-input-1" id="autor_en" type="text">
+        </div>
+        <div class="pure-control-group">
+            <label for="autorBio_en">Bio do Autor (EN)</label>
+            <textarea id="autorBio_en"></textarea>
+        </div>
+        <br>
+        <h1>CAMPOS COMUNS</h1>
+        <div class="pure-control-group">
+            <label for="ano">Ano da obra</label>
+            <input class="pure-input-1-2" maxlength="15" id="ano" type="text">
+        </div>
+        <div class="pure-control-group tipo-capa-group">
+            <label for="tipo_capa">Escolher tipo de capa</label>
+            <select id="tipo_capa">
+                <option value="N">Normal</option>
+                <option value="T">Alta</option>
+                <option value="W">Comprida</option>
+            </select>
+            <p>
+                Dimens&atilde;o da capa (em pixels): <span>alt 144 x larg
+                            144</span>
+            </p>
+        </div>
+        <div class="pure-control-group">
+            <input class="hidden-input capa" accept="image/*" type="file" name="file">
+            <label for="capa">Escolher capa</label>
+            <input class="pure-input-1-2" readonly id="capa" type="text">
+            <button id="btnCapa" class="pure-button"><i class="fa fa-th"></i>Escolher</button>
+        </div>
+        <div class="pure-control-group">
+            <input class="hidden-input imagens" accept="image/*" multiple="multiple" type="file" name="file[]">
+            <label for="btnImagens">Escolher imagens</label>
+            <button id="btnImagens" class="pure-button"><i class="fa fa-file-image-o"></i>Adicionar</button>
+            <button id="btnImagensClear" class="pure-button">Limpar tudo</button>
+        </div>
+        <div class="box-images">
+            <h5>Imagens Escolhidas</h5>
+            <div class="images"></div>
+        </div>
+        <div class="pure-control-group">
+            <label for="videos">Adicionar Videos</label>
+            <input class="pure-input-1-2" id="videos" type="url" placeholder="http://...">
+            <button id="btnVideos" class="pure-button"><i class="fa fa-youtube"></i>Adicionar</button>
+            <button id="btnVideosClear" class="pure-button">Limpar tudo
+            </button>
+        </div>
+        <div class="box-videos">
+            <h5>Videos Escolhidos</h5>
+            <div class="videos"></div>
+        </div>
+        <br>
+        <hr>
+    </form>
+    <script src="../js/libs.dist.js"></script>
+    <script src="../js/tinymce/tinymce.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        
+        tinymce.init({
+            forced_root_block: false,
+            plugins: ["autolink", "link", "paste"],
+            height: 300,
+            paste_as_text: true,
+            // target_list: false,
+            menubar: false,
+            toolbar: "bold italic underline link unlink removeformat ",
+            selector: "textarea"
+        });
+
+        window.obj_pt = initializeObj("pt");
+        window.obj_en = initializeObj("en");
+
+        setFormData(false);
+
+
+        /**********************
+         * SAVE JSON FILE
+         **********************/
+        $('#gbnt-btn-criar').click(function() {
+            var file = criarFile();
+            console.log("file: " + file);
+            console.log("stringify: " + JSON.stringify(file));
+            var encodedFile = encodeURIComponent(JSON.stringify(file));
+            console.log("encodedFile: " + encodedFile);
+            $("#data").val(encodedFile);
+            $("#filename").val("sumario.json");
+            $("#myForm").submit();
+        });
+
+        /**********************
+         * UPLOAD JSON FILE
+         **********************/
+        // upload json: btn clicked
+        $('#gbnt-btn-upload').click(function(e) {
+            $(".hidden-input.upload").click();
+            e.preventDefault();
+            return false;
+        });
+
+        // upload json: trigger input field
+        $('.hidden-input.upload').change(function(ee) {
+            var reader = new FileReader();
+            reader.onload = function(event) {
+                var obj = JSON.parse(event.target.result);
+                window.obj_pt = obj[0];
+                window.obj_en = obj[1];
+                setFormData(true);
+
+                if ($("#tipo_capa").val() === "N") {
+                    $(".tipo-capa-group span").html("alt 144 x larg 144");
+                }
+
+                if ($("#tipo_capa").val() === "W") {
+                    $(".tipo-capa-group span").html("alt 144 x larg 288");
+                }
+
+                if ($("#tipo_capa").val() === "T") {
+                    $(".tipo-capa-group span").html("alt 288 x larg 144");
+                }
+            };
+            reader.onerror = function(event) {
+                alert("Erro com o upload desse ficheiro!");
+            };
+            reader.readAsText(this.files[0]);
+            return false;
+        });
+
+        /**********************
+         * FICHA TECNICA
+         **********************/
+        // ficha tecnica: btn clicked
+        $('#btnFichaTecnica').click(function(e) {
+            $(".hidden-input.ficha-tecnica").click();
+            e.preventDefault();
+            return false;
+        });
+        // ficha tecnica: trigger input field
+        $('.hidden-input.ficha-tecnica').change(function(ee) {
+            $("#fichaTecnica").val(
+                this.files[0].name);
+        });
+
+        // ficha tecnica: btn clicked
+        $('#btnFichaTecnica_en').click(function(e) {
+            $(".hidden-input.ficha-tecnica_en").click();
+            e.preventDefault();
+            return false;
+        });
+        // ficha tecnica: trigger input field
+        $('.hidden-input.ficha-tecnica_en').change(function(ee) {
+            $("#fichaTecnica_en").val(
+                this.files[0].name);
+        });
+
+
+        /**********************
+         * CAPA
+         **********************/
+        // capa: btn clicked
+        $('#btnCapa').click(function(e) {
+            $(".hidden-input.capa").click();
+            e.preventDefault();
+            return false;
+        });
+        // capa: trigger input field
+        $('.hidden-input.capa').change(function(ee) {
+            $("#capa").val(this.files[0].name);
+        });
+
+        /**********************
+         * TIPO DE CAPA
+         **********************/
+        $('#tipo_capa').on("change", function() {
+            window.obj_pt.tipo_capa = $("#tipo_capa").val();
+            window.obj_en.tipo_capa = $("#tipo_capa").val();
+
+            if ($("#tipo_capa").val() === "N") {
+                $(".tipo-capa-group span").html("alt 144 x larg 144");
+            }
+
+            if ($("#tipo_capa").val() === "W") {
+                $(".tipo-capa-group span").html("alt 144 x larg 288");
+            }
+
+            if ($("#tipo_capa").val() === "T") {
+                $(".tipo-capa-group span").html("alt 288 x larg 144");
+            }
+        });
+
+        /**********************
+         * IMAGES UPLOAD
+         **********************/
+        // imagens_upload: btn UPLOAD clicked
+        $('#btnImagens').click(function(e) {
+            $(".hidden-input.imagens").click();
+            e.preventDefault();
+            return false;
+        });
+        // imagens_upload: trigger input field
+        $('.hidden-input.imagens').change(function(ee) {
+            var imagens = this.files;
+
+            for (var i = 0; i < imagens.length; i++) {
+                for (var ii = 0; ii < window.obj_pt.imagens.length; ii++) {
+                    if (imagens[i].name === window.obj_pt.imagens[ii]) {
+                        return; //if the image is already there, get out of here
+                    }
+                }
+                $(".images").append("<p>" + imagens[i].name + "</p>");
+                window.obj_pt.imagens.push(imagens[i].name);
+                window.obj_en.imagens.push(imagens[i].name);
+            }
+            $(".box-images").show();
+        });
+        // imagens_upload: btn CLEAR clicked
+        $('#btnImagensClear').click(function(e) {
+            $(".images").empty();
+            $(".box-images").hide();
+            window.obj_pt.imagens = [];
+            window.obj_en.imagens = [];
+            e.preventDefault();
+            return false;
+        });
+
+        /**********************
+         * VIDEOS UPLOAD
+         **********************/
+        // videos_upload: btn UPLOAD clicked
+        $('#btnVideos').click(function(e) {
+            e.preventDefault();
+            var video = $("#videos").val();
+
+            if (!video) {
+                return;
+            }
+
+            for (var ii = 0; ii < window.obj_pt.videos.length; ii++) {
+                if (video === window.obj_pt.videos[ii]) {
+                    return; //if the video is already there, get out of here
+                }
+            }
+            $(".videos").append(
+                "<p>" + video + "</p>");
+            window.obj_pt.videos.push(video);
+            window.obj_en.videos.push(video);
+            $(".box-videos").show();
+        });
+        // videos_upload: btn CLEAR clicked
+        $('#btnVideosClear').click(function(e) {
+            $(".videos").empty();
+            $(".box-videos").hide();
+            window.obj_pt.videos = [];
+            window.obj_en.videos = [];
+            e.preventDefault();
+            return false;
+        });
+    });
+
+    function getCurrentData() {
+        var imgDiv = $(".box-images .images");
+        var videosDiv = $(".box-videos .videos");
+
+        window.obj_pt.language = "pt";
+        window.obj_pt.titulo = $("#titulo").val();
+        window.obj_pt.autor = $("#autor").val();
+        window.obj_pt.ano = $("#ano").val();
+        window.obj_pt.autorBio = tinyMCE.get('autorBio').getContent();
+        window.obj_pt.descricao = tinyMCE.get('descricao').getContent();
+        window.obj_pt.www = $("#www").val();
+        window.obj_pt.fichaTecnica = $("#fichaTecnica").val();
+        window.obj_pt.capa = $("#capa").val();
+        window.obj_pt.tipo_capa = $("#tipo_capa").val();
+        window.obj_pt.imagens = [];
+        window.obj_pt.videos = [];
+
+        window.obj_en.language = "en";
+        window.obj_en.titulo = $("#titulo_en").val();
+        window.obj_en.autor = $("#autor_en").val();
+        window.obj_en.ano = $("#ano").val();
+        window.obj_en.autorBio = tinyMCE.get('autorBio_en').getContent();
+        window.obj_en.descricao = tinyMCE.get('descricao_en').getContent();
+        window.obj_en.www = $("#www_en").val();
+        window.obj_en.fichaTecnica = $("#fichaTecnica_en").val();
+        window.obj_en.capa = $("#capa").val();
+        window.obj_en.tipo_capa = $("#tipo_capa").val();
+        window.obj_en.imagens = [];
+        window.obj_en.videos = [];
+
+        $.each(imgDiv[0].childNodes, function(key, value) {
+            window.obj_pt.imagens.push(value.innerHTML);
+            window.obj_en.imagens.push(value.innerHTML);
+        });
+
+        $.each(videosDiv[0].childNodes, function(key, value) {
+            window.obj_pt.videos.push(value.innerHTML);
+            window.obj_en.videos.push(value.innerHTML);
+        });
+
+    }
+
+    function setFormData(fromJSON) {
+        $("#titulo").val(window.obj_pt.titulo);
+        $("#autor").val(window.obj_pt.autor);
+        $("#autorBio").val(window.obj_pt.autorBio);
+        $("#descricao").val(window.obj_pt.descricao);
+        $("#www").val(window.obj_pt.www);
+        $("#fichaTecnica").val(window.obj_pt.fichaTecnica);
+
+        $("#titulo_en").val(window.obj_en.titulo);
+        $("#autor_en").val(window.obj_en.autor);
+        $("#autorBio_en").val(window.obj_en.autorBio);
+        $("#descricao_en").val(window.obj_en.descricao);
+        $("#www_en").val(window.obj_en.www);
+        $("#fichaTecnica_en").val(window.obj_en.fichaTecnica);
+
+        if (fromJSON) {
+            tinyMCE.get('autorBio').setContent(window.obj_pt.autorBio);
+            tinyMCE.get('descricao').setContent(window.obj_pt.descricao);
+            tinyMCE.get('autorBio_en').setContent(window.obj_en.autorBio);
+            tinyMCE.get('descricao_en').setContent(window.obj_en.descricao);
+        }
+
+        $("#capa").val(window.obj_pt.capa);
+        $("#tipo_capa").val(window.obj_pt.tipo_capa);
+        $("#ano").val(window.obj_pt.ano);
+
+        if (window.obj_pt.imagens.length > 0) {
+            $(".images").empty();
+            for (var i = 0; i < window.obj_pt.imagens.length; i++) {
+                $(".images").append(
+                    "<p>" + window.obj_pt.imagens[i] + "</p>");
+            }
+            $(".box-images").show();
+        } else {
+            $(".images").empty();
+            $(".box-images").hide();
+        }
+
+        if (window.obj_pt.videos.length > 0) {
+            $(".videos").empty();
+            for (var ii = 0; ii < window.obj_pt.videos.length; ii++) {
+                $(".videos").append(
+                    "<p>" + window.obj_pt.videos[ii] + "</p>");
+            }
+            $(".box-videos").show();
+        } else {
+            $(".videos").empty();
+            $(".box-videos").hide();
+        }
+    }
+
+    function initializeObj(language) {
+        var obj = {};
+        obj.language = language;
+        obj.capa = "";
+        obj.tipo_capa = "N";
+        obj.titulo = "";
+        obj.autor = "";
+        obj.ano = "";
+        obj.fichaTecnica = null;
+        obj.autorBio = "";
+        obj.descricao = "";
+        obj.www = null;
+        obj.imagens = [];
+        obj.videos = [];
+
+        return obj;
+    }
+
+    function criarFile() {
+
+        getCurrentData();
+        sanitizeData();
+
+        var obj = [];
+        obj.push(window.obj_pt);
+        obj.push(window.obj_en);
+
+        return obj;
+    }
+
+    function sanitizeData() {
+        // replace special quote ' 
+        window.obj_pt.descricao = obj_pt.descricao.replace(/'/g, "´");
+        window.obj_pt.titulo = obj_pt.titulo.replace(/'/g, "´");
+        window.obj_pt.autor = obj_pt.autor.replace(/'/g, "´");
+        window.obj_pt.ano = obj_pt.ano.replace(/'/g, "´");
+        window.obj_pt.autorBio = obj_pt.autorBio.replace(/'/g, "´");
+
+        window.obj_en.descricao = obj_en.descricao.replace(/'/g, "´");
+        window.obj_en.titulo = obj_en.titulo.replace(/'/g, "´");
+        window.obj_en.autor = obj_en.autor.replace(/'/g, "´");
+        window.obj_en.ano = obj_en.ano.replace(/'/g, "´");
+        window.obj_en.autorBio = obj_en.autorBio.replace(/'/g, "´");
+
+        // remove line-feeds
+        window.obj_pt.descricao = obj_pt.descricao.replace(/(?:\r\n|\r|\n)/g, '');
+        window.obj_pt.autorBio = obj_pt.autorBio.replace(/(?:\r\n|\r|\n)/g, '');
+        window.obj_en.descricao = obj_en.descricao.replace(/(?:\r\n|\r|\n)/g, '');
+        window.obj_en.autorBio = obj_en.autorBio.replace(/(?:\r\n|\r|\n)/g, '');
+    }
+    </script>
+</body>
+
+</html>

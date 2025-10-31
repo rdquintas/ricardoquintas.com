@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<!-- 
+   Hi, you're looking at a web page built with love by:
+
+   Ricardo
+
+  /$$$$$$            /$$             /$$                        
+ /$$__  $$          |__/            | $$                        
+| $$  \ $$ /$$   /$$ /$$ /$$$$$$$  /$$$$$$    /$$$$$$   /$$$$$$$
+| $$  | $$| $$  | $$| $$| $$__  $$|_  $$_/   |____  $$ /$$_____/
+| $$  | $$| $$  | $$| $$| $$  \ $$  | $$      /$$$$$$$|  $$$$$$ 
+| $$/$$ $$| $$  | $$| $$| $$  | $$  | $$ /$$ /$$__  $$ \____  $$
+|  $$$$$$/|  $$$$$$/| $$| $$  | $$  |  $$$$/|  $$$$$$$ /$$$$$$$/
+ \____ $$$ \______/ |__/|__/  |__/   \___/   \_______/|_______/ 
+      \__/                                                                      
+
+   ricardoquintas.com   
+   January/2015 
+-->
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/app.dist.css" />
+    <title>unplace | a museum without a place</title>
+    <script type="text/javascript" src="http://fast.fonts.net/jsapi/739bf436-1824-4067-a456-9bd34cfd8f44.js"></script>
+</head>
+
+<body>
+    <!--[if lte IE 9]>
+    <div class="browserupdate">
+        You are using an obsolete browser which can harm your experience and cause security troubles.
+        <br> Please <a href="http://browsehappy.com/" target="_blank">update your browser!</a>
+    </div>
+  <![endif]-->
+    <noscript>
+        <div class="browserupdate">
+            Oh, no! You don't have JavaScript enabled on your browser!
+            <br> This website only works with JavaScript. Sorry.
+        </div>
+    </noscript>
+    <div class="preloader">
+        <img src="img/preloader.gif">
+    </div>
+    <section id="gbnt-header" data-gbnt-open="false">
+        <div class="logo">
+            <a class="logo-unplace" href="http://www.unplace.org">
+                <img src="img/unplace_logo.png">
+            </a>
+            <p class="logo-text">exposição arte em rede: lugares-entre-lugares</p>
+        </div>
+        <a href="#" class="gbnt-language">en</a>
+        <a href="#" class="toggle-menu"><i class="fa fa-bars"></i></a>
+        <div class="nav">
+            <ul>
+                <li><a href="#" class="gbnt-exibithion selected">exibi&ccedil;&atilde;o</a>
+                </li>
+                <li><a href="#" class="gbnt-tour">visitas tem&aacute;ticas</a>
+                    <div class="tours hide-me">
+                        <ul>
+                            <li><a class="tour1" href="1">tour 1</a>
+                            </li>
+                            <li><a class="tour2" href="2">tour 2</a>
+                            </li>
+                            <!--       <li><a class="tour3" href="3">Indentidade(s) em processo</a>
+                            </li> -->
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#" class="gbnt-about">about</a>
+                </li>
+            </ul>
+            <div class="about-text hide-me">
+                <p>PT</p>
+                <a target="_blank" href="docs/exposicao_unplace.pdf" class="pdf-download">Ler mais sobre a Exposição</a>
+                <br>
+                <a target="_blank" href="docs/unplace_ficha_tecnica.pdf" class="pdf2-download">Ficha técnica</a>
+            </div>
+        </div>
+    </section>
+    <script id="gbnt-template" type="text/x-handlebars-template">
+        {{#each tour}}
+        <div id="item_x" class="cursor-pointer gbnt-item gbnt-size-normal tour" data-gbnt-checked="true">
+            <div class="wrap">
+                <div class="proj-text gbnt-size-normal">
+                    <a href="#" id="cover" class="textbox">
+                        <p id="cover" class="titulo">{{translateThis 'tour'}}</p>
+                        <p id="cover" class="autor">{{tour_title}}</p>
+                    </a>
+                </div>
+            </div>
+            <div class="cursor-default proj-profile hide-me ">
+                <div class="header">
+                    <a href="#" class="btn-project btn-selected">{{tour_title}}</a>
+                    <a href="#" class="btn-close">
+                        <img src="img/cross.png">
+                    </a>
+                </div>
+                <div class="tab-project">
+                    <h1>{{tour_title}}</h1>
+                    <p style="margin-top:10px">{{{tour_description}}}</p>
+                </div>
+            </div>
+        </div>
+        {{/each}} {{#each project}}
+        <div id="{{getID 'item_' id}}" class="cursor-pointer gbnt-item {{size_class}}" data-gbnt-checked="false">
+            <div class="wrap">
+                <div class="proj-cover {{size_class}}">
+                    <img id="cover" src="{{getCoverImageURL id tipo_capa capa}}">
+                </div>
+                <div class="proj-text {{size_class}}">
+                    <a href="#" id="cover" class="textbox">
+                        <p id="cover" class="titulo">{{titulo}}</p>
+                        <p id="cover" class="autor">{{autor}}</p>
+                    </a>
+                </div>
+                <div class="proj-img {{size_class}}">
+                    <img src="{{getProjectImageURL id img}}">
+                </div>
+            </div>
+            <div class="cursor-default proj-profile hide-me">
+                <div class="header">
+                    <a href="#" class="btn-project btn-selected">{{translateThis 'project_description'}}</a>
+                    <a href="#" class="btn-author">{{translateThis 'author'}}</a>
+                    <a href="#" class="btn-close">
+                        <img src="img/cross.png">
+                    </a>
+                </div>
+                <div class="tab-project">
+                    <h1>{{titulo}}</h1>
+                    <p class="ano">{{translateThis 'year'}}: {{ano}}</p>
+                    {{#if www}}
+                    <a href="{{www}}" target="_blank" class="btn-view-proj"><i class="fa fa-eye"></i>{{translateThis 'view_project'}}</a> {{/if}} {{#if fichaTecnica}}
+                    <a href="docs/projectos/{{id}}/{{fichaTecnica}}" target="_blank" class="btn-view-proj">
+                        <i class="fa fa-file"></i>{{translateThis 'fichaTecnica'}}</a>
+                    {{/if}}
+                    <div class="descricao" style="margin-top:10px">{{{descricao}}}</div>
+                </div>
+                <div class="tab-author hide-me">
+                    <h1>{{autor}}</h1>
+                    <div class="autor-bio">{{{autorBio}}}</div>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </script>
+    <section id="gbnt-container" class="packery">
+    </section>
+    <script type="text/javascript" src="js/libs.dist.js"></script>
+    <script type="text/javascript" src="js/app.dist.js"></script>
+    <script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-56535261-2', 'auto');
+    ga('send', 'pageview');
+    </script>
+</body>
+
+</html>

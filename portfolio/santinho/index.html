@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<!-- 
+   Hi, you're looking at a web page built with love by:
+
+   Ricardo
+
+  /$$$$$$            /$$             /$$                        
+ /$$__  $$          |__/            | $$                        
+| $$  \ $$ /$$   /$$ /$$ /$$$$$$$  /$$$$$$    /$$$$$$   /$$$$$$$
+| $$  | $$| $$  | $$| $$| $$__  $$|_  $$_/   |____  $$ /$$_____/
+| $$  | $$| $$  | $$| $$| $$  \ $$  | $$      /$$$$$$$|  $$$$$$ 
+| $$/$$ $$| $$  | $$| $$| $$  | $$  | $$ /$$ /$$__  $$ \____  $$
+|  $$$$$$/|  $$$$$$/| $$| $$  | $$  |  $$$$/|  $$$$$$$ /$$$$$$$/
+ \____ $$$ \______/ |__/|__/  |__/   \___/   \_______/|_______/ 
+      \__/                                                                      
+
+   ricardoquintas.com   
+   May/2015 
+-->
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procuro um Santo</title>
+    <meta name="description" content="Procuro um Santo - Ricardo Quintas" />
+    <meta name="author" content="Ricardo Quintas" />
+    <meta name="keywords" content="ricardo quintas procuro um santo" />
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="css/pure-min.css" /> -->
+    <link rel="stylesheet" type="text/css" href="css/bookblock.css" />
+    <link rel="stylesheet" type="text/css" href="css/custom.css" />
+    <script src="js/modernizr.js"></script>
+    <script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-56535261-2', 'auto');
+    ga('send', 'pageview');
+    </script>
+</head>
+
+<body>
+    <div id="container" class="container">
+        <div class="bb-custom-wrapper">
+            <div id="bb-bookblock" class="bb-bookblock">
+                <div class="bb-item" id="item1">
+                    <div class="content">
+                        <div><img class="hero" src="img/santinho.jpg" alt=""></div>
+                        <a href="#" id="btn-santinho" class="button">
+                            <span>Santo</span>
+                        </a>
+                        <div><img class="ornament" src="img/ornament.png" alt=""></div>
+                        <!--        <div class="module-footer">
+                            <h3>© 2015 Ricardo Quintas
+                            <br>
+                            <a href="http://www.ricardoquintas.com" target="_blank">ricardoquintas.com</a>
+                            </h3>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="bb-item" id="item2">
+                    <div class="content">
+                        <div class="go-back">
+                            <a id="btn-back" href="#"></a>
+                        </div>
+                        <div class="content-here">
+                        </div>
+                        <!--         <div class="module-footer">
+                            <h3>© 2015 Ricardo Quintas 
+                            <br>
+                            <a href="http://www.ricardoquintas.com" target="_blank">ricardoquintas.com</a>
+                            </h3>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script src="js/jquerypp.custom.js"></script>
+    <script src="js/jquery.bookblock.js"></script>
+    <script>
+    var bb;
+
+    // if the user presses the browser back button, we should go to previous div
+    $(window).on("popstate", function(e) {
+        bb.prev();
+    });
+
+    $(function() {
+        var dados = {};
+        var nextDiv = {};
+
+        // Initialize stuff
+        loadData(true);
+        initializeBB();
+
+        $("#btn-santinho").on("click", function() {
+            history.pushState(null, "dummy", "?dummy");
+            bb.next();
+            return false;
+        });
+
+        $("#btn-back").on("click", function(e) {
+            e.preventDefault();
+            $("#item2 .content").scrollTop(0);
+            bb.prev();
+            createNewItem();
+            return false;
+        });
+
+    });
+
+
+    function createNewItem() {
+        getNextDiv();
+        var t_www = "";
+
+        if (nextDiv.www) {
+            t_www = "<p class='font-bold'>Clique <a href='" +
+                nextDiv.www +
+                "' target='_blank'>aqui</a> para saber mais</p>";
+        }
+
+        $("#item2 .content-here").html([
+            "<h2>",
+            nextDiv.nome,
+            "</h2>",
+            "<p class='font-bold saint-font-body'>",
+            nextDiv.data_local,
+            "</p>",
+            "<img class='img-santo' src='conteudo/",
+            nextDiv.img,
+            "'>",
+            t_www,
+            "<p class='saint-font-body'>",
+            nextDiv.desc,
+            "</p>"
+        ].join(""));
+
+    }
+
+
+    function loadData(prepareNextDiv) {
+        $.ajax({
+            url: "conteudo/dados.json",
+            context: document.body
+        }).done(function(data) {
+            dados = data;
+            if (prepareNextDiv) {
+                createNewItem();
+            }
+        });
+    }
+
+    function getNextDiv() {
+        var nextId = Math.floor((Math.random() * dados.length));
+        nextDiv = dados.splice(nextId, 1)[0];
+        if (dados.length === 0) {
+            loadData(false);
+        }
+    }
+
+    function initializeBB() {
+        bb = $('#bb-bookblock').bookblock({
+            speed: 800,
+            perspective: 2000,
+            // nextEl: "#btn-santinho",
+            // prevEl: "#btn-back",
+            shadowSides: 0.8,
+            shadowFlip: 0.4
+        });
+    }
+    </script>
+</body>
+
+</html>

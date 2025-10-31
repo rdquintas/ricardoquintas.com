@@ -1,0 +1,378 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+html {
+    height: 100%;
+}
+
+*, *:after, *:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Lato', Calibri, Arial, sans-serif;
+    background: #fff;
+    font-weight: 400;
+    font-size: 100%;
+    color: #333;
+    height: 100%;
+}
+
+.js body {
+    /*overflow: hidden;*/
+}
+
+a {
+    color: #555;
+    text-decoration: none;
+    outline: none;
+}
+
+a:hover {
+    color: #000;
+}
+
+.container, .bb-custom-wrapper, .bb-bookblock {
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    position: relative;
+    left: 0px;
+    -webkit-transition: left 0.3s ease-in-out;
+    -o-transition: left 0.3s ease-in-out;
+    transition: left 0.3s ease-in-out;
+}
+
+.slideRight {
+    left: 240px;
+}
+
+.no-js .container {
+    padding-left: 240px;
+}
+
+.menu-panel {
+    background: #f1103a;
+    width: 240px;
+    height: 100%;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.bb-custom-wrapper nav {
+    top: 20px;
+    left: 60px;
+    position: absolute;
+    z-index: 1000;
+}
+
+.bb-custom-wrapper nav span, .menu-button {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    top: 0;
+    left: 0;
+    background: #f1103a;
+    border-radius: 50%;
+    color: #fff;
+    line-height: 30px;
+    text-align: center;
+    speak: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.bb-custom-wrapper nav span:hover, .menu-button:hover {
+    background: #000;
+}
+
+.bb-custom-wrapper nav span:last-child {
+    left: 40px;
+}
+
+.no-js .bb-custom-wrapper nav span, .no-js .menu-button {
+    display: none;
+}
+
+.js .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    bottom: 50px;
+    overflow: visible !important;
+    overflow-y: scroll !important;
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.scroller {
+    padding: 10px 5% 10px 5%;
+}
+
+.content h2 {
+    font-weight: 300;
+    font-size: 4em;
+    padding: 0 0 10px;
+    color: #333;
+    margin: 50px 1% 40px;
+    text-align: left;
+    box-shadow: 0 10px 0 rgba(0, 0, 0, 0.1);
+    text-shadow: 0 0 2px #fff;
+}
+
+.no-js .content h2 {
+    padding: 40px 1% 20px;
+}
+
+.content p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    font-weight: 300;
+    padding: 5px 10%;
+    text-align: justify;
+}
+
+@media screen and (max-width: 800px) {
+    .no-js .menu-panel {
+        display: none;
+    }
+    .no-js .container {
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .menu-panel, .content {
+        font-size: 75%;
+    }
+}
+
+.go-back {
+    position: fixed;
+    top: 1%;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.2);
+    text-align: left;
+}
+
+.go-back a {
+    font-size: 1.5em;
+    color: #000;
+    padding: 0 0 0 1%;
+}
+
+.go-back a:hover {
+    color: #3C69FF;
+}
+
+.go-back a:before {
+    font-family: FontAwesome;
+    content: "\f060";
+    margin-right: 5px;
+}
+
+.content {
+    text-align: center;
+}
+
+.hero {
+    margin-top: 1%;
+    max-width: 100%;
+}
+
+.ornament {
+    max-width: 40%;
+}
+
+.button {
+    position: relative;
+    top: -70px;
+    /*left: 200px;*/
+    
+    display: inline-block;
+    margin: 0 auto;
+    -webkit-border-radius: 10px;
+    -webkit-box-shadow: 0px 3px rgba(128, 128, 128, 1),
+    /* gradient effects */
+    
+    0px 4px rgba(118, 118, 118, 1), 0px 5px rgba(108, 108, 108, 1), 0px 6px rgba(98, 98, 98, 1), 0px 7px rgba(88, 88, 88, 1), 0px 8px rgba(78, 78, 78, 1), 0px 14px 6px -1px rgba(128, 128, 128, 1);
+    /* shadow */
+    
+    -webkit-transition: -webkit-box-shadow .1s ease-in-out;
+}
+
+.button span {
+    background-color: #E8E8E8;
+    background-image:
+    /* gloss gradient */
+    
+    -webkit-gradient( linear, left bottom, left top, color-stop(50%, rgba(255, 255, 255, 0)), color-stop(50%, rgba(255, 255, 255, 0.3)), color-stop(100%, rgba(255, 255, 255, 0.2))),
+    /* dark outside gradient */
+    
+    -webkit-gradient( linear, left top, right top, color-stop(0%, rgba(210, 210, 210, 0.3)), color-stop(20%, rgba(210, 210, 210, 0)), color-stop(80%, rgba(210, 210, 210, 0)), color-stop(100%, rgba(210, 210, 210, 0.3))),
+    /* light inner gradient */
+    
+    -webkit-gradient( linear, left top, right top, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(20%, rgba(255, 255, 255, 0.5)), color-stop(80%, rgba(255, 255, 255, 0.5)), color-stop(100%, rgba(255, 255, 255, 0))),
+    /* diagonal line pattern */
+    
+    -webkit-gradient( linear, 0% 100%, 100% 0%, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(40%, rgba(255, 255, 255, 0)), color-stop(40%, #D2D2D1), color-stop(60%, #D2D2D1), color-stop(60%, rgba(255, 255, 255, 0)), color-stop(100%, rgba(255, 255, 255, 0)));
+    -webkit-box-shadow: 0px -1px #fff,
+    /* top highlight */
+    
+    0px 1px 1px #FFFFFF;
+    /* bottom edge */
+    
+    -webkit-background-size: 100%, 100%, 100%, 4px 4px;
+    -webkit-border-radius: 10px;
+    -webkit-transition: -webkit-transform .1s ease-in-out;
+    display: inline-block;
+    padding: 10px 40px 10px 40px;
+    color: #3A474D;
+    text-transform: uppercase;
+    font-family: 'TradeGothicLTStd-BdCn20', 'PT Sans Narrow';
+    font-weight: 700;
+    font-size: 32px;
+    text-shadow: 0px 1px #fff, 0px -1px #262F33;
+}
+
+.button span:hover {
+    color: #3C69FF;
+    text-shadow: 0px -1px #3C69FF;
+    cursor: pointer;
+}
+
+.button:active {
+    -webkit-box-shadow: 0px 3px rgba(128, 128, 128, 1), 0px 4px rgba(118, 118, 118, 1), 0px 5px rgba(108, 108, 108, 1), 0px 6px rgba(98, 98, 98, 1), 0px 7px rgba(88, 88, 88, 1), 0px 8px rgba(78, 78, 78, 1), 0px 10px 2px 0px rgba(128, 128, 128, .6);
+    /* shadow */
+}
+
+.button:active span {
+    -webkit-transform: translate(0, 5px);
+    /* depth of button press */
+}
+
+.img-santo {
+    max-width: 70%;
+}
+
+.font-bold {
+    font-weight: bold !important;
+}
+
+.font-bold a {
+    color: #3C69FF;
+}
+
+.font-bold a:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 800px) {
+    .saint-font-body {
+        font-size: 20px !important;
+    }
+    .font-bold {
+        font-size: 20px !important;
+    }
+    #btn-santinho {
+        margin-top: 50px;
+        max-width: 80%;
+    }
+    .ornament {
+        max-width: 70%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .font-bold {
+        font-size: 20px !important;
+    }
+    .saint-font-body {
+        font-size: 20px !important;
+    }
+    .hero {
+        margin-top: 20%;
+        max-width: 80%;
+    }
+    #btn-santinho {
+        margin-top: 70px;
+        margin-bottom: 0;
+    }
+    #btn-santinho span {
+        width: 120px;
+        padding: 7px 5px 5px 5px;
+        font-size: 20px
+    }
+    .ornament {
+        max-width: 90%;
+    }
+}
+
+@media screen and (max-width: 600px) and (orientation: landscape) {
+    .saint-font-body {
+        font-size: 20px !important;
+    }
+    .hero {
+        margin-top: 2%;
+        max-width: 80%;
+    }
+    #btn-santinho {
+        margin-top: 25px;
+        margin-bottom: 0;
+    }
+    #btn-santinho span {
+        width: 120px;
+        padding: 7px 5px 5px 5px;
+        font-size: 20px
+    }
+    .ornament {
+        max-width: 70%;
+        margin-top: -40px;
+    }
+}
+/* =============================================================================
+ * MODULE FOOTER
+ * =============================================================================*/
+
+.module-footer {
+    padding: 50px;
+    height: 100px;
+    background: #fff;
+    text-align: center;
+}
+
+.module-footer h3 {
+    font-weight: 100;
+    padding-bottom: 80px;
+}
+
+.module-footer a {
+    text-decoration: none;
+    color: #000;
+}
+
+.module-footer a:hover {
+    text-decoration: none;
+    color: #A40000;
+}
+
+@media screen and (min-width: 0px) and (max-width: 767px) {
+    /*    .module-footer {
+        padding: 0;
+        width: 100%;
+        margin-top: 20px;
+        height: 50px;
+    }
+    .module-footer h3 {
+        padding: 0;
+        margin: 0;
+    }*/
+}

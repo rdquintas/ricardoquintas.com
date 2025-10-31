@@ -1,0 +1,6 @@
+ErrorDocument 401 "Unauthorized"
+
+AuthType Basic
+AuthName "Unplace Sub-Site"
+AuthUserFile "/home/unplaceo/.htpasswds/gbnt/.htpasswd"
+Require valid-user

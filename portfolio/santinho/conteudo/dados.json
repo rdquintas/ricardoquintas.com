@@ -1,0 +1,31 @@
+[{
+    "nome": "São Bento de Núrsia",
+    "desc": "Nnascido Benedito da Nórcia (em italiano: Benedetto de Norcia; em latim: Benedictus) foi um monge, fundador da Ordem dos Beneditinos, uma das maiores ordens monásticas do mundo. Foi o criador da Regra de São Bento, um dos mais importantes e utilizados regulamentos de vida monástica, inspiração de muitas outras comunidades religiosas. Era irmão gêmeo de Santa Escolástica. Foi designado patrono da Europa pelo Papa Paulo VI em 19641 , sendo também patrono da Alemanha. É venerado não apenas por católicos, como também por ortodoxos. Foi o fundador da Abadia do Monte Cassino, na Itália,destruída durante a Segunda Guerra Mundial e posteriormente restaurada. É comemorado no calendário católico a 11 de Julho2 , data em que suas relíquias foram trasladadas para a Abadia de Saint-Benoît-sur-Loire.",
+    "data_local": "Nórcia, Reino Ostrogótico, c. 480 — Abadia do Monte Cassino, c. 547",
+    "www": "http://pt.wikipedia.org/wiki/Bento_de_N%C3%BArsia",
+    "img": "sao_bento_nursia.jpg"
+}, {
+    "nome": "Santo António de Lisboa",
+    "desc": "Primeiramente foi frade agostinho no Convento de São Vicente de Fora, em Lisboa, indo posteriormente para o Convento de Santa Cruz, em Coimbra, onde aprofundou os seus estudos religiosos através da leitura da Bíblia e da literatura patrística, científica e clássica. Tornou-se franciscano em 1220 e viajou muito, vivendo inicialmente em Portugal, depois na Itália e na França. No ano de 1221 fez parte do Capítulo Geral da Ordem de Assis, a convite do próprio Francisco, o fundador, que o convidou também a pregar contra os albigenses em França. Foi transferido depois para Bolonha e de seguida para Pádua, onde morreu aos 36 (ou 40) anos.",
+    "data_local": "Lisboa, 15 de Agosto de 1191-1195? — Pádua, 13 de Junho de 1231",
+    "www": "http://pt.wikipedia.org/wiki/Santo_Ant%C3%B3nio_de_Lisboa",
+    "img": "Santo-Antonio.png"
+}, {
+    "nome": "São Tomás de Aquino",
+    "desc": "Ele foi o mais importante proponente clássico da teologia natural e o pai do tomismo. Sua influência no pensamento ocidental é considerável e muito da filosofia moderna foi concebida como desenvolvimento ou oposição de suas ideias, particularmente na ética, lei natural, metafísica e teoria política. Ao contrário de muitas correntes da Igreja na época6 , Tomás abraçou diversas ideias de Aristóteles - a quem ele se referia como 'o Filósofo' - e tentou sintetizar a filosofia aristotélica com os princípios do cristianismo. As obras mais conhecidas de Tomás são a 'Suma Teológica' (em latim: Summa Theologiae) e a 'Suma contra os Gentios' (Summa contra Gentiles). Seus comentários sobre as Escrituras e sobre Aristóteles também são parte importante de seu corpus literário. Além disso, Tomás se distingue por seus hinos eucarísticos, que ainda hoje fazem parte da liturgia da Igreja7",
+    "data_local": "Roccasecca, 1225  — Fossanova, 7 de março de 1274",
+    "www": "http://www.thebookoflife.org/the-great-philosophers-thomas-aquinas/",
+    "img": "Sao-Tomas-de-Aquino.jpg"
+}, {
+    "nome": "São Sebastião",
+    "desc": "São Sebastião (França, 256 d.C. – 286 d.C.) originário de Narbonne e cidadão de Milão, foi um mártir e santo cristão, morto durante a perseguição levada a cabo pelo imperador romano Diocleciano. O seu nome deriva do grego sebastós, que significa divino, venerável (que seguia a beatitude da cidade suprema e da glória altíssima).",
+    "data_local": "França, 256 d.C. – 286 d.C.",
+    "www": "http://pt.wikipedia.org/wiki/S%C3%A3o_Sebasti%C3%A3o",
+    "img": "st_sebastian.jpg"
+}, {
+    "nome": "Santa Catarina de Siena",
+    "desc": "Lutou arduamente para trazer o papado de Gregório XI de volta para Roma durante o chamado 'Cisma do Ocidente', um período de quase um século no qual se estabeleceu o papado de Avinhão, e também foi fundamental para a restauração da paz entre as cidades-estado italianas",
+    "data_local": "Século XIV nascida em Siena, na República de Siena",
+    "www": "http://pt.wikipedia.org/wiki/Catarina_de_Siena",
+    "img": "catarina_siena.jpg"
+}]

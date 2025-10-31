@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>TENA Home Delivery</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/sca.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- <div class="zrq123"></div> -->
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <strong>
+                    <p class="navbar-text navbar-left" style="color: #089FDC">This is a prototype for SCA</p>
+                </strong>
+            </div>
+            <div class="navbar-collapse collapse">
+                <form class="navbar-form navbar-right" role="form">
+                    <div class="form-group">
+                        <input id="user" type="text" placeholder="Email" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input id="password" type="password" placeholder="Password" class="form-control">
+                    </div>
+                    <!-- <button id="zrq" type="submit" class="btn btn-success" data-toggle="modal" data-target="#myModal">Sign in</button> -->
+                    <button id="zrq" type="submit" class="btn btn-success">Sign in</button>
+                </form>
+            </div>
+            <!--/.navbar-collapse -->
+        </div>
+    </div>
+
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Welcome to TENA Home Delivery.</h1>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <p>This is a prototype for TENA Home Delivery.
+                        <br>There are 2 users available to test:
+                        <br>&nbsp&nbsp&nbsp> <b>End User</b>: &nbsp&nbsp&nbsp&nbsp&nbsptest/123123                        
+                        <br>&nbsp&nbsp&nbsp> <b>Admin User</b>: &nbspadmin/123123
+                    </p>
+                    <p><a id="btn_learnmore" class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a>
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <img height="100%" src="images/tena_logo.jpg" alt="TENA logo">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+            <div class="col-md-6">
+                <!-- <h2>Heading</h2> -->
+                <!-- <a href="#" class="thumbnail"> -->
+                <img height="100%" src="images/sca_logo.jpg" alt="SCA logo">
+                <!-- </a> -->
+                <p>Ipsam, architecto, porro, laboriosam eum commodi numquam tempora.
+                    <br>Voluptatem, doloribus enim excepturi aperiam nostrum ab odit.</p>
+                <p><a class="btn btn-default" href="http://www.sca.com/" role="button">View details &raquo;</a>
+                </p>
+            </div>
+            <div class="col-md-6">
+                <img height="100%" src="images/tena_prods.jpg" alt="SCA logo">
+
+                <!-- <h2>Products</h2> -->
+
+                <p>Sunt, tenetur, animi soluta deleniti eum necessitatibus laborum aspernatur officia dolorem natus repellat corporis dolore <b>distinctio saepe</b> quam? Reprehenderit, voluptatibus qui natus tempora consequuntur beatae laudantium officia incidunt. Ullam, voluptas maxime assumenda</p>
+                <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a>
+                </p>
+            </div>
+            <!--           <div class="col-md-4">
+                <h2>Heading</h2>
+                <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a>
+                </p>
+            </div> -->
+        </div>
+
+        <hr>
+
+        <footer>
+            <p>&copy; SCA 2014</p>
+        </footer>
+    </div>
+
+
+
+    <!-- Wrong Password -->
+    <div class="modal fade" id="wrongpass" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!--        <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Authentication failed</h4>
+                </div> -->
+                <div class="modal-body">
+                    <h3 class="modal-title text-danger" id="myModalLabel">Wrong user/password.
+                        <br>Please try again.</h4>
+                </div>
+                <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Learn More -->
+    <div class="modal fade" id="learnmore" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Overview</h4>
+                </div>
+                <div class="modal-body">
+                    <!-- <h3 class="modal-title text-danger" id="myModalLabel"> -->
+                    <p>
+                        This is just a simple prototype for <b>TENA Home Delivery</b>.
+                        <br>It consist of User Interface only - no database integration.
+                    </p>
+                    <p>
+                        The goal is to give a rough idea of what type of alternatives could be developed to replace the current SAP Portal solution.
+                    </p>
+                    <p>
+                        This one was mostly done with modern web technologies, HTML5 related.
+                        <br>By using these type of tools one can guarantee:
+                        <br>
+                        <lu>
+                            <li>
+                                1) <b>Truly RWD (responsive web design)</b>. This means the web-site will behave seamlessly on any browser, screen or device.
+                            </li>
+                            <li>
+                                2) <b>Easy/fast to develop</b>. No compilation, libraries or complex dependencies.
+                            </li>
+                        </lu>
+                    </p>
+                    <p>
+                        <br>I have created 2 scenarios. "Admin" and "End User".</p>
+                </div>
+                <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <script>
+    $(document).ready(function() {
+        $("form").on("submit", function(event) {
+            event.preventDefault();
+            console.log($("#user").val());
+            console.log($("#password").val());
+            if ($("#user").val() === "admin" && $("#password").val() === "123123") {
+                window.location.href = "views/admin/main.html"
+                return;
+            }
+
+            if ($("#user").val() === "test" && $("#password").val() === "123123") {
+                window.location.href = "views/enduser/main.html"
+                return;
+            }
+
+
+
+            $('#wrongpass').modal('show');
+            // console.log(this.serialize());
+            // console.log($("form").serialize());
+        });
+
+        $("#btn_learnmore").click(function() {
+            $('#learnmore').modal('show');
+        });
+
+    });
+    </script>
+</body>
+
+</html>

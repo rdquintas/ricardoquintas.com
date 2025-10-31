@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<!-- 
+   Hi, you're looking at a web page built with love by:
+
+   Ricardo
+
+  /$$$$$$            /$$             /$$                        
+ /$$__  $$          |__/            | $$                        
+| $$  \ $$ /$$   /$$ /$$ /$$$$$$$  /$$$$$$    /$$$$$$   /$$$$$$$
+| $$  | $$| $$  | $$| $$| $$__  $$|_  $$_/   |____  $$ /$$_____/
+| $$  | $$| $$  | $$| $$| $$  \ $$  | $$      /$$$$$$$|  $$$$$$ 
+| $$/$$ $$| $$  | $$| $$| $$  | $$  | $$ /$$ /$$__  $$ \____  $$
+|  $$$$$$/|  $$$$$$/| $$| $$  | $$  |  $$$$/|  $$$$$$$ /$$$$$$$/
+ \____ $$$ \______/ |__/|__/  |__/   \___/   \_______/|_______/ 
+      \__/                                                                      
+
+   ricardoquintas.com   
+   January/2015 
+-->
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>ADMIN unplace.org</title>
+    <link rel="stylesheet" href="../css/pure-min.css" />
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <style type="text/css">
+    * {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    
+    body {
+        margin: 0 50px 0 50px;
+        background-color: #fff;
+    }
+    
+    i {
+        margin-right: 5px;
+    }
+    
+    .header {
+        z-index: 10;
+        height: 95px;
+        padding-left: 50px;
+        top: 0;
+        position: fixed;
+        background-color: #000;
+        width: 100%;
+        left: 0;
+    }
+    
+    .header .buttons {
+        float: right;
+        margin-top: 30px;
+        margin-right: 25px;
+    }
+    
+    .header .buttons div {
+        float: right;
+        margin-left: 20px;
+    }
+    
+    form {
+        position: relative;
+        margin-top: 100px;
+    }
+    
+    h1.title {
+        font-size: 3em;
+    }
+    
+    .button-warning {
+        background: rgb(223, 117, 20);
+        color: white;
+        border-radius: 4px;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    }
+    
+    .hidden-input {
+        display: none !important;
+    }
+    
+    .tipo-capa-group p {
+        display: inline;
+        margin-left: 10px;
+        font-size: 12px;
+        color: red;
+    }
+    
+    .box-images {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding: 10px;
+        display: none;
+        background-color: #ddd
+    }
+    
+    .box-images h5 {
+        margin: 0px;
+    }
+    
+    .box-images .images p {
+        margin: 8px;
+        font-size: 12px;
+        color: red;
+    }
+    
+    .box-videos {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding: 10px;
+        display: none;
+        background-color: #ddd
+    }
+    
+    .box-videos h5 {
+        margin: 0px;
+    }
+    
+    .box-videos .videos p {
+        margin: 8px;
+        font-size: 12px;
+        color: red;
+    }
+    
+    .browserupdate {
+        display: block;
+        margin-bottom: 3em;
+        padding: 2em;
+        color: #fff;
+        text-align: center;
+        background-color: red;
+    }
+    
+    .browserupdate a {
+        color: #fff;
+        text-decoration: underline;
+    }
+    
+    .browserupdate a:hover {
+        color: #ddd;
+    }
+    
+    .cleditorMain {
+        margin-left: 180px;
+        margin-top: -20px;
+    }
+    
+    div.pure-control-group {
+        margin-top: 25px;
+    }
+    
+    .logo {
+        float: left;
+        width: 30%;
+        margin-left: -10px;
+    }
+    
+    .logo .logo-unplace {
+        float: left;
+    }
+    
+    .logo p {
+        color: #fff;
+        display: inline;
+        float: left;
+        margin-top: 43px;
+    }
+    </style>
+    <script type="text/javascript" src="http://fast.fonts.net/jsapi/739bf436-1824-4067-a456-9bd34cfd8f44.js"></script>
+</head>
+
+<body>
+    <!--[if lte IE 9]>
+    <div class="browserupdate">
+        You are using an obsolete browser which can harm your experience and cause security troubles.
+        <br> Please <a href="http://browsehappy.com/" target="_blank">update your browser!</a>
+    </div>
+  <![endif]-->
+    <noscript>
+        <div class="browserupdate">
+            Oh, no! You don't have JavaScript enabled on your browser!
+            <br> This website only works with JavaScript. Sorry.
+        </div>
+    </noscript>
+    <section class="header">
+        <div class="logo">
+            <a class="logo-unplace" href="http://www.unplace.org">
+                <img src="../img/logo.jpg">
+            </a>
+            <!-- <p class="logo-text">exposição arte em rede: lugares-entre-lugares</p> -->
+        </div>
+        <div class="buttons">
+            <div>
+                <a class="button-warning pure-button" href="index.html">Gerir Obras</a>
+            </div>
+            <div id="gbnt-btn-criar" class="pure-button pure-button-primary"><i class="fa fa-floppy-o"></i>Gravar dados</div>
+            <input class="hidden-input upload" accept=".json" type="file" name="file">
+            <div id="gbnt-btn-upload" class="pure-button"><i class="fa fa-arrow-up"></i>Fazer upload dum ficheiro existente</div>
+        </div>
+    </section>
+    <form id="myForm" action="downloadJSON.php" method="post" class="pure-form  pure-form-stacked">
+        <input type="hidden" name="data" id="data">
+        <input type="hidden" name="filename" id="filename">
+        <h1 class="title">Gerir Visitas</h1>
+        <h1>IDIOMA: PT</h1>
+        <div class="pure-control-group">
+            <label for="nome_visita_1">Nome Visita 1 (PT)</label>
+            <input class="pure-input-1" id="nome_visita_1" type="text">
+        </div>
+        <div class="pure-control-group">
+            <label for="descricao_visita_1">Descri&ccedil;&atilde;o Visita 1 (PT)</label>
+            <textarea id="descricao_visita_1"></textarea>
+        </div>
+        <div class="pure-control-group">
+            <label for="nome_visita_2">Nome Visita 2 (PT)</label>
+            <input class="pure-input-1" id="nome_visita_2" type="text">
+        </div>
+        <div class="pure-control-group">
+            <label for="descricao_visita_2">Descri&ccedil;&atilde;o Visita 2 (PT)</label>
+            <textarea id="descricao_visita_2"></textarea>
+        </div>
+        <br>
+        <h1>IDIOMA: EN</h1>
+        <div class="pure-control-group">
+            <label for="nome_visita_1_en">Nome Visita 1 (EN)</label>
+            <input class="pure-input-1" id="nome_visita_1_en" type="text">
+        </div>
+        <div class="pure-control-group">
+            <label for="descricao_visita_1_en">Descri&ccedil;&atilde;o Visita 1 (EN)</label>
+            <textarea id="descricao_visita_1_en"></textarea>
+        </div>
+        <div class="pure-control-group">
+            <label for="nome_visita_2_en">Nome Visita 2 (EN)</label>
+            <input class="pure-input-1" id="nome_visita_2_en" type="text">
+        </div>
+        <div class="pure-control-group">
+            <label for="descricao_visita_2_en">Descri&ccedil;&atilde;o Visita 2 (EN)</label>
+            <textarea id="descricao_visita_2_en"></textarea>
+        </div>
+        <br>
+        <h1>CAMPOS COMUNS</h1>
+        <div class="pure-control-group">
+            <label for="projectos_1">Projectos da visita 1</label>
+            <input class="pure-input-1" id="projectos_1" type="text" placeholder="ex: 1,2,3,4">
+        </div>
+        <div class="pure-control-group">
+            <label for="projectos_2">Projectos da visita 2</label>
+            <input class="pure-input-1" id="projectos_2" type="text" placeholder="ex: 1,2,3,4">
+        </div>
+        <hr>
+    </form>
+    <script src="../js/libs.dist.js"></script>
+    <script src="../js/tinymce/tinymce.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+
+
+        tinymce.init({
+            forced_root_block: false,            
+            plugins: ["autolink", "link", "paste"],
+            height: 300,
+            paste_as_text: true,
+            // target_list: false,
+            menubar: false,
+            toolbar: "bold italic underline link unlink removeformat ",
+            selector: "textarea"
+        });
+
+        window.obj_pt = initializeObj("pt");
+        window.obj_en = initializeObj("en");
+
+        setFormData(false);
+
+
+        /**********************
+         * SAVE JSON FILE
+         **********************/
+        $('#gbnt-btn-criar').click(function() {
+            var file = criarFile();
+            console.log("file: " + file);
+            console.log("stringify: " + JSON.stringify(file));
+            var encodedFile = encodeURIComponent(JSON.stringify(file));
+            console.log("encodedFile: " + encodedFile);
+            $("#data").val(encodedFile);
+            $("#filename").val("visitas.json");
+            $("#myForm").submit();
+        });
+
+        /**********************
+         * UPLOAD JSON FILE
+         **********************/
+        // upload json: btn clicked
+        $('#gbnt-btn-upload').click(function(e) {
+            $(".hidden-input.upload").click();
+            e.preventDefault();
+            return false;
+        });
+
+        // upload json: trigger input field
+        $('.hidden-input.upload').change(function(ee) {
+            var reader = new FileReader();
+            reader.onload = function(event) {
+                var obj = JSON.parse(event.target.result);
+                window.obj_pt = obj[0];
+                window.obj_en = obj[1];
+                setFormData(true);
+            };
+            reader.onerror = function(event) {
+                alert("Erro com o upload desse ficheiro!");
+            };
+            reader.readAsText(this.files[0]);
+            return false;
+        });
+
+    });
+
+    function getCurrentData() {
+        window.obj_pt.nome_visita_1 = $("#nome_visita_1").val();
+        window.obj_pt.descricao_visita_1 = tinyMCE.get('descricao_visita_1').getContent();
+        window.obj_pt.projectos_1 = $("#projectos_1").val();
+        window.obj_pt.nome_visita_2 = $("#nome_visita_2").val();
+        window.obj_pt.descricao_visita_2 = tinyMCE.get('descricao_visita_2').getContent();
+        window.obj_pt.projectos_2 = $("#projectos_2").val();
+
+        window.obj_en.nome_visita_1 = $("#nome_visita_1_en").val();
+        window.obj_en.descricao_visita_1 = tinyMCE.get('descricao_visita_1_en').getContent();
+        window.obj_en.projectos_1 = $("#projectos_1").val();
+        window.obj_en.nome_visita_2 = $("#nome_visita_2_en").val();
+        window.obj_en.descricao_visita_2 = tinyMCE.get('descricao_visita_2_en').getContent();
+        window.obj_en.projectos_2 = $("#projectos_2").val();
+    }
+
+    function setFormData(fromJSON) {
+        $("#nome_visita_1").val(window.obj_pt.nome_visita_1);
+        $("#descricao_visita_1").val(window.obj_pt.descricao_visita_1);
+        $("#projectos_1").val(window.obj_pt.projectos_1);
+        $("#nome_visita_2").val(window.obj_pt.nome_visita_2);
+        $("#descricao_visita_2").val(window.obj_pt.descricao_visita_2);
+        $("#projectos_2").val(window.obj_pt.projectos_2);
+
+        $("#nome_visita_1_en").val(window.obj_en.nome_visita_1);
+        $("#descricao_visita_1_en").val(window.obj_en.descricao_visita_1);
+        $("#nome_visita_2_en").val(window.obj_en.nome_visita_2);
+        $("#descricao_visita_2_en").val(window.obj_en.descricao_visita_2);
+
+        if (fromJSON) {
+            tinyMCE.get('descricao_visita_1').setContent(window.obj_pt.descricao_visita_1);
+            tinyMCE.get('descricao_visita_2').setContent(window.obj_pt.descricao_visita_2);
+            tinyMCE.get('descricao_visita_1_en').setContent(window.obj_en.descricao_visita_1);
+            tinyMCE.get('descricao_visita_2_en').setContent(window.obj_en.descricao_visita_2);
+        }
+    }
+
+    function initializeObj(language) {
+        var obj = {};
+
+        obj.language = language;
+
+        obj.nome_visita_1 = "";
+        obj.descricao_visita_1 = "";
+        obj.projectos_1 = "";
+
+        obj.nome_visita_2 = "";
+        obj.descricao_visita_2 = "";
+        obj.projectos_2 = "";
+
+        return obj;
+    }
+
+
+    function criarFile() {
+
+        getCurrentData();
+        sanitizeData();
+
+        var obj = [];
+        obj.push(window.obj_pt);
+        obj.push(window.obj_en);
+
+        return obj;
+    }
+
+    function sanitizeData() {
+        // replace special quote ' 
+        window.obj_pt.nome_visita_1 = obj_pt.nome_visita_1.replace(/'/g, "´");
+        window.obj_pt.descricao_visita_1 = obj_pt.descricao_visita_1.replace(/'/g, "´");
+        window.obj_pt.nome_visita_2 = obj_pt.nome_visita_2.replace(/'/g, "´");
+        window.obj_pt.descricao_visita_2 = obj_pt.descricao_visita_2.replace(/'/g, "´");
+        window.obj_en.nome_visita_1 = obj_en.nome_visita_1.replace(/'/g, "´");
+        window.obj_en.descricao_visita_1 = obj_en.descricao_visita_1.replace(/'/g, "´");
+        window.obj_en.nome_visita_2 = obj_en.nome_visita_2.replace(/'/g, "´");
+        window.obj_en.descricao_visita_2 = obj_en.descricao_visita_2.replace(/'/g, "´");
+
+        // remove line-feeds
+        window.obj_pt.descricao_visita_1 = obj_pt.descricao_visita_1.replace(/(?:\r\n|\r|\n)/g, '');
+        window.obj_pt.descricao_visita_2 = obj_pt.descricao_visita_2.replace(/(?:\r\n|\r|\n)/g, '');
+        window.obj_en.descricao_visita_1 = obj_en.descricao_visita_1.replace(/(?:\r\n|\r|\n)/g, '');
+        window.obj_en.descricao_visita_2 = obj_en.descricao_visita_2.replace(/(?:\r\n|\r|\n)/g, '');
+    }
+    </script>
+</body>
+
+</html>

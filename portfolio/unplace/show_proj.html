@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<!-- 
+   Hi, you're looking at a web page built with love by:
+
+   Ricardo
+
+  /$$$$$$            /$$             /$$                        
+ /$$__  $$          |__/            | $$                        
+| $$  \ $$ /$$   /$$ /$$ /$$$$$$$  /$$$$$$    /$$$$$$   /$$$$$$$
+| $$  | $$| $$  | $$| $$| $$__  $$|_  $$_/   |____  $$ /$$_____/
+| $$  | $$| $$  | $$| $$| $$  \ $$  | $$      /$$$$$$$|  $$$$$$ 
+| $$/$$ $$| $$  | $$| $$| $$  | $$  | $$ /$$ /$$__  $$ \____  $$
+|  $$$$$$/|  $$$$$$/| $$| $$  | $$  |  $$$$/|  $$$$$$$ /$$$$$$$/
+ \____ $$$ \______/ |__/|__/  |__/   \___/   \_______/|_______/ 
+      \__/                                                                      
+
+   ricardoquintas.com   
+   January/2015 
+-->
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/slick/slick.css" />
+    <link rel="stylesheet" href="css/slick/slick-theme.css" />
+    <link rel="stylesheet" href="css/app.dist.css" />
+    <title>unplace | a museum without a place</title>
+    <script type="text/javascript" src="http://fast.fonts.net/jsapi/739bf436-1824-4067-a456-9bd34cfd8f44.js"></script>
+</head>
+
+<body class="body-color">
+    <!--[if lte IE 9]>
+    <div class="browserupdate">
+        You are using an obsolete browser which can harm your experience and cause security troubles.
+        <br> Please <a href="http://browsehappy.com/" target="_blank">update your browser!</a>
+    </div>
+  <![endif]-->
+    <noscript>
+        <div class="browserupdate">
+            Oh, no! You don't have JavaScript enabled on your browser!
+            <br> This website only works with JavaScript. Sorry.
+        </div>
+    </noscript>
+    <script id="gbnt-template" type="text/x-handlebars-template">
+        <div class="slick-content">
+            {{#each project}} {{#if img}}
+            <div>
+                <div class="label"><span class="auth">{{author}}</span>-<span class="title">{{title}}</span>-<span class="year">{{year}}</span> <span class="index">{{index}}/{{total}}</span>
+                </div>
+                <img src="{{img}}" />
+            </div>
+            {{/if}} {{#if video}}
+            <div>
+                <iframe width="640" height="400" src="{{video}}" frameborder="0" allowfullscreen></iframe>
+            </div>
+            {{/if}} {{/each}}
+        </div>
+    </script>
+    <section id="gbnt-header" data-gbnt-open="false">
+        <div class="logo">
+            <a href="http://www.unplace.org">
+                <img src="img/logo.jpg">
+            </a>
+        </div>
+    </section>
+    <section id="gbnt-project">
+    </section>
+    <script type="text/javascript" src="js/libs.dist.js"></script>
+    <script type="text/javascript">
+    var _source = $("#gbnt-template").html();
+    var _template = Handlebars.compile(_source);
+
+    $(document).ready(function() {
+        var url_data = getParameterByName("data");
+        url_data = decodeURIComponent(url_data);
+        var project = JSON.parse(url_data);
+        var projs = [];
+        var obj;
+
+        for (var i = 0; i < project.imagens.length; i++) {
+            obj = {};
+            obj.index = i + 1;
+            obj.img = "docs/projectos/" + project.id + "/" + project.imagens[i];
+            obj.video = null;
+            obj.author = project.autor;
+            obj.title = project.titulo;
+            obj.year = project.ano;
+            obj.total = project.imagens.length + project.videos.length;
+            projs.push(obj);
+        }
+
+        for (var i = 0; i < project.videos.length; i++) {
+            obj = {};
+            obj.index = project.imagens.length + i + 1;
+            obj.img = null;
+            obj.video = project.videos[i];
+            obj.author = project.autor;
+            obj.title = project.titulo;
+            obj.year = project.ano;
+            obj.total = project.imagens.length + project.videos.length;
+            projs.push(obj);
+        }
+
+        var data = {
+            project: projs
+        };
+
+        $('#gbnt-project').append(window._template(data));
+        $('.slick-content').slick();
+
+        $("button.slick-prev").on("click", function() {
+            // toggleVideo();
+        });
+
+        $("button.slick-next").on("click", function() {
+            // toggleVideo();
+        });
+    });
+
+    function toggleVideo(state) {
+        var iframes = $("iframe");
+
+        for (var i = 0; i < iframes.length; i++) {
+            // var iframe = iframes[i].contentWindow;
+            var src = iframes[i].innerHtml;
+            iframes[i].innerHtml = ("");
+            iframes[i].innerHtml = src;
+            // func = state == 'hide' ? 'pauseVideo' : 'playVideo';
+            // iframe.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+        }
+
+    }
+
+
+    function getParameterByName(name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+            results = regex.exec(location.search);
+        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+
+    Handlebars.registerHelper('getCoverImage', function(img) {
+        var str = "background-image: url(" + img + ");";
+        return str;
+    });
+
+    Handlebars.registerHelper('getID', function(str, projectID) {
+        var val = str + projectID;
+        return val;
+    });
+
+
+
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-56535261-2', 'auto');
+    ga('send', 'pageview');
+    
+    </script>
+</body>
+
+</html>

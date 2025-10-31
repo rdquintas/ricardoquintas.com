@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>TENA Home Delivery</title>
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/sca.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="main.html">
+                    <img class="zrqtenalogo2" src="../../images/tena_logo2.jpg">
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Patient<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li class="disabled"><a href="#">Maintenance</a>
+                            </li>
+                            <li class="disabled"><a href="#">Notes</a>
+                            </li>
+                            <li class="disabled"><a href="#">Next Delivery Amend.</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li class="disabled"><a href="#">Urgent Order</a>
+                            </li>
+                            <li class="disabled"><a href="#">Selfcare Order</a>
+                            </li>
+                            <li class="disabled"><a href="#">Recent Order</a>
+                            </li>
+                            <li class="disabled"><a href="#">Logs</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Relation<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li class="disabled"><a href="#">etc...</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Report/Logs<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li class="disabled"><a href="#">Reports</a>
+                            </li>
+                            <li class="disabled"><a href="#">Operational Report</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li class="disabled"><a href="#">Activity Logs</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin Role<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li class="disabled"><a href="#">etc...</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Selfcare for Carehomes<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li class="disabled"><a href="#">Product Level Activation</a>
+                            </li>
+                            <li class="disabled"><a href="#">Change CareHomes NDD</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+                <strong>
+                    <p class="navbar-text navbar-left" style="color: #089FDC">Signed in as Test User</p>
+                </strong>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../../index.html">Log off</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <!--     <h5 style="margin-left:15px; color: #089FDC"><b>Welcome to TENA Home Delivery (prototype)</b>
+    </h5>
+ -->
+
+
+    <div class="panel-group" id="accordion">
+
+        <div id="zrqfilter" class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">Click on "Open filter" &nbsp&nbsp&nbsp&nbsp
+                    <button type="button" class="btn btn-sm btn-default" data-toggle="collapse" data-target="#collapseTwo">
+                        Open Filter
+                    </button>
+                    <button type="button" class="btn btn-sm btn-primary" data-toggle="collapse">
+                        Search
+                    </button>
+                                        
+                </h4>
+
+
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <!-- <div class="col-sm-offset-2 col-sm-10"> -->
+                    <button type="submit" class="btn btn-default">Clear except Trust</button>
+                    <button type="submit" class="btn btn-default">Clear</button>
+                    <!-- </div> <-->
+                    <br>
+                    <br>
+                    <form class="form-horizontal" role="form">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">Main Fields</div>
+                            <div class="panel-body">
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Trust</label>
+                                    <div class="col-sm-10">
+                                        <select class="form-control">
+                                            <option>13333 - Personal Care Trust</option>
+                                            <option>13359 - Customer in the UK</option>
+                                            <option>20540 - Training PCT Test</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Patient Type</label>
+                                    <div class="col-sm-10">
+                                        <select class="form-control">
+                                            <option>PROCARE</option>
+                                            <option>RESIDENTIAL</option>
+                                            <option>NURSING</option>
+                                            <option>SELFCARE</option>
+                                            <option>BUFFER</option>
+                                            <option>WAITLISTED</option>
+                                            <option>CLINICAL</option>
+                                            <option>PROCARE HOSPITAL WARD</option>
+                                            <option>SELFCARE HOSPITAL WARD</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPassword3" class="col-sm-2 control-label">Patient ID</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="inputPassword3">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Status</label>
+                                    <div class="col-sm-10">
+                                        <select class="form-control">
+                                            <option>ACTIVE</option>
+                                            <option>BUFFER</option>
+                                            <option>REMOVED</option>
+                                            <option>SUSPENDED</option>
+                                            <option>WAITLISTED</option>
+                                            <option>CLINICAL</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox">Include Removed
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-info">
+                            <div class="panel-heading">Name, etc...</div>
+                            <div class="panel-body">
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">First Name</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="inputPassword3">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Last Name</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="inputPassword3">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPassword3" class="col-sm-2 control-label">Home Name</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="inputPassword3">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Date of Birth</label>
+                                    <div class="col-sm-10">
+                                        <input type="date" class="form-control" id="inputPassword3">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-info">
+                            <div class="panel-heading">Address information</div>
+                            <div class="panel-body">
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">House No.</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="inputPassword3">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Street</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="inputPassword3">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPassword3" class="col-sm-2 control-label">Post Code</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="inputPassword3">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPassword3" class="col-sm-2 control-label">Town/City</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="inputPassword3">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-info">
+                            <div class="panel-heading">Contact information</div>
+                            <div class="panel-body">
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Phone No.</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="inputPassword3">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">NHS ID</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="inputPassword3">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPassword3" class="col-sm-2 control-label">Order No.</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="inputPassword3">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPassword3" class="col-sm-2 control-label">Delivery No.</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="inputPassword3">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <button type="button" class="btn btn-sm btn-default" data-toggle="collapse" data-target="#collapseTwo">
+                            Close Filter
+                        </button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>P/Type</th>
+                    <th>Title</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Home/House Name</th>
+                    <th>Hse No</th>
+                    <th>Street</th>
+                    <th>Post Code</th>
+                    <th>DOB</th>
+                    <th>Phone</th>
+                    <th>NDD</th>
+                    <th>Stat</th>
+                    <th>Patient ID</th>
+                    <th>Trust ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>BUF</td>
+                    <td>Lord</td>
+                    <td><a href="#">Scenario</a>
+                    </td>
+                    <td>1,56</td>
+                    <td>Test 27</td>
+                    <td>77</td>
+                    <td>Great Northern Road</td>
+                    <td>LU5 4BW</td>
+                    <td>18/03/2013</td>
+                    <td>1234434332</td>
+                    <td>31/12/2012</td>
+                    <td>BUF</td>
+                    <td>20576</td>
+                    <td>20540</td>
+                </tr>
+                <tr>
+                    <td>PRO</td>
+                    <td>Mr</td>
+                    <td><a href="#">Patient</a>
+                    </td>
+                    <td>123</td>
+                    <td></td>
+                    <td>204</td>
+                    <td>Biscot Road</td>
+                    <td>LU3 1AY</td>
+                    <td>24/01/1980</td>
+                    <td></td>
+                    <td>08/11/2013</td>
+                    <td>ACT</td>
+                    <td>29151</td>
+                    <td>20540</td>
+                </tr>
+                <tr>
+                    <td>NUR</td>
+                    <td>Duke</td>
+                    <td><a href="#">Patient</a>
+                    </td>
+                    <td>123789</td>
+                    <td>Luton and Dunstable</td>
+                    <td>12</td>
+                    <td>Dunstable Road</td>
+                    <td>AAA 1AA</td>
+                    <td></td>
+                    <td>01582 677594</td>
+                    <td></td>
+                    <td>ACT</td>
+                    <td>292282</td>
+                    <td>20540</td>
+                </tr>
+                <tr>
+                    <td>RES</td>
+                    <td>Dr</td>
+                    <td><a href="#">ZHDP</a>
+                    </td>
+                    <td>1st Order</td>
+                    <td>Legoal Nurning Home</td>
+                    <td>168</td>
+                    <td>Connaught Road</td>
+                    <td>LU4 8ET</td>
+                    <td></td>
+                    <td>01582 677322</td>
+                    <td></td>
+                    <td>SUS</td>
+                    <td>22054</td>
+                    <td>20540</td>
+                </tr>
+                <tr>
+                    <td>CLI</td>
+                    <td>DR</td>
+                    <td><a href="#">Scenario 3,7</a>
+                    </td>
+                    <td>3,7</td>
+                    <td></td>
+                    <td>1</td>
+                    <td>SouthFields</td>
+                    <td>DFD DFDF</td>
+                    <td>01/01/1986</td>
+                    <td>5457790999</td>
+                    <td></td>
+                    <td>CLI</td>
+                    <td>20592</td>
+                    <td>20540</td>
+                </tr>
+                <tr>
+                    <td>BUF</td>
+                    <td>Dr</td>
+                    <td><a href="#">Scenario 4,5</a>
+                    </td>
+                    <td>4,5</td>
+                    <td></td>
+                    <td>1</td>
+                    <td>Southfields</td>
+                    <td>R33 A93</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>BUF</td>
+                    <td>20597</td>
+                    <td>20540</td>
+                </tr>
+                <tr>
+                    <td>NUR</td>
+                    <td>Dr</td>
+                    <td><a href="#">Scenario 4,6</a>
+                    </td>
+                    <td>4,6</td>
+                    <td>L'egoals</td>
+                    <td>168</td>
+                    <td>Connaught Road</td>
+                    <td>LU4 8ET</td>
+                    <td>04/08/2009</td>
+                    <td>3519423212</td>
+                    <td></td>
+                    <td>ACT</td>
+                    <td>20598</td>
+                    <td>20540</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <ul class="pagination" style="margin-left: 15px">
+        <li><a href="#">&laquo;</a>
+        </li>
+        <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a>
+        </li>
+        <li><a href="#">2</a>
+        </li>
+        <li><a href="#">3</a>
+        </li>
+        <li><a href="#">4</a>
+        </li>
+        <li><a href="#">5</a>
+        </li>
+        <li><a href="#">6</a>
+        </li>
+        <li><a href="#">7</a>
+        </li>
+        <li><a href="#">8</a>
+        </li>
+        <li><a href="#">9</a>
+        </li>
+        <li><a href="#">10</a>
+        </li>
+        <li><a href="#">&raquo;</a>
+        </li>
+    </ul>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+
+
+</body>
+
+</html>
