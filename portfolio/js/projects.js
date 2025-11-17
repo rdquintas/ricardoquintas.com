@@ -1,8 +1,7 @@
 this.projects = [
   {
-    name: "The Invisible Tuba", 
-    description:
-      "The Invisible Tuba is a Lisbon-based Dixieland band.",
+    name: "The Invisible Tuba",
+    description: "The Invisible Tuba is a Lisbon-based Dixieland band.",
     image: "tuba.png",
     url: {
       preview: "http://theinvisibletuba.com",
@@ -130,6 +129,30 @@ this.projects = [
       liveSite: "",
     },
     skills: ["JAVA"],
+  },
+  {
+    name: "Paula Cirino",
+    description: "Web site of portuguese tap dancer Paula Cirino.",
+    image: "paulacirino.png",
+    url: {
+      preview: "https://paulacirino.com/",
+      github: "https://github.com/rdquintas/paulacirino.com",
+      simple: "paulacirino.com",
+      liveSite: "https://paulacirino.com/",
+    },
+    skills: ["Javascript"],
+  },  
+  {
+    name: "Gonçalo Mendonça",
+    description: "Web site of Jazz Manouche guitar player Gonçalo Mendonça.",
+    image: "goncalomendonca.png",
+    url: {
+      preview: "https://goncalomendonca.pt/",
+      github: "https://github.com/rdquintas/goncalomendonca.pt",
+      simple: "goncalomendonca.pt",
+      liveSite: "https://goncalomendonca.pt/",
+    },
+    skills: ["Javascript"],
   },
   {
     name: "Alexandre Camarão",
