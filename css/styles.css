@@ -801,6 +801,15 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     list-style: none;
     padding: 0;
     margin: 0;
+    /* flex instead of floats, so a taller item (label on two lines) doesn't make the next row snag */
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Bootstrap's .row clearfix pseudo-elements would become flex items */
+.zrq-facts:before,
+.zrq-facts:after {
+    display: none;
 }
 
 .zrq-fact {
