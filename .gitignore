@@ -1,0 +1,4 @@
+# Design sources and video masters: keep locally, not in the repo / on the server
+*.psd
+*.mov
+docs/OrteliusWorldMap1570.jpg

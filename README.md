@@ -1,32 +1,47 @@
+# [ricardoquintas.com](https://www.ricardoquintas.com)
 
-This is the repo for the website:
+Source of my personal website: who I am, what I do and a portfolio of projects.
 
-# [ricardoquintas.com](http://www.ricardoquintas.com)
+It's a static site (HTML, CSS and vanilla JavaScript) with no build step.
 
-Para testar no GITHUB (branch MASTER)
+- **Live (Netlify):** https://www.ricardoquintas.com
+- **Preview (GitHub Pages, branch `master`):** https://rdquintas.github.io/ricardoquintas.com
 
-[http://rdquintas.github.io/ricardoquintas.com](http://rdquintas.github.io/ricardoquintas.com)
+## Structure
 
+| Path | What it is |
+| --- | --- |
+| `index.html` | Main one-page site (hero video, services, about, contact) |
+| `privacy.html` | Privacy and cookie policy |
+| `portfolio/` | Portfolio page. Projects are listed in `portfolio/js/projects.js` |
+| `css/styles.css` | Site styles (on top of Bootstrap 3 and Font Awesome) |
+| `js/scripts.js` | Main page behaviour (video, animations, navigation) |
+| `js/consent.js` | Cookie banner. Google Analytics only loads after the visitor accepts |
+| `images/`, `videos/`, `docs/` | Images, hero video and favicons |
+| `robots.txt`, `sitemap.xml` | SEO |
 
-## Some details
-- uses [git-ftp](https://github.com/git-ftp/git-ftp) to deploy using FTP from the console 
+## Run locally
 
+Open `index.html` in a browser, or serve the folder:
 
-## How to deploy with GIT FTP ?
+```sh
+python -m http.server 8000
+```
 
-- ### Setup
-  ``git config git-ftp.url "ftp://ftp.example.net:21/public_html"``
+Then go to http://localhost:8000.
 
-  ``git config git-ftp.user "ftp-user"``
-  
-  ``git config git-ftp.password "secr3t"``
+## Adding a portfolio project
 
-- ### Or if the files are already there
-  ``git ftp catchup``
+1. Add a thumbnail to `portfolio/img/`.
+2. Add an entry to the `projects` array in `portfolio/js/projects.js` (`name`, `description`, `image`, `url`, `skills`).
 
-- ### Work and deploy
-  ``echo "new content" >> index.txt``
+## Deploy
 
-  ``git commit index.txt -m "Add new content"``
+Netlify deploys the site automatically on every push to `master`. Nothing is built: the files are served exactly as they are in the repo.
 
-  ``git ftp push``
+```sh
+git commit -am "Describe the change"
+git push
+```
+
+Only files tracked by git are deployed. Design sources (`*.psd`) and video masters (`*.mov`) are git-ignored, so they stay on your machine.

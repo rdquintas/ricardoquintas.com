@@ -1,75 +1,53 @@
 /***********************
  * Globals
+ * The page uses Bootstrap + ../css/styles.css (same nav/footer as index.html);
+ * the rules below only style the project cards.
  ***********************/
 
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700);
 
-*,
-*:after,
-*:before {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-html {
-    max-width: 1600px;
-    margin: 0 auto;
-    font-size: 62.5%;
-}
-
+/* Light grey page so the white cards stand out */
 body {
-    font-family: 'Lato', sans-serif;
-    overflow-y: hidden;
-    font-size: 1.5em;
-    font-weight: 400;
+    background-color: #eceef1;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5 {
+.zrq-card {
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: #292929;
+}
+
+.zrq-card h4,
+.zrq-card h5 {
     font-family: 'Lato', sans-serif;
     margin: 0;
     font-weight: 700;
 }
 
-h1 {
-    font-size: 3.998em;
-}
-
-h2 {
-    font-size: 2.827em;
-}
-
-h3 {
-    font-size: 1.999em;
-}
-
-h4 {
+.zrq-card h4 {
     font-size: 1.414em;
 }
 
-h5 {
+.zrq-card h5 {
     font-size: 1em;
 }
 
-img {
+.zrq-card img {
     width: 100%;
 }
 
-ul {
+.zrq-card ul {
     margin: 0;
     padding: 0;
     list-style-type: none;
 }
 
-ul li {
+.zrq-card ul li {
     float: left;
 }
 
-a {
+.zrq-card a {
     -webkit-transition: all 200ms;
     -o-transition: all 200ms;
     transition: all 200ms;
@@ -77,24 +55,16 @@ a {
     text-decoration: none;
 }
 
-a.bottom-line {
+.zrq-card a.bottom-line {
     border-bottom: 1px solid #babbbc;
 }
 
-a.bottom-line:hover {
+.zrq-card a.bottom-line:hover {
     border-bottom: 1px solid transparent;
 }
 
-a:hover {
+.zrq-card a:hover {
     color: #1e70bf;
-}
-
-.clearfix:after {
-    content: ".";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden;
 }
 
 .browserupdate {
@@ -121,18 +91,8 @@ a:hover {
     color: #ddd;
 }
 
-.sb-toggle-left {
-    display: none;
-    cursor: pointer;
-}
-
-.sb-toggle-left:hover {
-    color: #666;
-}
-
-
 /***********************
- * Navigation Menu (Desktop)
+ * Page loader
  ***********************/
 
 #page-loader {
@@ -143,6 +103,12 @@ a:hover {
     right: 0;
     background: #fff;
     z-index: 99999;
+    transition: opacity 500ms, visibility 500ms;
+}
+
+#page-loader.is-hidden {
+    opacity: 0;
+    visibility: hidden;
 }
 
 #page-loader .page-loader-gif {
@@ -158,146 +124,118 @@ a:hover {
 
 
 /***********************
- * Navigation Menu (Desktop)
- ***********************/
-
-#nav-menu {
-    /*padding: 1rem;*/
-    margin: 1rem;
-    border: 1px solid #ddd;
-    border-bottom-width: 3px;
-    border-radius: 4px;
-}
-
-#nav-menu li {
-    text-align: center;
-    border-right: 1px solid #ddd;
-    padding: 1rem 2.5rem 1rem 2.5rem;
-    -webkit-transition: background-color 200ms;
-    -o-transition: background-color 200ms;
-    transition: background-color 200ms;
-}
-
-#nav-menu li.Home {
-    padding: 0px;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    font-size: 1.5em;
-    border: 0;
-    position: relative;
-    top: 5px;
-}
-
-#nav-menu li.Home:hover {
-    background-color: #fff;
-    color: #666;
-}
-
-#nav-menu li.Home a:before {
-    font-family: "FontAwesome";
-    content: "\f015";
-}
-
-#nav-menu li:hover {
-    cursor: pointer;
-    background-color: #F8F8F8;
-}
-
-#nav-menu li.active {
-    background-color: #F8F8F8;
-}
-
-
-/***********************
- * Navigation Menu (Mobile)
- ***********************/
-
-#nav-menu-mobile li {
-    clear: both;
-    width: 100%;
-    color: #fff;
-    padding: 1rem 2.5rem 1rem 2.5rem;
-    -webkit-transition: background-color 200ms;
-    -o-transition: background-color 200ms;
-    transition: background-color 200ms;
-}
-
-#nav-menu-mobile li.Home a:before {
-    font-size: 3rem;
-    font-family: "FontAwesome";
-    content: "\f015";
-}
-
-#nav-menu-mobile li:hover {
-    cursor: pointer;
-    background-color: rgba(68, 67, 67, 0.73);
-}
-
-#nav-menu-mobile li.active {
-    background-color: rgba(68, 67, 67, 0.73);
-}
-
-#nav-menu-mobile h4 {
-    color: #fff;
-    padding: 1rem;
-}
-
-
-/***********************
  * Projects
  ***********************/
 
+/* Top padding clears the fixed #main-nav */
 #projects-wrappper {
-    padding: 7rem;
-    padding-top: 0rem;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 130px 7rem 4rem;
 }
 
-.project-item {
-    padding: 2rem;
-    padding-top: 5rem;
-    width: 33.33333333%;
+#projects-wrappper h1 {
+    margin-top: 0;
+    margin-bottom: 6rem;
 }
 
-.project-item img {
+/* Masonry grid: 3 columns with a 20px gutter */
+.zrq-grid-sizer,
+.zrq-card {
+    width: calc((100% - 40px) / 3);
+}
+
+.zrq-gutter-sizer {
+    width: 20px;
+}
+
+.zrq-card {
+    margin-bottom: 20px;
+}
+
+/* Fade-in animation lives on the inner element so it doesn't fight Masonry's positioning */
+.zrq-card-inner {
+    overflow: hidden;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 0 0 1px #e3e3e4;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 700ms ease, transform 700ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 200ms;
+    transition-delay: inherit;
+}
+
+.zrq-card.is-visible .zrq-card-inner {
+    opacity: 1;
+    transform: none;
+}
+
+.zrq-card-inner:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 0 0 0 1px #d4d4d5;
+}
+
+.zrq-card img {
     display: block;
-    box-shadow: 0 1px 3px 0 #D4D4D5, 0 0 0 1px #D4D4D5;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
+    height: auto;
     -webkit-transition: opacity 100ms;
     -o-transition: opacity 100ms;
     transition: opacity 100ms;
 }
 
-.project-item .image {
+.zrq-card .image {
     width: 100%;
-    position: relative;
-    display: inline-block;
+    display: block;
     background-color: #000;
 }
 
-.project-item .image:hover img {
+.zrq-card .image:hover img {
     opacity: 0.7;
 }
 
-.project-item .content {
-    padding: 1rem;
-    margin-top: -3px;
-    box-shadow: 0 1px 3px 0 #D4D4D5, 0 0 0 1px #D4D4D5;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
+.zrq-card .content {
+    padding: 1.5rem;
 }
 
-.project-item .description {
+#projects-sentinel {
+    height: 64px;
+    margin: 2rem 0;
+    position: relative;
+}
+
+#projects-sentinel .page-loader-gif {
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto;
+    background: url('../img/preloader.gif') no-repeat;
+}
+
+#projects-sentinel.is-done .page-loader-gif {
+    display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .zrq-card-inner,
+    #page-loader {
+        transition: none;
+    }
+
+    .zrq-card-inner {
+        transform: none;
+    }
+}
+
+.zrq-card .description {
     margin-top: 10px;
     color: rgba(0, 0, 0, 0.682353);
 }
 
-.project-item .buttons {
+.zrq-card .buttons {
     padding-top: 2rem;
     padding-bottom: 2rem;
 }
 
-.project-item a.button {
+.zrq-card a.button {
     font-weight: 700;
     color: rgba(0, 0, 0, 0.682353);
     margin-right: 5px;
@@ -309,46 +247,49 @@ a:hover {
     transition: background-color 100ms;
 }
 
-.project-item a.button i {
+.zrq-card a.button i {
     margin-right: 5px;
     font-size: 22px;
     position: relative;
     top: 2px;
 }
 
-.project-item a.button:hover {
+.zrq-card a.button:hover {
     background-color: #CACBCD;
 }
 
-.project-item a.button:active {
+.zrq-card a.button:active {
     background-color: #BABBBC;
 }
 
-.project-item a.button.primary {
+.zrq-card a.button.primary {
     color: #fff;
     background-color: #2185D0;
 }
 
-.project-item a.button.primary:hover {
+.zrq-card a.button.primary:hover {
     background-color: #1678c2;
 }
 
-.project-item a.button.primary:active {
+.zrq-card a.button.primary:active {
     background-color: #1a69a4;
 }
 
-.project-item div.skills {
+.zrq-card div.skills {
+    /* reset the skill-bar .skills rule from styles.css */
+    max-width: none;
+    padding: 0;
     border-top: 1px;
     border-top-style: solid;
     border-top-color: #ddd;
 }
 
-.project-item div.skills h5 {
+.zrq-card div.skills h5 {
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
 
-.project-item div.skills .tags li {
+.zrq-card div.skills .tags li {
     margin-top: 7px;
     margin-left: 20px;
     padding: 0 10px 0 12px;
@@ -361,7 +302,7 @@ a:hover {
     border-top-right-radius: 4px;
 }
 
-.project-item div.skills .tags li:before {
+.zrq-card div.skills .tags li:before {
     content: "";
     float: left;
     position: absolute;
@@ -375,7 +316,7 @@ a:hover {
     border-width: 12px 12px 14px 0;
 }
 
-.project-item div.skills .tags li:after {
+.zrq-card div.skills .tags li:after {
     content: "";
     position: absolute;
     top: 10px;
@@ -389,88 +330,88 @@ a:hover {
     background: #fff;
 }
 
-.project-item .grey {
+.zrq-card .grey {
     background-color: #555;
     color: #fff;
 }
 
-.project-item .grey:before {
+.zrq-card .grey:before {
     border-color: transparent #555 transparent transparent;
 }
 
-.project-item .green {
+.zrq-card .green {
     background-color: #61bd4f;
     color: #fff;
 }
 
-.project-item .green:before {
+.zrq-card .green:before {
     border-color: transparent #61bd4f transparent transparent;
 }
 
-.project-item .yellow {
+.zrq-card .yellow {
     background-color: #f2d600;
     color: #000;
 }
 
-.project-item .yellow:before {
+.zrq-card .yellow:before {
     border-color: transparent #f2d600 transparent transparent;
 }
 
-.project-item .orange {
+.zrq-card .orange {
     background-color: #ffab4a;
     color: #fff;
 }
 
-.project-item .orange:before {
+.zrq-card .orange:before {
     border-color: transparent #ffab4a transparent transparent;
 }
 
-.project-item .red {
+.zrq-card .red {
     background-color: #eb5a46;
     color: #fff;
 }
 
-.project-item .red:before {
+.zrq-card .red:before {
     border-color: transparent #eb5a46 transparent transparent;
 }
 
-.project-item .purple {
+.zrq-card .purple {
     background-color: #c377e0;
     color: #fff;
 }
 
-.project-item .purple:before {
+.zrq-card .purple:before {
     border-color: transparent #c377e0 transparent transparent;
 }
 
-.project-item .blue {
+.zrq-card .blue {
     background-color: #0079bf;
     color: #fff;
 }
 
-.project-item .blue:before {
+.zrq-card .blue:before {
     border-color: transparent #0079bf transparent transparent;
 }
 
-.project-item .light-blue {
+.zrq-card .light-blue {
     background-color: #00c2e0;
     color: #fff;
 }
 
-.project-item .light-blue:before {
+.zrq-card .light-blue:before {
     border-color: transparent #00c2e0 transparent transparent;
 }
 
-.project-item .light-green {
+.zrq-card .light-green {
     background-color: #51e898;
     color: #fff;
 }
 
-.project-item .light-green:before {
+.zrq-card .light-green:before {
     border-color: transparent #51e898 transparent transparent;
 }
 
-.project-item .zrq-link {
+.zrq-card .zrq-link {
     font-weight: bold;
     color: #1678c2;
 }
@@ -479,79 +420,41 @@ a:hover {
 
 
 /***********************
- * Footer
- ***********************/
-
-#footer {
-    text-align: center;
-    padding: 5rem;
-    padding-top: 1rem;
-    font-size: 2rem;
-}
-
-#footer hr {
-    border: 0;
-    border-top: 1px solid #ddd;
-}
-
-#footer .copyright {
-    padding-top: 2rem;
-}
-
-
-/***********************
  * Media Queries
  ***********************/
 
 @media screen and (max-width: 1200px) {
     #projects-wrappper {
-        padding: 3rem;
+        padding: 130px 3rem 3rem;
     }
 
-    .project-item {
-        padding: 2rem;
-        width: 50%;
+    .zrq-grid-sizer,
+    .zrq-card {
+        width: calc((100% - 20px) / 2);
     }
 }
 
 @media screen and (max-width: 860px) {
     #projects-wrappper {
-        padding: 0rem;
+        padding: 100px 0 0;
     }
 
     #projects-wrappper h1 {
-        padding: 2rem;
+        padding: 0 2rem;
     }
 
-    .project-item {
-        padding-top: 3rem;
+    #projects {
+        margin: 0 2rem;
+    }
+
+    .zrq-grid-sizer,
+    .zrq-card {
         width: 100%;
     }
 }
 
-@media screen and (max-width: 770px) {
-    h1 {
-        font-size: 4rem;
-    }
-
-    #nav-menu {
-        display: none;
-    }
-
-    i.sb-toggle-left {
-        display: block;
-        padding: 1rem;
-        font-size: 3rem;
-    }
-}
-
-@media screen and (max-width: 320px) {
+@media (max-width: 767px) {
     #projects-wrappper {
-        padding: 0;
-    }
-
-    .project-item {
-        padding-top: 3rem;
-        width: 100%;
+        padding-top: 90px;
     }
 }
