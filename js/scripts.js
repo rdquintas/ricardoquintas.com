@@ -15,12 +15,11 @@
     }
 
     /*============================================
-    Background video: desktop only, no reduced motion, no data saver
+    Background video: no reduced motion, no data saver
     ==============================================*/
     var video = document.getElementById('myVideo');
     var saveData = navigator.connection && navigator.connection.saveData;
-    if (video && !reducedMotion && !saveData &&
-        window.matchMedia('(min-width: 768px)').matches) {
+    if (video && !reducedMotion && !saveData) {
         video.preload = 'auto';
         var playing = video.play();
         if (playing && playing.catch) {
@@ -45,15 +44,6 @@
         }, { rootMargin: '0px 0px -10% 0px' });
         animated.forEach(function (el) { revealObserver.observe(el); });
     }
-
-    /*============================================
-    Skills logic
-    ==============================================*/
-    document.querySelectorAll('.skill-per').forEach(function (el) {
-        var years = parseInt(el.getAttribute('years'), 10);
-        var maxYear = parseInt(el.getAttribute('maxYear'), 10);
-        el.style.width = (years * 100 / maxYear) + '%';
-    });
 
     /*============================================
     Navigation + header fade on scroll

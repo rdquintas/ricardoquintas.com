@@ -119,7 +119,8 @@ body {
     top: 50%;
     left: 50%;
     margin: -32px 0 0 -32px;
-    background: url('../img/preloader.gif') no-repeat;
+    background: url('../img/preloader.webp') no-repeat;
+    background: image-set(url('../img/preloader.avif') type("image/avif"), url('../img/preloader.webp') type("image/webp")) no-repeat;
 }
 
 
@@ -207,7 +208,8 @@ body {
     width: 64px;
     height: 64px;
     margin: 0 auto;
-    background: url('../img/preloader.gif') no-repeat;
+    background: url('../img/preloader.webp') no-repeat;
+    background: image-set(url('../img/preloader.avif') type("image/avif"), url('../img/preloader.webp') type("image/webp")) no-repeat;
 }
 
 #projects-sentinel.is-done .page-loader-gif {

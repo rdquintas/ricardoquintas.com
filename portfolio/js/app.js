@@ -52,7 +52,11 @@
 
   function cardHTML(p) {
     var url = p.url || {};
-    var img = '<img src="img/' + esc(p.image) + '" alt="' + esc(p.name) + '" loading="lazy">';
+    // projects.js names the source image; tools/build-images.py generates .avif + .webp
+    var base = "img/" + esc(p.image.replace(/\.\w+$/, ""));
+    var img =
+      '<picture><source srcset="' + base + '.avif" type="image/avif">' +
+      '<img src="' + base + '.webp" alt="' + esc(p.name) + '" loading="lazy"></picture>';
 
     var image = url.preview
       ? '<a target="_blank" rel="noopener" href="' + esc(url.preview) + '">' + img + "</a>"
