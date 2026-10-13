@@ -8,7 +8,7 @@
 
 /* Light grey page so the white cards stand out */
 body {
-    background-color: #eceef1;
+    background-color: #dcdfe4;
 }
 
 .zrq-card {
@@ -446,12 +446,82 @@ body {
     }
 
     #projects {
-        margin: 0 2rem;
+        margin: 0 1.2rem;
     }
 
+    /* Still 2 columns on small screens, with a tighter 12px gutter */
     .zrq-grid-sizer,
     .zrq-card {
-        width: 100%;
+        width: calc((100% - 12px) / 2);
+    }
+
+    .zrq-gutter-sizer {
+        width: 12px;
+    }
+
+    .zrq-card {
+        margin-bottom: 12px;
+    }
+}
+
+/* Phones: compact the card content so it fits a half-width column */
+@media screen and (max-width: 600px) {
+    .zrq-card {
+        font-size: 13px;
+    }
+
+    .zrq-card h4 {
+        font-size: 1.25em;
+    }
+
+    .zrq-card .content {
+        padding: 1rem;
+    }
+
+    .zrq-card .site {
+        overflow-wrap: anywhere;
+    }
+
+    .zrq-card .buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        padding-top: 1.2rem;
+        padding-bottom: 1.2rem;
+    }
+
+    .zrq-card a.button {
+        margin-right: 0;
+        padding: 0.5rem 0.8rem;
+    }
+
+    .zrq-card a.button i {
+        font-size: 16px;
+        top: 1px;
+    }
+
+    .zrq-card div.skills h5 {
+        padding-top: 0.8rem;
+        padding-bottom: 0.4rem;
+    }
+
+    .zrq-card div.skills .tags li {
+        margin-top: 5px;
+        margin-left: 14px;
+        padding: 0 6px 0 9px;
+        height: 20px;
+        line-height: 20px;
+        font-size: 11px;
+    }
+
+    .zrq-card div.skills .tags li:before {
+        left: -10px;
+        border-width: 10px 10px 10px 0;
+    }
+
+    .zrq-card div.skills .tags li:after {
+        top: 8px;
+        left: 0;
     }
 }
 
