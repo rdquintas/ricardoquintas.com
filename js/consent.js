@@ -74,7 +74,13 @@ Cookie consent + Google Analytics 4
             '#rq-cookie-banner .rq-cb-accept{background:#CB0000;color:#fff}' +
             '#rq-cookie-banner .rq-cb-reject{background:transparent;color:#fff;border-color:#fff}' +
             '#rq-cookie-banner button:hover{opacity:.85}' +
-            '#rq-cookie-banner button:focus-visible{outline:2px solid #fff;outline-offset:2px}';
+            '#rq-cookie-banner button:focus-visible{outline:2px solid #fff;outline-offset:2px}' +
+            // Phones: smaller banner so it hides less of the page
+            '@media (max-width:767px){#rq-cookie-banner{padding:12px 16px;font-size:13px;border-top-width:4px}' +
+            '#rq-cookie-banner .rq-cb-inner{gap:10px}' +
+            '#rq-cookie-banner p{flex-basis:100%}' +
+            '#rq-cookie-banner .rq-cb-actions{flex:1 1 100%;gap:10px}' +
+            '#rq-cookie-banner button{flex:1;min-width:0;padding:6px 12px;font-size:15px}}';
         var style = document.createElement('style');
         style.appendChild(document.createTextNode(css));
         document.head.appendChild(style);

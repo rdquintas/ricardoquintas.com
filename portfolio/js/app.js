@@ -30,6 +30,26 @@
     transitionDuration: reduceMotion ? 0 : "0.4s",
   });
 
+  // Re-layout whenever a card changes height after Masonry placed it
+  // (web font swap, late images, text reflow), so cards never overlap the footer
+  var relayoutQueued = false;
+  var resizeObserver =
+    "ResizeObserver" in window
+      ? new ResizeObserver(function () {
+          if (relayoutQueued) return;
+          relayoutQueued = true;
+          window.requestAnimationFrame(function () {
+            relayoutQueued = false;
+            msnry.layout();
+          });
+        })
+      : null;
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(function () {
+      msnry.layout();
+    });
+  }
+
   // ---------------------------------------------------------------------------
   // Rendering
   // ---------------------------------------------------------------------------
@@ -129,6 +149,11 @@
     imagesLoaded(items, function () {
       msnry.appended(items);
       msnry.layout();
+      if (resizeObserver) {
+        items.forEach(function (el) {
+          resizeObserver.observe(el.firstChild);
+        });
+      }
 
       // force a reflow so the transition runs from the hidden state
       void grid.offsetHeight;

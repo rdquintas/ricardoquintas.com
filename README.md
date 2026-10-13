@@ -15,6 +15,7 @@ It's a static site (HTML, CSS and vanilla JavaScript). Nothing is built on deplo
 | `privacy.html` | Privacy and cookie policy |
 | `portfolio/` | Portfolio page. Projects are listed in `portfolio/js/projects.js` |
 | `css/styles.css` | Site styles (on top of Bootstrap 3 and Font Awesome) |
+| `css/fonts.css`, `fonts/` | Self-hosted fonts (Raleway, Lato); no Google Fonts requests |
 | `js/scripts.js` | Main page behaviour (video, animations, navigation) |
 | `js/consent.js` | Cookie banner. Google Analytics only loads after the visitor accepts |
 | `images/`, `videos/`, `docs/` | Images, hero video and favicons |

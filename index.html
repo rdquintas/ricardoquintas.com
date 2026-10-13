@@ -51,8 +51,6 @@
     <meta property="profile:first_name" content="Ricardo">
     <meta property="profile:last_name" content="Quintas">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@ricquintas">
-    <meta name="twitter:creator" content="@ricquintas">
     <meta name="twitter:title" content="Ricardo Quintas | SAP Architect | BTP, Cloud &amp; AI | Freelance">
     <meta name="twitter:description"
         content="Freelance SAP Architect in Lisbon specialising in SAP BTP, cloud and AI. 25+ years delivering S/4HANA, Fiori/UI5 and full-stack projects, onsite or remote.">
@@ -97,8 +95,7 @@
                 ],
                 "sameAs": [
                     "https://www.linkedin.com/in/ricardoquintas",
-                    "https://github.com/rdquintas",
-                    "https://twitter.com/ricquintas"
+                    "https://github.com/rdquintas"
                 ]
             },
             {
@@ -138,10 +135,10 @@
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <!-- ==============================================
-        Fonts
+        Fonts (self-hosted, see css/fonts.css)
         =============================================== -->
-    <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,200,500,600,700' rel='stylesheet'
-        type='text/css'>
+    <link rel="preload" href="fonts/raleway-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="css/fonts.css">
     <!-- ==============================================
         JS
         =============================================== -->
@@ -225,16 +222,16 @@
         =============================================== -->
     <section id="services" class="add-padding">
         <div class="container">
-            <h1 class="section-title big-text scrollimation fade-up">This is what I do</h1>
+            <h2 class="section-title big-text scrollimation fade-up">This is what I do</h2>
             <div class="row">
-                <div class="col-xs-6 col-md-3 service-item color3 scrollimation scale-in">
+                <div class="col-xs-6 col-md-3 service-item scrollimation scale-in">
                     <div class="zrq-service-icon"><i class="fa fa-sitemap" aria-hidden="true"></i></div>
                     <h3>SAP Architecture & BTP</h3>
                     <p>
-                        Certified SAP architect. Cloud Foundry, security, integration. Clean Core by design
+                        Certified SAP architect. Cloud Foundry, security, integration. Clean Core by design.
                     </p>
                 </div>
-                <div class="col-xs-6 col-md-3 service-item color1 scrollimation scale-in d1">
+                <div class="col-xs-6 col-md-3 service-item scrollimation scale-in d1">
                     <div class="zrq-service-icon"><i class="fa fa-magic" aria-hidden="true"></i></div>
                     <h3>AI on SAP</h3>
                     <p>SAP AI Core with RAG and document grounding. AI that answers from your data, not from its
@@ -242,13 +239,13 @@
                     </p>
                 </div>
                 <div class="clearfix visible-xs-block visible-sm-block"></div>
-                <div class="col-xs-6 col-md-3 service-item color2 scrollimation scale-in d2">
+                <div class="col-xs-6 col-md-3 service-item scrollimation scale-in d2">
                     <div class="zrq-service-icon"><i class="fa fa-code" aria-hidden="true"></i></div>
                     <h3>Fiori & Full-stack</h3>
                     <p>Fiori, UI5 and CAP apps that field technicians actually enjoy using. Yes, really.
                     </p>
                 </div>
-                <div class="col-xs-6 col-md-3 service-item color2 scrollimation scale-in d3">
+                <div class="col-xs-6 col-md-3 service-item scrollimation scale-in d3">
                     <div class="zrq-service-icon"><i class="fa fa-database" aria-hidden="true"></i></div>
                     <h3>S/4HANA & ABAP</h3>
                     <p>20+ years of ABAP. Now with RAP, CDS and clean extensions. Greenfield or brownfield migrations.
@@ -256,14 +253,14 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-6 col-xs-offset-3 service-item color3 scrollimation scale-in">
+                <div class="col-xs-6 col-xs-offset-3 service-item scrollimation scale-in">
                     <div class="zrq-service-icon"><i class="fa fa-music" aria-hidden="true"></i></div>
                     <h3>...and I also play the Clarinet</h3>
                     <p>
                         IT alone gets boring.
                     </p>
-                    <p>To keep my sanity, I play traditonal Jazz with
-                        <a target="_blank" href="https://theinvisibletuba.com/">The Invisible
+                    <p>To keep my sanity, I play traditional Jazz with
+                        <a target="_blank" rel="noopener" href="https://theinvisibletuba.com/">The Invisible
                             Tuba</a>.
                     </p>
                 </div>
@@ -310,8 +307,8 @@
                             src="images/ricardo.webp" alt="Ricardo Quintas" />
                     </picture>
                 </div>
-                <div class="col-sm-6 scrollimation fade-left d3 zrq-box1">
-                    <h1 class="big-text">Worked all around the world</h1>
+                <div class="col-sm-6 scrollimation fade-left d3">
+                    <h2 class="big-text">Worked all around the world</h2>
                     <p class="lead">Freelancer since 1998<br>Big names, big teams, bigger time zone gaps.</p>
                     <ul>
                         <li><strong>RECENTLY:</strong> Infrabel, KRKA, Novo Nordisk, Finnish Railways</li>
@@ -325,7 +322,7 @@
                     </ul>
                     <br>
                     <p class="lead">I don't speak Esperanto.</p>
-                    <p>But I'm fluent in English, French, Spanish and Portuguese my mother tongue.</p>
+                    <p>But I'm fluent in English, French, Spanish and Portuguese, my mother tongue.</p>
                 </div>
             </div>
         </div>
@@ -337,10 +334,10 @@
         <div class="container text-center">
             <div class="row">
                 <div class="col-sm-12 scrollimation fade-up d1">
-                    <h1 class="big-text">We have to talk</h1>
+                    <h2 class="big-text">We have to talk</h2>
                     <p class="lead">I live in Portugal, but I work around the world.</p>
                     <p>Got a cloud, AI or S/4HANA challenge? Let's talk.</p>
-                    <p>I bring enthusiasm to every project</p>                   
+                    <p>I bring enthusiasm to every project.</p>
                     <div class="zrq-contacts-list">
                         <div>
                             <div class="fa-stack fa-lg" title="Phone">
@@ -375,19 +372,10 @@
                                 <i class="fa fa-linkedin fa-fw fa-stack-1x zrq-contacts-logo"></i>
                             </div>
                             <strong>
-                                <a href="https://pt.linkedin.com/in/ricardoquintas">linkedin.com/in/ricardoquintas</a>
+                                <a href="https://www.linkedin.com/in/ricardoquintas">linkedin.com/in/ricardoquintas</a>
                             </strong>
                         </div>
                     </div>
-                    <!-- <div>
-                        <strong>
-                            <a href="https://twitter.com/ricquintas">@ricquintas</a>
-                        </strong>
-                        <div class="fa-stack fa-lg" title="Twitter">
-                            <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa fa-twitter fa-fw fa-stack-1x zrq-contacts-logo"></i>
-                        </div>
-                    </div> -->
                 </div>
             </div>
         </div>
@@ -398,7 +386,7 @@
     <footer id="main-footer" class="add-padding bg-color3 border-top-color2">
         <div class="container">
             <p class="text-center">
-                Site by <a href="http://www.ricardoquintas.com">ricardoquintas.com</a> © <span class="year"></span>
+                Site by <a href="./">ricardoquintas.com</a> © <span class="year"></span>
             </p>
             <p class="text-center">
                 <a href="privacy.html">Privacy Policy</a> · <a href="#" data-cookie-settings>Cookie settings</a>

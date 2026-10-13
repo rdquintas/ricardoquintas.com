@@ -4,10 +4,10 @@ this.projects = [
     description: "The Invisible Tuba is a Lisbon-based Dixieland band.",
     image: "tuba.png",
     url: {
-      preview: "http://theinvisibletuba.com",
+      preview: "https://theinvisibletuba.com",
       github: "https://github.com/rdquintas/theinvisibletuba",
       simple: "theinvisibletuba.com",
-      liveSite: "http://theinvisibletuba.com",
+      liveSite: "https://theinvisibletuba.com",
     },
     skills: ["Javascript"],
   },
@@ -27,7 +27,7 @@ this.projects = [
   {
     name: "Redux Stuff I did",
     description:
-      "I love REDUX. I trully do. I think it is a life saver for a web-developer. Most of the code you see here was done in the context of this amazing web training course (which I highly recommend by the way): <a class='zrq-link' href='https://codewithmosh.com/p/ultimate-redux'>codewithmosh.com</a>",
+      "I love REDUX. I truly do. I think it is a life saver for a web-developer. Most of the code you see here was done in the context of this amazing web training course (which I highly recommend by the way): <a class='zrq-link' target='_blank' rel='noopener' href='https://codewithmosh.com/p/ultimate-redux'>codewithmosh.com</a>",
     image: "redux.jpg",
     url: {
       preview: "",
@@ -53,7 +53,7 @@ this.projects = [
   {
     name: "Insulin Calculator",
     description:
-      "A person with T1 diabetes needs to do some calculations every time it eats something, in order to determine the amount of insulin required to shot. This app helps with that calculation. <br>This app has some specific parameters. <br> <b>WARNING: THIS IS NOT FOR GENERIC USE if you're a T1 person.</b>",
+      "A person with T1 diabetes needs to do some calculations every time they eat something, to determine the amount of insulin to inject. This app helps with that calculation. <br>This app has some specific parameters. <br> <b>WARNING: THIS IS NOT FOR GENERIC USE if you're a T1 person.</b>",
     image: "insulinacalc.jpg",
     url: {
       preview: "https://rdquintas.github.io/InsulinaCalc",
@@ -79,24 +79,24 @@ this.projects = [
   {
     name: "London Node Users Group",
     description:
-      "I contribute and colaborate fixing open issues of LNUG website.",
+      "I contribute to the LNUG website, fixing open issues.",
     image: "lnug.jpg",
     url: {
-      preview: "http://www.lnug.org",
+      preview: "https://lnug.org",
       github: "https://github.com/rdquintas/lnug.github.io",
       simple: "lnug.org",
-      liveSite: "http://www.lnug.org",
+      liveSite: "https://lnug.org",
     },
     skills: ["Javascript", "NodeJS"],
   },
   {
     name: "Unplace Museum",
     description:
-      "This project was for one of the biggest Modern Art institutions in Portugal (Fundação Calouste Gulbenkian).<br> The project was for a temporary international exhibition of world-wide modern artists. Site required inovative design and simple CMS support. <br>Extensive use of plain vanilla Javascript.",
+      "This project was for one of the biggest Modern Art institutions in Portugal (Fundação Calouste Gulbenkian).<br> The project was for a temporary international exhibition of world-wide modern artists. Site required innovative design and simple CMS support. <br>Extensive use of plain vanilla Javascript.",
     image: "unplace.jpg",
     url: {
       preview:
-        "http://www.ricardoquintas.com/portfolio/unplace/#%7B%22language%22%3A%22en%22%2C%22project_id%22%3Anull%2C%22tour_id%22%3Anull%7D",
+        "unplace/#%7B%22language%22%3A%22en%22%2C%22project_id%22%3Anull%2C%22tour_id%22%3Anull%7D",
       github: "https://github.com/rdquintas/unplace.org",
       simple: "unplace.org",
       liveSite: "",
@@ -107,10 +107,10 @@ this.projects = [
   {
     name: "Santinho",
     description:
-      "Proof of concept for a religious institution. <br>Features inovative UI/UX components.",
+      "Proof of concept for a religious institution. <br>Features innovative UI/UX components.",
     image: "santinho.jpg",
     url: {
-      preview: "http://www.ricardoquintas.com/portfolio/santinho",
+      preview: "santinho/",
       github: "https://github.com/rdquintas/santinho",
       simple: "",
       liveSite: "",
@@ -132,7 +132,7 @@ this.projects = [
   },
   {
     name: "Paula Cirino",
-    description: "Web site of portuguese tap dancer Paula Cirino.",
+    description: "Web site of Portuguese tap dancer Paula Cirino.",
     image: "paulacirino.png",
     url: {
       preview: "https://paulacirino.com/",
@@ -141,7 +141,7 @@ this.projects = [
       liveSite: "https://paulacirino.com/",
     },
     skills: ["Javascript"],
-  },  
+  },
   {
     name: "Gonçalo Mendonça",
     description: "Web site of Jazz Manouche guitar player Gonçalo Mendonça.",
@@ -157,7 +157,7 @@ this.projects = [
   {
     name: "Alexandre Camarão",
     description:
-      "Web portfolio of Portguese modern art artist Alexandre Camarão.<br> This website uses the flat file CMS framework: GRAV.",
+      "Web portfolio of Portuguese modern artist Alexandre Camarão.<br> This website uses the flat file CMS framework: GRAV.",
     image: "alexandrecamarao.jpg",
     url: {
       preview: "",
@@ -170,13 +170,13 @@ this.projects = [
   {
     name: "AFSO",
     description:
-      "Website for Portguese ONG, AFSO. <br>This website uses the flat file CMS framework: GRAV.",
+      "Website for Portuguese NGO AFSO. <br>This website uses the flat file CMS framework: GRAV.",
     image: "afso.jpg",
     url: {
-      preview: "http://www.afso.pt",
+      preview: "https://afso.pt",
       github: "https://github.com/rdquintas/afso.pt",
       simple: "afso.pt",
-      liveSite: "http://www.afso.pt",
+      liveSite: "https://afso.pt",
     },
     skills: ["Javascript", "PHP"],
   },
@@ -199,10 +199,10 @@ this.projects = [
       "My own website. <br>This responsive single-page website features some simple animations.",
     image: "ricardoquintas.jpg",
     url: {
-      preview: "http://ricardoquintas.com/",
+      preview: "../",
       github: "https://github.com/rdquintas/ricardoquintas.com",
       simple: "ricardoquintas.com",
-      liveSite: "http://www.ricardoquintas.com",
+      liveSite: "../",
     },
     skills: ["Javascript", "Bootstrap"],
   },
@@ -212,10 +212,10 @@ this.projects = [
       "Proof of concept for SCA, a customer I've worked for. They requested me a POC for them to show to their stake-holders. <br>Very simple Bootstrap prototype.",
     image: "sca.jpg",
     url: {
-      preview: "http://ricardoquintas.com/portfolio/sca",
+      preview: "sca/",
       github: "https://github.com/rdquintas/scademo",
       simple: "sca.com",
-      liveSite: "http://ricardoquintas.com/portfolio/sca/",
+      liveSite: "sca/",
     },
     skills: ["Javascript", "Bootstrap"],
   },
@@ -224,10 +224,10 @@ this.projects = [
     description: "This was a prototype I did for a design challenge.",
     image: "jazzquotes.jpg",
     url: {
-      preview: "http://codepen.io/rdquintas/full/RabBQr/",
-      github: "http://codepen.io/rdquintas/pen/RabBQr/",
+      preview: "https://codepen.io/rdquintas/full/RabBQr/",
+      github: "https://codepen.io/rdquintas/pen/RabBQr/",
       simple: "",
-      liveSite: "http://codepen.io/rdquintas/full/RabBQr/",
+      liveSite: "https://codepen.io/rdquintas/full/RabBQr/",
     },
     skills: ["Javascript"],
   },

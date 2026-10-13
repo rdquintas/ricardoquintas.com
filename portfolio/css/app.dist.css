@@ -4,8 +4,6 @@
  * the rules below only style the project cards.
  ***********************/
 
-@import url(https://fonts.googleapis.com/css?family=Lato:400,700);
-
 /* Light grey page so the white cards stand out */
 body {
     background-color: #dcdfe4;

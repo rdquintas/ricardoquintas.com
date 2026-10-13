@@ -11,6 +11,7 @@ A static site: plain HTML, CSS and JavaScript. No build step on deploy, no packa
 - `index.html` — the main one-page site (sections: `#home` hero video, `#services`, `#about`, `#contact`). Includes SEO meta, Open Graph tags and JSON-LD structured data in `<head>`.
 - `privacy.html` — privacy / cookie policy.
 - `css/styles.css` — the site's own styles (on top of Bootstrap 3 + Font Awesome 4).
+- `css/fonts.css` + `fonts/*.woff2` — self-hosted Raleway (variable) and Lato (portfolio cards). Every page links `css/fonts.css`.
 - `js/scripts.js` — vanilla JS for the main page: hero video start (all screen sizes, skipped with reduced motion or data saver), scroll reveal animations, nav toggle, smooth scroll and scroll-spy.
 - `js/consent.js` — cookie banner + Google Analytics 4. GA is loaded **only after consent**; the choice is stored in `localStorage` (`rq-cookie-consent`). Included on every page.
 - `images/` — site images (`ricardo.jpg` is the About photo, 445×593; `og-image.jpg` is the social share image).
@@ -41,6 +42,7 @@ Pages only use AVIF with a WebP fallback. The `.jpg`/`.png`/`.gif` files in `ima
 - Exceptions kept as JPG/PNG: `og-image.jpg` and the JSON-LD `image` URLs (social crawlers), favicons and touch icons in `docs/`. Old demos under `portfolio/santinho|sca|unplace` are untouched.
 - Any new page must include `js/consent.js` (with the correct relative path) so analytics stays consent-gated, and should be added to `sitemap.xml`.
 - Don't add third-party trackers or scripts that set cookies without going through the consent banner.
+- Don't load fonts or other assets from Google Fonts or other CDNs: they receive visitors' IPs before consent. Self-host them (see `css/fonts.css`); the privacy policy states that nothing third-party loads without consent.
 
 ## Running locally
 
