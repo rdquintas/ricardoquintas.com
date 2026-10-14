@@ -1,13 +1,13 @@
 this.projects = [
   {
     name: "The Invisible Tuba",
-    description: "The Invisible Tuba is a Lisbon-based Dixieland band.",
+    description: "The Invisible Tuba is Lisbon's most entertaining band.",
     image: "tuba.png",
     url: {
-      preview: "https://theinvisibletuba.com",
+      preview: "https://theinvisibletuba.com/en",
       github: "https://github.com/rdquintas/theinvisibletuba",
       simple: "theinvisibletuba.com",
-      liveSite: "https://theinvisibletuba.com",
+      liveSite: "https://theinvisibletuba.com/en",
     },
     skills: ["Javascript"],
   },
