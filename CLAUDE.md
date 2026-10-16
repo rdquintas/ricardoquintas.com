@@ -4,7 +4,7 @@ Personal website of Ricardo Quintas (freelance SAP BTP architect / full-stack de
 
 ## What this is
 
-A static site: plain HTML, CSS and JavaScript. No build step on deploy, no package manager, no tests. Files are served exactly as they are in the repo. The only tooling is a local image script (see Images).
+A static site: plain HTML, CSS and JavaScript. No build step on deploy, no package manager, no tests. Files are served exactly as they are in the repo. The only tooling is two local scripts, for images and videos (see Images and Videos).
 
 ## Layout
 
@@ -16,7 +16,8 @@ A static site: plain HTML, CSS and JavaScript. No build step on deploy, no packa
 - `js/consent.js` — cookie banner + Google Analytics 4. GA is loaded **only after consent**; the choice is stored in `localStorage` (`rq-cookie-consent`). Included on every page.
 - `images/` — site images (`ricardo.jpg` is the About photo, 445×593; `og-image.jpg` is the social share image).
 - `tools/build-images.py` — converts images to AVIF + WebP (see Images).
-- `videos/video02/` — hero background video: `video.webm` (AV1) + `video-720.mp4` fallback, `cover-720.jpg` poster (served as `cover-720.webp`).
+- `tools/build-videos.py` — encodes the hero videos (see Videos).
+- `videos/` — hero background videos, flat, numbered `video01`, `video02`, … Each has `videoNN.webm` (AV1) + `videoNN-720.mp4` fallback + `videoNN-cover-720.jpg` poster (served as `.webp`); the `videoNN.mov` master is git-ignored. A random one plays on each page load (see Videos).
 - `docs/` — favicons and touch icons (the PSD design sources are git-ignored).
 - `portfolio/` — separate portfolio page. Projects are data in `portfolio/js/projects.js`, rendered and filtered in vanilla JS (`portfolio/js/app.js`), laid out with Masonry + imagesLoaded (no jQuery), loaded in batches on scroll. Thumbnails live in `portfolio/img/`.
 - `portfolio/santinho`, `portfolio/sca`, `portfolio/unplace` — old self-contained project demos.
@@ -33,7 +34,7 @@ The main pages use no jQuery: `js/` holds only `scripts.js` and `consent.js`. De
 
 ## Images
 
-Pages only use AVIF with a WebP fallback. The `.jpg`/`.png`/`.gif` files in `images/`, `portfolio/img/` and `videos/video02/` are the sources; `python tools/build-images.py` (Pillow, `pip install -r tools/requirements.txt`) writes `<name>.avif` + `<name>.webp` next to each one, only for new or changed sources (`--force` rebuilds all). Commit the generated files — nothing is built on deploy.
+Pages only use AVIF with a WebP fallback. The `.jpg`/`.png`/`.gif` files in `images/`, `portfolio/img/` and `videos/` are the sources; `python tools/build-images.py` (Pillow, `pip install -r tools/requirements.txt`) writes `<name>.avif` + `<name>.webp` next to each one, only for new or changed sources (`--force` rebuilds all). Commit the generated files — nothing is built on deploy.
 
 - `<img>`: `<picture><source srcset="x.avif" type="image/avif"><img src="x.webp" ...></picture>`.
 - CSS backgrounds: a `url(x.webp)` declaration followed by `image-set(url(x.avif) type("image/avif"), url(x.webp) type("image/webp"))`.
@@ -43,6 +44,12 @@ Pages only use AVIF with a WebP fallback. The `.jpg`/`.png`/`.gif` files in `ima
 - Any new page must include `js/consent.js` (with the correct relative path) so analytics stays consent-gated, and should be added to `sitemap.xml`.
 - Don't add third-party trackers or scripts that set cookies without going through the consent banner.
 - Don't load fonts or other assets from Google Fonts or other CDNs: they receive visitors' IPs before consent. Self-host them (see `css/fonts.css`); the privacy policy states that nothing third-party loads without consent.
+
+## Videos
+
+The hero picks a random video on every load (never the same one twice in a row, via `sessionStorage` `rq-video`), in an inline script right after `<video id="myVideo">` in `index.html`. It only knows the count, from `data-videos` on that element, so videos must be numbered `video01`..`videoNN` with no gaps. The HTML's default sources (video02) are what no-JS visitors get.
+
+To add a video: save the master as `videos/videoNN.mov` (next number), run `python tools/build-videos.py` (needs ffmpeg with libsvtav1 + libx264; `--ffmpeg PATH` or `FFMPEG` env if it isn't on PATH), then `python tools/build-images.py` for the poster. The video script encodes only new or changed masters (1280×720, no audio), writes the poster from the frame at 5 s only if it doesn't exist yet (so a hand-made cover such as video02's is kept), and updates `data-videos`. Commit the generated files.
 
 ## Running locally
 

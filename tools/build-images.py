@@ -21,7 +21,7 @@ from PIL import Image, features
 ROOT = Path(__file__).resolve().parent.parent
 
 # Folders scanned (not recursive)
-FOLDERS = ["images", "portfolio/img", "videos/video02"]
+FOLDERS = ["images", "portfolio/img", "videos"]
 
 # Kept as-is: social crawlers (Open Graph / JSON-LD) don't reliably read AVIF/WebP
 SKIP = {"images/og-image.jpg"}

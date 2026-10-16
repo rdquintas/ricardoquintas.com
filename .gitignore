@@ -1,4 +1,9 @@
 # Design sources and video masters: keep locally, not in the repo / on the server
 *.psd
 *.mov
+# Video masters saved as .mp4 etc. (the encoded outputs are videoNN.webm / videoNN-720.mp4)
+videos/video[0-9][0-9].mp4
+videos/video[0-9][0-9].m4v
+videos/video[0-9][0-9].mkv
+videos/video[0-9][0-9].avi
 docs/OrteliusWorldMap1570.jpg

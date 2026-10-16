@@ -34,7 +34,7 @@ Then go to http://localhost:8000.
 
 ## Images
 
-The pages only use AVIF images, with WebP as the fallback. Keep the original `.jpg`/`.png`/`.gif` in `images/`, `portfolio/img/` or `videos/video02/` and generate the optimized versions:
+The pages only use AVIF images, with WebP as the fallback. Keep the original `.jpg`/`.png`/`.gif` in `images/`, `portfolio/img/` or `videos/` and generate the optimized versions:
 
 ```sh
 pip install -r tools/requirements.txt   # once (Pillow)
@@ -43,6 +43,17 @@ python tools/build-images.py --force    # rebuild everything
 ```
 
 This writes `<name>.avif` and `<name>.webp` next to each original. Commit them along with the original.
+
+## Videos
+
+The home page plays a random background video from `videos/` on every load. Videos are numbered `video01`, `video02`, … (no gaps). To add one, save the master as `videos/videoNN.mov` (it stays out of git) and run:
+
+```sh
+python tools/build-videos.py    # needs ffmpeg (libsvtav1 + libx264); --ffmpeg PATH if not on PATH
+python tools/build-images.py    # poster .avif/.webp
+```
+
+This writes `videoNN.webm` (AV1), `videoNN-720.mp4` (H.264 fallback) and `videoNN-cover-720.jpg` (frame at 5 s, only if missing), and updates the video count (`data-videos`) in `index.html`. Commit the generated files.
 
 ## Adding a portfolio project
 
